@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 15.0
+Project("{84D3FC0E-7945-49F2-882A-066FD6501024}") = "Oxide.Hurtworld", "src\Oxide.Hurtworld.csproj", "{BC923352-6DCB-47B2-BADC-67052C62FE2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC923352-6DCB-47B2-BADC-67052C62FE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC923352-6DCB-47B2-BADC-67052C62FE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC923352-6DCB-47B2-BADC-67052C62FE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC923352-6DCB-47B2-BADC-67052C62FE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
