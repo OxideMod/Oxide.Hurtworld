@@ -35,30 +35,30 @@
     <PackageReference Include="Oxide.SQLite" Version="2.0.*" />
     <PackageReference Include="Oxide.Unity" Version="2.0.*" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>Dependencies\$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>Dependencies\$(ManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>Dependencies\$(ManagedDir)\mscorlib.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Core">
-      <HintPath>Dependencies\$(ManagedDir)\Rewired_Core.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>Dependencies\$(ManagedDir)\System.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\System.dll</HintPath>
     </Reference>
     <Reference Include="uLink">
-      <HintPath>Dependencies\$(ManagedDir)\uLink.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\uLink.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>Dependencies\$(ManagedDir)\UnityEngine.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>Dependencies\$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+      <HintPath>Dependencies\Patched\$(ManagedDir)\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <None Remove="Bundle\**; Files\**; Patched\**; *.config; *.opj" />
+    <None Remove="Bundle\**; Files\**; Patched\**; **\Original\**; *.config; *.opj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <Target Name="Clean">
@@ -73,12 +73,12 @@
   </Target>
   <Target Name="BeforeBuild">
     <!-- Currently only works on Windows due to Windows-only tools used -->
-    <Exec Command="powershell -ExecutionPolicy Bypass $(SolutionDir)\Steam.ps1 -project $(AssemblyName) -dotnet $(TargetFramework) -appid $(SteamAppId) -branch $(SteamBranch.Split(',')[0]) -depot $(SteamDepot) -managed $(ManagedDir)" />
+    <Exec Command="powershell -ExecutionPolicy Bypass &quot;$(SolutionDir)\Steam.ps1&quot; -project $(AssemblyName) -dotnet $(TargetFramework) -appid $(SteamAppId) -branch $(SteamBranch.Split(',')[0]) -depot $(SteamDepot) -managed $(ManagedDir)" />
   </Target>
   <Target Name="AfterBuild">
     <ItemGroup>
       <CoreFiles Include="$(TargetDir)\Oxide.*.dll" />
-      <ManagedFiles Include="$(ProjectDir)\Dependencies\$(ManagedDir)\Assembly-CSharp.dll" />
+      <ManagedFiles Include="$(ProjectDir)\Dependencies\Patched\$(ManagedDir)\Assembly-CSharp.dll" />
       <ContentFiles Include="$(SolutionDir)\packages\oxide.csharp\**\lib\any\*.*" />
       <ContentFiles Include="$(SolutionDir)\packages\oxide.references\**\lib\any\*.*" />
       <ContentFiles Include="$(SolutionDir)\packages\oxide.mysql\**\lib\any\*.*; $(SolutionDir)\packages\oxide.mysql\**\lib\$(TargetFramework)\*.*" />
