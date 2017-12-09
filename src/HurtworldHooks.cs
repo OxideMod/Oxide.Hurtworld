@@ -11,8 +11,23 @@ namespace Oxide.Game.Hurtworld
     {
         #region Player Hooks
 
+#if ITEMV2
         /// <summary>
-        /// Called when a user is attempting to connect
+        /// Called when the player is attempting to craft
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="recipe"></param>
+        /// <returns></returns>
+        [HookMethod("ICanCraft")]
+        private object ICanCraft(uLink.NetworkPlayer player, ICraftable recipe)
+        {
+            var session = Player.Find(player);
+            return Interface.Call("CanCraft", session, recipe);
+        }
+#endif
+
+        /// <summary>
+        /// Called when the player is attempting to connect
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
