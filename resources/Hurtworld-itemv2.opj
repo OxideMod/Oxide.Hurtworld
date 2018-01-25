@@ -151,7 +151,7 @@
                 "CharacterMotorSimple"
               ]
             },
-            "MSILHash": "EEV1z0aWfA0wg0EcwVJWWOXJbGfxXhYoZNHMk2n32a0=",
+            "MSILHash": "7aqEZEUmJZZ9VpaB2FkKuL1AUX7mWwj1OUw+siswxZU=",
             "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
@@ -179,7 +179,7 @@
                 "UnityEngine.Vector3"
               ]
             },
-            "MSILHash": "7lR71X4hTKTvWNTX4iBneq2HuW7vrA1+2ph4Jpy8lS8=",
+            "MSILHash": "oRh/kyaTDXZYqSJZZZm61c5vA3MBWfJG3LSbLDKA8kc=",
             "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
@@ -213,7 +213,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 114,
+            "InjectionIndex": 101,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -229,7 +229,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "pdPzeZ8NfY31UQn3O2DsdvSdkr+3bijAuCG/t2keu2A=",
+            "MSILHash": "AMhgcaBNT6c97twIs1EyPhTnszpau9QlJ/DVdZWMGCA=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -317,7 +317,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "X3oSSkExVTTKyC0H0AADwQBzVSfZZXfjcl0VRVdbUqY=",
+            "MSILHash": "Nfti+z2ZThX7R5aJF00XmlPnmCKulcGrDm8hwEgpMug=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -900,7 +900,7 @@
                 "UnityEngine.GameObject"
               ]
             },
-            "MSILHash": "GrO5KDTfylxPjRSIhrXV4jpPc5fo/FZs40XidTsj7t8=",
+            "MSILHash": "8CvqEmug18PEegtsuIagdH1OhZwfV71Rtwp8u0lwo+s=",
             "BaseHookName": null,
             "HookCategory": "Resource"
           }
@@ -953,7 +953,7 @@
                 "EntityEffectSourceData"
               ]
             },
-            "MSILHash": "3yKsrClPCXfRy0KraJwC9XyIqYvzWziFjumuSU1Jx10=",
+            "MSILHash": "wEQUApxT7kV+DJTi1FL831Xc2sFxsKs7/qbi8QrI8pk=",
             "BaseHookName": null,
             "HookCategory": "Resource"
           }
