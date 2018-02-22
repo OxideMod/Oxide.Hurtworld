@@ -1691,7 +1691,7 @@
                 "Operand": "BuildChecked"
               },
               {
-                "OpCode": "ldc_i4_0",
+                "OpCode": "ldc_i4_1",
                 "OpType": "None",
                 "Operand": null
               },
