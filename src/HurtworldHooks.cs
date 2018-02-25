@@ -49,7 +49,7 @@ namespace Oxide.Game.Hurtworld
 
             if (canLogin is string || (canLogin is bool && !(bool)canLogin))
             {
-                GameManager.Instance.KickPlayer(id, canLogin is string ? canLogin.ToString() : "Connection was rejected"); // TODO: Localization
+                GameManager.Instance.StartCoroutine(GameManager.Instance.DisconnectPlayerSync(session.Player, canLogin is string ? canLogin.ToString() : "Connection was rejected")); // TODO: Localization
                 return true;
             }
 
