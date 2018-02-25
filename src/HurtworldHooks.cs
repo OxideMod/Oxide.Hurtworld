@@ -53,6 +53,8 @@ namespace Oxide.Game.Hurtworld
                 return true;
             }
 
+            GameManager.Instance._playerSessions[session.Player] = session;
+
             var approvedSpecific = Interface.Call("OnUserApprove", session);
             var approvedCovalence = Interface.Call("OnUserApproved", session.Identity.Name, id, ip);
             return approvedSpecific ?? approvedCovalence;
