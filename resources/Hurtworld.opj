@@ -849,8 +849,8 @@
             "ArgumentBehavior": 4,
             "ArgumentString": "l0",
             "HookTypeName": "Simple",
-            "Name": "OnPlayerDisconnected",
-            "HookName": "OnPlayerDisconnected",
+            "Name": "IOnPlayerDisconnected [internal]",
+            "HookName": "IOnPlayerDisconnected",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GameManager",
             "Flagged": false,
@@ -1646,8 +1646,8 @@
             "RemoveCount": 5,
             "Instructions": [],
             "HookTypeName": "Modify",
-            "Name": "IOnUserApprove [internal](Clone)",
-            "HookName": "IOnUserApprove(Clone)",
+            "Name": "MoveSessionDict [patch 1]",
+            "HookName": "MoveSessionDict [patch 1]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GameManager",
             "Flagged": false,
@@ -1661,7 +1661,7 @@
             },
             "MSILHash": "kCsW2x3/pYS87Z9cHm1qbZPnbSrt8cynB8JMTBzk4Ps=",
             "BaseHookName": "IOnUserApprove [internal]",
-            "HookCategory": null
+            "HookCategory": "_Patches"
           }
         }
       ],

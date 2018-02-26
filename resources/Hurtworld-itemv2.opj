@@ -616,32 +616,6 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 54,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "l0",
-            "HookTypeName": "Simple",
-            "Name": "OnPlayerDisconnected",
-            "HookName": "OnPlayerDisconnected",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "GameManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "uLink_OnPlayerDisconnected",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "uLink.NetworkPlayer"
-              ]
-            },
-            "MSILHash": "gVoNBo1I51LhR7Rb3S2Cn/2kDLnB3vRolGZ0QCtVbwU=",
-            "BaseHookName": null,
-            "HookCategory": "Player"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 1,
@@ -1489,7 +1463,7 @@
             "HookName": "IOnPlayerConnected",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GameManager",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "RPCClientReady",
@@ -1805,6 +1779,58 @@
             "MSILHash": "Hq5zGLorEh4bci/y9DhbHdAnR2KhbIkNhZz+akCwMr8=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 3,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": "",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerDisconnected [internal]",
+            "HookName": "IOnPlayerDisconnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ChatManagerServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "PlayerDisconnected",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerSession"
+              ]
+            },
+            "MSILHash": "WWRp0HR4he/XfqwRNN+jhxhr3I/XJYi1J+WepN5Lze0=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 3,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerConnected",
+            "HookName": "OnPlayerConnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ChatManagerServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "PlayerConnected",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerSession"
+              ]
+            },
+            "MSILHash": "29rp9dLcr/n8tIika9MTE7setNze8qoydkjkMMgsKVw=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
           }
         }
       ],
