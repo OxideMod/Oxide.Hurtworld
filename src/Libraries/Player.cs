@@ -361,7 +361,15 @@ namespace Oxide.Game.Hurtworld.Libraries
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             var formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
-            ChatManager.SendChatMessage(new PlayerChatMessage(session.SteamId.m_SteamID, formatted), session.Player);
+            BitStreamPooled frameLease = HNetworkManager.Instance.BitStreamPool.GetFrameLease();
+            uLink.BitStream stream = frameLease.Stream;
+            stream.WriteByte(1);
+            stream.WriteUInt64(session.SteamId.m_SteamID);
+            stream.WriteColor(PlayerChatMessage.DefaultNameColor);
+            stream.WriteString(prefix != null ? prefix : "");
+            stream.WriteColor(PlayerChatMessage.DefaultMessageColor);
+            stream.WriteString(message);
+            ChatManager.RPCS("ReceiveChatMessage", session.Player, true, frameLease);
 #else
             ChatManager.RPC("RelayChat", session.Player, formatted);
 #endif
