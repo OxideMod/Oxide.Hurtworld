@@ -1,8 +1,4 @@
-﻿using Assets.Scripts.Core;
-#if !ITEMV2
-using Emotes;
-#endif
-using Oxide.Core;
+﻿using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Steamworks;
@@ -119,11 +115,13 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="emote"></param>
 #if ITEMV2
         public void Emote(PlayerSession session, int emote)
-#else
-        public void Emote(PlayerSession session, EEmoteType emote)
-#endif
         {
             var emoteManager = session.WorldPlayerEntity.GetComponent<EmoteManagerServer>();
+#else
+        public void Emote(PlayerSession session, Emotes.EEmoteType emote)
+        {
+            var emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
+#endif
             emoteManager?.BeginEmoteServer(emote);
         }
 
@@ -363,7 +361,15 @@ namespace Oxide.Game.Hurtworld.Libraries
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             var formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
-            ChatManagerServer.Instance.SendChatMessage(new ServerChatMessage(formatted), session.Player);
+            BitStreamPooled frameLease = HNetworkManager.Instance.BitStreamPool.GetFrameLease();
+            uLink.BitStream stream = frameLease.Stream;
+            stream.WriteByte(1);
+            stream.WriteUInt64(session.SteamId.m_SteamID);
+            stream.WriteColor(PlayerChatMessage.DefaultNameColor);
+            stream.WriteString(prefix != null ? prefix : "");
+            stream.WriteColor(PlayerChatMessage.DefaultMessageColor);
+            stream.WriteString(message);
+            ChatManager.RPCS("ReceiveChatMessage", session.Player, true, frameLease);
 #else
             ChatManager.RPC("RelayChat", session.Player, formatted);
 #endif
@@ -393,6 +399,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         /// <param name="session"></param>
         /// <param name="message"></param>
+        /// <param name="args"></param>
         public void Reply(PlayerSession session, string message, params object[] args) => Message(session, message, null);
 
         /// <summary>
@@ -439,9 +446,12 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         /// <param name="session"></param>
         /// <param name="item"></param>
+#if ITEMV2
         public void DropItem(PlayerSession session, IItem item)
         {
-#if !ITEMV2
+#else
+        public void DropItem(PlayerSession session, Assets.Scripts.Core.IItem item)
+        {
             var position = session.WorldPlayerEntity.transform.position;
             var inventory = Inventory(session);
             for (var s = 0; s < inventory.Capacity; s++)
@@ -469,7 +479,7 @@ namespace Oxide.Game.Hurtworld.Libraries
 #if ITEMV2
         public void GiveItem(PlayerSession session, ItemObject item, int quantity = 1) => ItemManager.GiveItem(session.Player, item.Generator, quantity);
 #else
-        public void GiveItem(PlayerSession session, IItem item, int quantity = 1) => ItemManager.GiveItem(session.Player, item, quantity);
+        public void GiveItem(PlayerSession session, Assets.Scripts.Core.IItem item, int quantity = 1) => ItemManager.GiveItem(session.Player, item, quantity);
 #endif
 
         #endregion Item Handling
