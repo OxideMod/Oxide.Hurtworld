@@ -303,7 +303,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "AddDebugLog [patch]",
-            "HookName": "AddDebugLog",
+            "HookName": "AddDebugLog [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ConsoleManager",
             "Flagged": false,
@@ -381,7 +381,7 @@
             "Instructions": [],
             "HookTypeName": "Modify",
             "Name": "FixDupeCommand [patch]",
-            "HookName": "FixDupeCommand",
+            "HookName": "FixDupeCommand [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ConsoleManager",
             "Flagged": false,
@@ -411,8 +411,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "MaxPlayers [patch]",
-            "HookName": "MaxPlayers",
+            "Name": "MaxMaxPlayers [patch]",
+            "HookName": "MaxMaxPlayers [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ConsoleManager",
             "Flagged": false,
@@ -564,7 +564,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "FixChatLogTags [patch]",
-            "HookName": "FixChatLogTags",
+            "HookName": "FixChatLogTags [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ChatManagerServer",
             "Flagged": false,
@@ -849,8 +849,8 @@
             "ArgumentBehavior": 4,
             "ArgumentString": "l0",
             "HookTypeName": "Simple",
-            "Name": "OnPlayerDisconnected",
-            "HookName": "OnPlayerDisconnected",
+            "Name": "IOnPlayerDisconnected [internal]",
+            "HookName": "IOnPlayerDisconnected",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GameManager",
             "Flagged": false,
@@ -1237,7 +1237,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 1]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 1]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1276,7 +1276,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 2]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 2]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1315,7 +1315,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 3]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 3]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1354,7 +1354,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 4]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 4]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1393,7 +1393,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 5]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 5]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1432,7 +1432,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 6]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 6]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1471,7 +1471,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "IOnTakeDamage [patch 7]",
-            "HookName": "IOnTakeDamage",
+            "HookName": "IOnTakeDamage [patch 7]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1515,7 +1515,7 @@
             ],
             "HookTypeName": "Modify",
             "Name": "OnItemDrop [patch]",
-            "HookName": "OnItemDrop",
+            "HookName": "OnItemDrop [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Inventory",
             "Flagged": false,
@@ -1638,9 +1638,54 @@
             "BaseHookName": null,
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 86,
+            "RemoveCount": 5,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "MoveSessionDict [patch 1]",
+            "HookName": "MoveSessionDict [patch 1]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "uLink_OnPlayerConnected",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkPlayer"
+              ]
+            },
+            "MSILHash": "kCsW2x3/pYS87Z9cHm1qbZPnbSrt8cynB8JMTBzk4Ps=",
+            "BaseHookName": "IOnUserApprove [internal]",
+            "HookCategory": "_Patches"
+          }
         }
       ],
-      "Modifiers": [],
+      "Modifiers": [
+        {
+          "Name": "GameManager::_playerSessions",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_playerSessions",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<uLink.NetworkPlayer,PlayerSession> GameManager::_playerSessions",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        }
+      ],
       "Fields": [
         {
           "Name": "IPlayer",

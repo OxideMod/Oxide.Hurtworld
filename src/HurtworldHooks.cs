@@ -49,9 +49,11 @@ namespace Oxide.Game.Hurtworld
 
             if (canLogin is string || (canLogin is bool && !(bool)canLogin))
             {
-                GameManager.Instance.KickPlayer(id, canLogin is string ? canLogin.ToString() : "Connection was rejected"); // TODO: Localization
+                GameManager.Instance.StartCoroutine(GameManager.Instance.DisconnectPlayerSync(session.Player, canLogin is string ? canLogin.ToString() : "Connection was rejected")); // TODO: Localization
                 return true;
             }
+
+            GameManager.Instance._playerSessions[session.Player] = session;
 
             var approvedSpecific = Interface.Call("OnUserApprove", session);
             var approvedCovalence = Interface.Call("OnUserApproved", session.Identity.Name, id, ip);
@@ -154,11 +156,10 @@ namespace Oxide.Game.Hurtworld
         /// Called when the player has connected
         /// </summary>
 #if ITEMV2
-        /// <param name="player"></param>
-        [HookMethod("IOnPlayerConnected")]
-        private void IOnPlayerConnected(uLink.NetworkPlayer player)
+        /// <param name="session"></param>
+        [HookMethod("OnPlayerConnected")]
+        private void OnPlayerConnected(PlayerSession session)
         {
-            var session = Player.Find(player);
 #else
         /// <param name="name"></param>
         [HookMethod("IOnPlayerConnected")]
@@ -178,8 +179,10 @@ namespace Oxide.Game.Hurtworld
                 if (session.IsAdmin && !permission.UserHasGroup(id, defaultGroups.Administrators)) permission.AddUserGroup(id, defaultGroups.Administrators);
             }
 
+#if !ITEMV2
             // Call game-specific hook
             Interface.Call("OnPlayerConnected", session);
+#endif
 
             // Let covalence know
             Covalence.PlayerManager.PlayerConnected(session);
@@ -195,9 +198,17 @@ namespace Oxide.Game.Hurtworld
         /// Called when the player has disconnected
         /// </summary>
         /// <param name="session"></param>
-        [HookMethod("OnPlayerDisconnected")]
-        private void OnPlayerDisconnected(PlayerSession session)
+        [HookMethod("IOnPlayerDisconnected")]
+        private void IOnPlayerDisconnected(PlayerSession session)
         {
+            if (!session.IsLoaded)
+            {
+                return;
+            }
+
+            // Call game-specific hook
+            Interface.Call("OnPlayerDisconnected", session);
+
             // Let covalence know
             Interface.Call("OnUserDisconnected", session.IPlayer, "Unknown");
             Covalence.PlayerManager.PlayerDisconnected(session);
