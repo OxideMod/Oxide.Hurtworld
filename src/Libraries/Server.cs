@@ -54,6 +54,11 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="args"></param>
         public void Broadcast(string message, string prefix, params object[] args)
         {
+            if (string.IsNullOrEmpty(message))
+            {
+                return;
+            }
+
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             var formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
