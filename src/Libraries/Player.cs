@@ -358,18 +358,15 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="args"></param>
         public void Message(PlayerSession session, string message, string prefix, params object[] args)
         {
+            if (string.IsNullOrEmpty(message))
+            {
+                return;
+            }
+
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             var formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
-            BitStreamPooled frameLease = HNetworkManager.Instance.BitStreamPool.GetFrameLease();
-            uLink.BitStream stream = frameLease.Stream;
-            stream.WriteByte(1);
-            stream.WriteUInt64(session.SteamId.m_SteamID);
-            stream.WriteColor(PlayerChatMessage.DefaultNameColor);
-            stream.WriteString(prefix != null ? prefix : "");
-            stream.WriteColor(PlayerChatMessage.DefaultMessageColor);
-            stream.WriteString(message);
-            ChatManager.RPCS("ReceiveChatMessage", session.Player, true, frameLease);
+            ChatManager.SendChatMessage(new ServerChatMessage(formatted, false));
 #else
             ChatManager.RPC("RelayChat", session.Player, formatted);
 #endif
