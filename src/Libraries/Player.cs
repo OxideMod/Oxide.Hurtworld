@@ -366,7 +366,7 @@ namespace Oxide.Game.Hurtworld.Libraries
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             var formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
-            ChatManager.SendChatMessage(new ServerChatMessage(formatted, false));
+            ChatManager.SendChatMessage(new ServerChatMessage(formatted, false), session.Player);
 #else
             ChatManager.RPC("RelayChat", session.Player, formatted);
 #endif
