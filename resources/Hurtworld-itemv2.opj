@@ -229,7 +229,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "j0unYjqk6ubtuDxTgMhNJtL8QOn6ZbsPErjjuHf8cxw=",
+            "MSILHash": "qatEkY4qZg4ChXYC8ZRGktzCx7dZhRYz6VZD+c8fuqA=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -317,7 +317,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "zk/vJuyzTCoga4R8oBohCJPvY7Wj1Z6p30Q8EI8ndQs=",
+            "MSILHash": "1KgtlU6TGLWH6QdqF+eK0JD3C9CAWQIkUa/0Kim0dxQ=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1362,10 +1362,11 @@
               "Name": "CanCraftItem",
               "ReturnType": "System.Boolean",
               "Parameters": [
-                "ICraftable"
+                "ICraftable",
+                "System.Int32"
               ]
             },
-            "MSILHash": "Ebh/arZmrriIq5eSk2wcVNDyDrLGhfCnhNrbMqij9So=",
+            "MSILHash": "lqLDZm9LiRRVRP93V0MaZN3npCQHQkngcXLo7zq/cVc=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1473,7 +1474,7 @@
                 "UnityEngine.GameObject"
               ]
             },
-            "MSILHash": "uI09HgQom6FVWUqZPS5b2j/RqcshzDIQUB816GybppM=",
+            "MSILHash": "+YMiA2nIiVVnOk4IhX57Qy/j9Io3i0WRNBNLP/Hcerw=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1699,7 +1700,7 @@
                 "PlayerIdentity"
               ]
             },
-            "MSILHash": "4M4UL+i75qV//yFG6VqLxmhfXsT04qjE1RVtG5P9nNk=",
+            "MSILHash": "TxURgIw+5YfQMU0iZ1wa05hwYntqfW2TpOqlFFMg4FU=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1750,7 +1751,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "zk/vJuyzTCoga4R8oBohCJPvY7Wj1Z6p30Q8EI8ndQs=",
+            "MSILHash": "1KgtlU6TGLWH6QdqF+eK0JD3C9CAWQIkUa/0Kim0dxQ=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
