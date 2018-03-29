@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Core;
-using Oxide.Core.Libraries;
+﻿using Oxide.Core.Libraries;
 using UnityEngine;
 
 namespace Oxide.Game.Hurtworld.Libraries
@@ -16,12 +15,16 @@ namespace Oxide.Game.Hurtworld.Libraries
 #if ITEMV2
         public static ItemObject GetItem(int itemId) => ItemManager.GetItem(itemId);
 #else
-        public static IItem GetItem(int itemId) => ItemManager.GetItem(itemId);
+        public static Assets.Scripts.Core.IItem GetItem(int itemId) => ItemManager.GetItem(itemId);
 #endif
 
         #region Object Control
 
+#if ITEMV2
+        public void DestroyObject(GameObject obj) => HNetworkManager.Instance.NetDestroy(obj.HNetworkView());
+#else
         public void DestroyObject(GameObject obj) => HNetworkManager.Instance.NetDestroy(obj.uLinkNetworkView());
+#endif
 
         public void MoveObject(GameObject obj, Vector3 destination) => obj.GetComponent<Transform>().position = destination;
 
