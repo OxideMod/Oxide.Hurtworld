@@ -356,7 +356,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 2165,
+            "InjectionIndex": 2158,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -1449,7 +1449,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 47,
+            "InjectionIndex": 37,
             "RemoveCount": 0,
             "Instructions": [
               {
