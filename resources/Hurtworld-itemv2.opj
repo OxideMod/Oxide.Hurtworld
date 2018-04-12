@@ -1383,7 +1383,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 52,
+            "InjectionIndex": 42,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
             "ArgumentString": "l0, a0",
@@ -1437,7 +1437,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 22,
+            "InjectionIndex": 12,
             "RemoveCount": 0,
             "Instructions": [
               {
@@ -1531,7 +1531,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 54,
+            "InjectionIndex": 47,
             "RemoveCount": 0,
             "Instructions": [
               {
