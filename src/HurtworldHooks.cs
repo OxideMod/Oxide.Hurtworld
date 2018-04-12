@@ -22,7 +22,7 @@ namespace Oxide.Game.Hurtworld
         private object ICanCraft(uLink.NetworkPlayer player, ICraftable recipe)
         {
             var session = Player.Find(player);
-            return Interface.Call("CanCraft", session, recipe);
+            return Interface.CallHook("CanCraft", session, recipe);
         }
 #endif
 
@@ -43,8 +43,8 @@ namespace Oxide.Game.Hurtworld
 
             Covalence.PlayerManager.PlayerJoin(session);
 
-            var loginSpecific = Interface.Call("CanClientLogin", session);
-            var loginCovalence = Interface.Call("CanUserLogin", session.Identity.Name, id, ip);
+            var loginSpecific = Interface.CallHook("CanClientLogin", session);
+            var loginCovalence = Interface.CallHook("CanUserLogin", session.Identity.Name, id, ip);
             var canLogin = loginSpecific ?? loginCovalence;
 
             if (canLogin is string || (canLogin is bool && !(bool)canLogin))
@@ -55,8 +55,8 @@ namespace Oxide.Game.Hurtworld
 
             GameManager.Instance._playerSessions[session.Player] = session;
 
-            var approvedSpecific = Interface.Call("OnUserApprove", session);
-            var approvedCovalence = Interface.Call("OnUserApproved", session.Identity.Name, id, ip);
+            var approvedSpecific = Interface.CallHook("OnUserApprove", session);
+            var approvedCovalence = Interface.CallHook("OnUserApproved", session.Identity.Name, id, ip);
             return approvedSpecific ?? approvedCovalence;
         }
 
@@ -70,8 +70,8 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnPlayerChat")]
         private object IOnPlayerChat(PlayerSession session, string message)
         {
-            var chatSpecific = Interface.Call("OnPlayerChat", session, message);
-            var chatCovalence = Interface.Call("OnUserChat", session.IPlayer, message);
+            var chatSpecific = Interface.CallHook("OnPlayerChat", session, message);
+            var chatCovalence = Interface.CallHook("OnUserChat", session.IPlayer, message);
             return chatSpecific ?? chatCovalence;
         }
 
@@ -93,8 +93,8 @@ namespace Oxide.Game.Hurtworld
             if (cmd == null) return null;
 
             // Is the command blocked?
-            var blockedSpecific = Interface.Call("OnPlayerCommand", session, cmd, args); // TODO: Deprecate OnChatCommand
-            var blockedCovalence = Interface.Call("OnUserCommand", session.IPlayer, cmd, args);
+            var blockedSpecific = Interface.CallHook("OnPlayerCommand", session, cmd, args); // TODO: Deprecate OnChatCommand
+            var blockedCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, cmd, args);
             if (blockedSpecific != null || blockedCovalence != null) return true;
 
             // Is it a covalance command?
@@ -121,8 +121,8 @@ namespace Oxide.Game.Hurtworld
             // Is it a chat command?
             if (!str.Equals("/"))
             {
-                var chatSpecific = Interface.Call("OnPlayerChat", session, message);
-                var chatCovalence = Interface.Call("OnUserChat", session.IPlayer, message);
+                var chatSpecific = Interface.CallHook("OnPlayerChat", session, message);
+                var chatCovalence = Interface.CallHook("OnUserChat", session.IPlayer, message);
                 return chatSpecific ?? chatCovalence;
             }
 
@@ -146,7 +146,7 @@ namespace Oxide.Game.Hurtworld
             }
 
             // Call the game hook
-            Interface.Call("OnChatCommand", session, command);
+            Interface.CallHook("OnChatCommand", session, command);
 
             return true;
         }
@@ -181,7 +181,7 @@ namespace Oxide.Game.Hurtworld
 
 #if !ITEMV2
             // Call game-specific hook
-            Interface.Call("OnPlayerConnected", session);
+            Interface.CallHook("OnPlayerConnected", session);
 #endif
 
             // Let covalence know
@@ -190,7 +190,7 @@ namespace Oxide.Game.Hurtworld
             if (iplayer != null)
             {
                 session.IPlayer = iplayer;
-                Interface.Call("OnUserConnected", session.IPlayer);
+                Interface.CallHook("OnUserConnected", session.IPlayer);
             }
         }
 
@@ -207,10 +207,10 @@ namespace Oxide.Game.Hurtworld
             }
 
             // Call game-specific hook
-            Interface.Call("OnPlayerDisconnected", session);
+            Interface.CallHook("OnPlayerDisconnected", session);
 
             // Let covalence know
-            Interface.Call("OnUserDisconnected", session.IPlayer, "Unknown");
+            Interface.CallHook("OnUserDisconnected", session.IPlayer, "Unknown");
             Covalence.PlayerManager.PlayerDisconnected(session);
         }
 
@@ -223,7 +223,7 @@ namespace Oxide.Game.Hurtworld
         private void IOnPlayerInput(uLink.NetworkPlayer player, InputControls input)
         {
             var session = Player.Find(player);
-            if (session != null) Interface.Call("OnPlayerInput", session, input);
+            if (session != null) Interface.CallHook("OnPlayerInput", session, input);
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace Oxide.Game.Hurtworld
         private object IOnPlayerSuicide(uLink.NetworkPlayer player)
         {
             var session = Player.Find(player);
-            return session != null ? Interface.Call("OnPlayerSuicide", session) : null;
+            return session != null ? Interface.CallHook("OnPlayerSuicide", session) : null;
         }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace Oxide.Game.Hurtworld
         private object IOnPlayerVoice(uLink.NetworkPlayer player)
         {
             var session = Player.Find(player);
-            return session != null ? Interface.Call("OnPlayerVoice", session) : null;
+            return session != null ? Interface.CallHook("OnPlayerVoice", session) : null;
         }
 
         #endregion Player Hooks
@@ -293,7 +293,7 @@ namespace Oxide.Game.Hurtworld
             if (player == null) return;
 
             var session = Player.Find((uLink.NetworkPlayer)player);
-            if (session != null) Interface.Call("OnSingleDoorUsed", door, session);
+            if (session != null) Interface.CallHook("OnSingleDoorUsed", door, session);
         }
 
         /// <summary>
@@ -308,7 +308,7 @@ namespace Oxide.Game.Hurtworld
             if (player == null) return;
 
             var session = Player.Find((uLink.NetworkPlayer)player);
-            if (session != null) Interface.Call("OnDoubleDoorUsed", door, session);
+            if (session != null) Interface.CallHook("OnDoubleDoorUsed", door, session);
         }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace Oxide.Game.Hurtworld
             if (player == null) return;
 
             var session = Player.Find((uLink.NetworkPlayer)player);
-            if (session != null) Interface.Call("OnGarageDoorUsed", door, session);
+            if (session != null) Interface.CallHook("OnGarageDoorUsed", door, session);
         }
 
         #endregion Structure Hooks
@@ -339,7 +339,7 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("ICanEnterVehicle")]
         private object ICanEnterVehicle(PlayerSession session, GameObject go)
         {
-            return Interface.Call("CanEnterVehicle", session, go.GetComponent<VehiclePassenger>());
+            return Interface.CallHook("CanEnterVehicle", session, go.GetComponent<VehiclePassenger>());
         }
 
         /// <summary>
@@ -351,7 +351,7 @@ namespace Oxide.Game.Hurtworld
         private object ICanExitVehicle(VehiclePassenger vehicle)
         {
             var session = Player.Find(vehicle.networkView.owner);
-            return session != null ? Interface.Call("CanExitVehicle", session, vehicle) : null;
+            return session != null ? Interface.CallHook("CanExitVehicle", session, vehicle) : null;
         }
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace Oxide.Game.Hurtworld
         private void IOnEnterVehicle(uLink.NetworkPlayer player, VehiclePassenger vehicle)
         {
             var session = Player.Find(player);
-            Interface.Call("OnEnterVehicle", session, vehicle);
+            Interface.CallHook("OnEnterVehicle", session, vehicle);
         }
 
         /// <summary>
@@ -377,7 +377,7 @@ namespace Oxide.Game.Hurtworld
         private void IOnExitVehicle(uLink.NetworkPlayer player, VehiclePassenger vehicle)
         {
             var session = Player.Find(player);
-            Interface.Call("OnExitVehicle", session, vehicle);
+            Interface.CallHook("OnExitVehicle", session, vehicle);
         }
 
         #endregion Vehicle Hooks
