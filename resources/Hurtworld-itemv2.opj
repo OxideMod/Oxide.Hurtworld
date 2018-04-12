@@ -71,7 +71,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "TTUMnbZrfP0Fl5eHaCm/N6hhY+aiR167AyBepMsxbEI=",
+            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -213,7 +213,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 101,
+            "InjectionIndex": 109,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -229,7 +229,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "xTRbtMK05a2FKt/9trpLnmnJ6RQ8dPpi/tAvj6lI2sA=",
+            "MSILHash": "zCpyjYrd51fX3d3q4LsdPLUwxBw+1At2kLYa8bxEmA4=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -369,7 +369,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "TTUMnbZrfP0Fl5eHaCm/N6hhY+aiR167AyBepMsxbEI=",
+            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
             "BaseHookName": "OnServerCommand",
             "HookCategory": "_Patches"
           }
@@ -377,7 +377,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 2703,
+            "InjectionIndex": 2728,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -400,7 +400,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "TTUMnbZrfP0Fl5eHaCm/N6hhY+aiR167AyBepMsxbEI=",
+            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
             "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
@@ -659,7 +659,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "dY1anxBNdW5LFsTZyHqopkbqbUIoW+lTnQnUKHw756I=",
+            "MSILHash": "/DoKlWnTm/auchA41djNrUxzJBLyywUpDXmK3EZge78=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -964,7 +964,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 126,
+            "InjectionIndex": 113,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1003,7 +1003,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 139,
+            "InjectionIndex": 126,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1042,7 +1042,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 162,
+            "InjectionIndex": 149,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1081,7 +1081,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 169,
+            "InjectionIndex": 156,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1120,7 +1120,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 180,
+            "InjectionIndex": 167,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1159,7 +1159,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 193,
+            "InjectionIndex": 180,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1198,7 +1198,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 207,
+            "InjectionIndex": 194,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1550,7 +1550,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 179,
+            "InjectionIndex": 172,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
