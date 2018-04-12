@@ -1221,7 +1221,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 78,
+            "InjectionIndex": 65,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1260,7 +1260,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 91,
+            "InjectionIndex": 78,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1299,7 +1299,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 114,
+            "InjectionIndex": 101,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1338,7 +1338,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 121,
+            "InjectionIndex": 108,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1377,7 +1377,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 132,
+            "InjectionIndex": 119,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1416,7 +1416,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 145,
+            "InjectionIndex": 132,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -1455,7 +1455,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 159,
+            "InjectionIndex": 146,
             "RemoveCount": 2,
             "Instructions": [
               {
