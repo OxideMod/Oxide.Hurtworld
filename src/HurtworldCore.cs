@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+using NetworkPlayer = uLink.NetworkPlayer;
+
 namespace Oxide.Game.Hurtworld
 {
     /// <summary>
@@ -81,23 +83,36 @@ namespace Oxide.Game.Hurtworld
 
             // Add core misc commands
             AddCovalenceCommand(new[] { "oxide.lang", "o.lang" }, "LangCommand");
+            AddCovalenceCommand(new[] { "oxide.save", "o.save" }, "SaveCommand");
             AddCovalenceCommand(new[] { "oxide.version", "o.version" }, "VersionCommand");
 
             // Register messages for localization
-            foreach (var language in Localization.languages) lang.RegisterMessages(language.Value, this, language.Key);
+            foreach (KeyValuePair<string, Dictionary<string, string>> language in Localization.languages)
+            {
+                lang.RegisterMessages(language.Value, this, language.Key);
+            }
 
             // Setup default permission groups
             if (permission.IsLoaded)
             {
-                var rank = 0;
-                foreach (var defaultGroup in Interface.Oxide.Config.Options.DefaultGroups)
-                    if (!permission.GroupExists(defaultGroup)) permission.CreateGroup(defaultGroup, defaultGroup, rank++);
+                int rank = 0;
+                foreach (string defaultGroup in Interface.Oxide.Config.Options.DefaultGroups)
+                {
+                    if (!permission.GroupExists(defaultGroup))
+                    {
+                        permission.CreateGroup(defaultGroup, defaultGroup, rank++);
+                    }
+                }
 
                 permission.RegisterValidate(s =>
                 {
                     ulong temp;
-                    if (!ulong.TryParse(s, out temp)) return false;
-                    var digits = temp == 0 ? 1 : (int)Math.Floor(Math.Log10(temp) + 1);
+                    if (!ulong.TryParse(s, out temp))
+                    {
+                        return false;
+                    }
+
+                    int digits = temp == 0 ? 1 : (int)Math.Floor(Math.Log10(temp) + 1);
                     return digits >= 17;
                 });
 
@@ -113,7 +128,10 @@ namespace Oxide.Game.Hurtworld
         private void OnPluginLoaded(Plugin plugin)
         {
             // Call OnServerInitialized for hotloaded plugins
-            if (serverInitialized) plugin.CallHook("OnServerInitialized");
+            if (serverInitialized)
+            {
+                plugin.CallHook("OnServerInitialized");
+            }
         }
 
         /// <summary>
@@ -122,7 +140,10 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnServerInitialized")] // Internal wrapper to avoid call on each player connection
         private void IOnServerInitialized()
         {
-            if (serverInitialized) return;
+            if (serverInitialized)
+            {
+                return;
+            }
 
             Analytics.Collect();
             HurtworldExtension.ServerConsole();
@@ -133,10 +154,24 @@ namespace Oxide.Game.Hurtworld
         }
 
         /// <summary>
+        /// Called when the server is saved
+        /// </summary>
+        [HookMethod("OnServerSave")]
+        private void OnServerSave()
+        {
+            Interface.Oxide.OnSave();
+            Covalence.PlayerManager.SavePlayerData();
+        }
+
+        /// <summary>
         /// Called when the server is shutting down
         /// </summary>
         [HookMethod("OnServerShutdown")]
-        private void OnServerShutdown() => Interface.Oxide.OnShutdown();
+        private void OnServerShutdown()
+        {
+            Interface.Oxide.OnShutdown();
+            Covalence.PlayerManager.SavePlayerData();
+        }
 
         #endregion Core Hooks
 
@@ -150,13 +185,19 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("OnServerCommand")]
         private object OnServerCommand(string arg)
         {
-            if (arg == null || arg.Trim().Length == 0) return null;
+            if (arg == null || arg.Trim().Length == 0)
+            {
+                return null;
+            }
 
-            var command = $"{arg.Split(' ')[0]}";
-            var args = arg.Split(' ').Skip(1).ToArray();
+            string command = $"{arg.Split(' ')[0]}";
+            string[] args = arg.Split(' ').Skip(1).ToArray();
 
             // Is this a covalence command?
-            if (Covalence.CommandSystem.HandleConsoleMessage(Covalence.CommandSystem.consolePlayer, arg)) return true;
+            if (Covalence.CommandSystem.HandleConsoleMessage(Covalence.CommandSystem.consolePlayer, arg))
+            {
+                return true;
+            }
 
             return cmdlib.HandleConsoleCommand(command, args);
         }
@@ -169,18 +210,22 @@ namespace Oxide.Game.Hurtworld
         /// <param name="args"></param>
         private void ParseCommand(string argstr, out string cmd, out string[] args)
         {
-            var arglist = new List<string>();
-            var sb = new StringBuilder();
-            var inlongarg = false;
+            List<string> arglist = new List<string>();
+            StringBuilder sb = new StringBuilder();
+            bool inlongarg = false;
 
-            foreach (var c in argstr)
+            foreach (char c in argstr)
             {
                 if (c == '"')
                 {
                     if (inlongarg)
                     {
-                        var arg = sb.ToString().Trim();
-                        if (!string.IsNullOrEmpty(arg)) arglist.Add(arg);
+                        string arg = sb.ToString().Trim();
+                        if (!string.IsNullOrEmpty(arg))
+                        {
+                            arglist.Add(arg);
+                        }
+
                         sb = new StringBuilder();
                         inlongarg = false;
                     }
@@ -191,8 +236,12 @@ namespace Oxide.Game.Hurtworld
                 }
                 else if (char.IsWhiteSpace(c) && !inlongarg)
                 {
-                    var arg = sb.ToString().Trim();
-                    if (!string.IsNullOrEmpty(arg)) arglist.Add(arg);
+                    string arg = sb.ToString().Trim();
+                    if (!string.IsNullOrEmpty(arg))
+                    {
+                        arglist.Add(arg);
+                    }
+
                     sb = new StringBuilder();
                 }
                 else
@@ -202,8 +251,11 @@ namespace Oxide.Game.Hurtworld
             }
             if (sb.Length > 0)
             {
-                var arg = sb.ToString().Trim();
-                if (!string.IsNullOrEmpty(arg)) arglist.Add(arg);
+                string arg = sb.ToString().Trim();
+                if (!string.IsNullOrEmpty(arg))
+                {
+                    arglist.Add(arg);
+                }
             }
             if (arglist.Count == 0)
             {
@@ -227,7 +279,11 @@ namespace Oxide.Game.Hurtworld
         /// <returns></returns>
         private bool PermissionsLoaded(IPlayer player)
         {
-            if (permission.IsLoaded) return true;
+            if (permission.IsLoaded)
+            {
+                return true;
+            }
+
             player.Reply(string.Format(lang.GetMessage("PermissionsNotLoaded", this, player.Id), permission.LastException.Message));
             return false;
         }
@@ -239,12 +295,16 @@ namespace Oxide.Game.Hurtworld
         /// <returns></returns>
         public PlayerSession FindSession(string nameOrIdOrIp)
         {
-            var sessions = GameManager.Instance.GetSessions();
+            Dictionary<NetworkPlayer, PlayerSession> sessions = GameManager.Instance.GetSessions();
             PlayerSession session = null;
-            foreach (var i in sessions)
+            foreach (KeyValuePair<NetworkPlayer, PlayerSession> i in sessions)
             {
                 if (!nameOrIdOrIp.Equals(i.Value.Identity.Name, StringComparison.OrdinalIgnoreCase) &&
-                    !nameOrIdOrIp.Equals(i.Value.SteamId.ToString()) && !nameOrIdOrIp.Equals(i.Key.ipAddress)) continue;
+                    !nameOrIdOrIp.Equals(i.Value.SteamId.ToString()) && !nameOrIdOrIp.Equals(i.Key.ipAddress))
+                {
+                    continue;
+                }
+
                 session = i.Value;
                 break;
             }
@@ -265,7 +325,7 @@ namespace Oxide.Game.Hurtworld
         /// <returns></returns>
         public PlayerSession FindSessionByGo(GameObject go)
         {
-            var sessions = GameManager.Instance.GetSessions();
+            Dictionary<NetworkPlayer, PlayerSession> sessions = GameManager.Instance.GetSessions();
             return (from i in sessions where go.Equals(i.Value.WorldPlayerEntity) select i.Value).FirstOrDefault();
         }
 

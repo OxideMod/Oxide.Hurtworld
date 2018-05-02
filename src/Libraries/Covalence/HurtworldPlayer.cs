@@ -5,6 +5,8 @@ using Steamworks;
 using System;
 using System.Globalization;
 
+using UnityEngine;
+
 namespace Oxide.Game.Hurtworld.Libraries.Covalence
 {
     /// <summary>
@@ -23,7 +25,10 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
 
         internal HurtworldPlayer(ulong id, string name)
         {
-            if (libPerms == null) libPerms = Interface.Oxide.GetLibrary<Permission>();
+            if (libPerms == null)
+            {
+                libPerms = Interface.Oxide.GetLibrary<Permission>();
+            }
 
             steamId = id;
             Name = name.Sanitize();
@@ -133,7 +138,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         {
             get
             {
-                var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+                EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
 #if ITEMV2
                 return stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health).GetValue();
 #else
@@ -142,11 +147,11 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             }
             set
             {
-                var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+                EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
 #if ITEMV2
-                var effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
+                StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
 #else
-                var effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
+                StandardEntityFluidEffect effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
                 effect?.SetValue(value);
 #endif
             }
@@ -176,7 +181,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         {
             get
             {
-                var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+                EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
 #if ITEMV2
                 return stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health).GetMaxValue();
 #else
@@ -185,12 +190,12 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             }
             set
             {
-                var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+                EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
 #if ITEMV2
-                var effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
+                StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
                 if (effect != null) effect.MaxValue = value;
 #else
-                var effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
+                StandardEntityFluidEffect effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
                 effect?.MaxValue(value);
 #endif
             }
@@ -233,7 +238,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <param name="z"></param>
         public void Position(out float x, out float y, out float z)
         {
-            var pos = Player.Position(session);
+            Vector3 pos = Player.Position(session);
             x = pos.x;
             y = pos.y;
             z = pos.z;
@@ -245,7 +250,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         public GenericPosition Position()
         {
-            var pos = Player.Position(session);
+            Vector3 pos = Player.Position(session);
             return new GenericPosition(pos.x, pos.y, pos.z);
         }
 

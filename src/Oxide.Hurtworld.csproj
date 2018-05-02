@@ -69,13 +69,13 @@
   <Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
     <ItemGroup>
       <ReferencePath Condition="'%(FileName)' == 'Oxide.References'">
-        <Aliases>Oxide</Aliases>
+        <Aliases>References</Aliases>
       </ReferencePath>
     </ItemGroup>
   </Target>
   <Target Name="BeforeBuild">
     <!-- Currently only works on Windows due to Windows-only tools used -->
-    <Exec Command="powershell -ExecutionPolicy Bypass &quot;$(SolutionDir)\Steam.ps1&quot; -project $(AssemblyName) -dotnet $(TargetFramework) -appid $(SteamAppId) -branch $(SteamBranch.Split(',')[0]) -depot $(SteamDepot) -managed $(ManagedDir)" />
+    <Exec Command="powershell -ExecutionPolicy Bypass &quot;$(SolutionDir)\Steam.ps1&quot; -project $(AssemblyName) -dotnet $(TargetFramework) -appid $(SteamAppId) -branch $(SteamBranch.Split(',')[0]) -depot $(SteamDepot) -managed '$(ManagedDir)'" />
   </Target>
   <Target Name="AfterBuild">
     <ItemGroup>

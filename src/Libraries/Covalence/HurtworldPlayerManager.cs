@@ -1,8 +1,8 @@
-﻿extern alias Oxide;
+﻿extern alias References;
 
 using Oxide.Core;
 using Oxide.Core.Libraries.Covalence;
-using Oxide::ProtoBuf;
+using References::ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,13 +32,16 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             allPlayers = new Dictionary<string, HurtworldPlayer>();
             connectedPlayers = new Dictionary<string, HurtworldPlayer>();
 
-            foreach (var pair in playerData) allPlayers.Add(pair.Key, new HurtworldPlayer(pair.Value.Id, pair.Value.Name));
+            foreach (KeyValuePair<string, PlayerRecord> pair in playerData)
+            {
+                allPlayers.Add(pair.Key, new HurtworldPlayer(pair.Value.Id, pair.Value.Name));
+            }
         }
 
         internal void PlayerJoin(PlayerSession session)
         {
-            var id = session.SteamId.ToString();
-            var name = session.Identity.Name.Sanitize();
+            string id = session.SteamId.ToString();
+            string name = session.Identity.Name.Sanitize();
 
             PlayerRecord record;
             if (playerData.TryGetValue(id, out record))
@@ -54,8 +57,6 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                 playerData.Add(id, record);
                 allPlayers.Add(id, new HurtworldPlayer(session));
             }
-
-            ProtoStorage.Save(playerData, "oxide.covalence");
         }
 
         internal void PlayerConnected(PlayerSession session)
@@ -65,6 +66,8 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         }
 
         internal void PlayerDisconnected(PlayerSession session) => connectedPlayers.Remove(session.SteamId.ToString());
+
+        internal void SavePlayerData() => ProtoStorage.Save(playerData, "oxide.covalence");
 
         #region Player Finding
 
@@ -111,7 +114,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         public IPlayer FindPlayer(string partialNameOrId)
         {
-            var players = FindPlayers(partialNameOrId).ToArray();
+            IPlayer[] players = FindPlayers(partialNameOrId).ToArray();
             return players.Length == 1 ? players[0] : null;
         }
 
@@ -122,10 +125,12 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         public IEnumerable<IPlayer> FindPlayers(string partialNameOrId)
         {
-            foreach (var player in allPlayers.Values)
+            foreach (HurtworldPlayer player in allPlayers.Values)
             {
                 if (player.Name != null && player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) >= 0 || player.Id == partialNameOrId)
+                {
                     yield return player;
+                }
             }
         }
 
