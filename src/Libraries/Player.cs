@@ -454,13 +454,14 @@ namespace Oxide.Game.Hurtworld.Libraries
             PlayerInventory inventory = Inventory(session);
             for (int slot = 0; slot < inventory.Capacity; slot++)
             {
-                ItemInstance item = inventory.GetSlot(slot);
 #if ITEMV2
+                ItemObject item = inventory.GetSlot(slot);
                 if (item.ItemId == itemId) inventory.DropSlot(slot, entityReferenceCache.PlayerCamera.SimData.FireDirectionWorldSpace);
 #else
+                ItemInstance item = inventory.GetSlot(slot);
                 if (item.Item.ItemId == itemId)
                 {
-                    inventory.DropSlot(slot, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                    inventory.DropSlot(slot, position + new Vector3(0f, 1f, 0f) + position / 2f, (position + new Vector3(0f, 0.2f, 0f)) * 8f);
                 }
 #endif
             }
