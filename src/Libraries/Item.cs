@@ -42,18 +42,32 @@ namespace Oxide.Game.Hurtworld.Libraries
 
         public GameObject ObjectByName(string partialName)
         {
-            var gos = Object.FindObjectsOfType<GameObject>();
-            foreach (var g in gos) if (g.name.Contains(partialName)) return g;
+            GameObject[] gos = Object.FindObjectsOfType<GameObject>();
+            foreach (GameObject g in gos)
+            {
+                if (g.name.Contains(partialName))
+                {
+                    return g;
+                }
+            }
+
             return null;
         }
 
         public void AttachComponent(string objectName, Component component)
         {
-            var gos = Object.FindObjectsOfType<GameObject>();
-            foreach (var g in gos)
+            GameObject[] gos = Object.FindObjectsOfType<GameObject>();
+            foreach (GameObject g in gos)
             {
-                if (!g.activeInHierarchy) continue;
-                if (g.name.Contains(objectName)) g.AddComponent(component.GetType());
+                if (!g.activeInHierarchy)
+                {
+                    continue;
+                }
+
+                if (g.name.Contains(objectName))
+                {
+                    g.AddComponent(component.GetType());
+                }
             }
         }
 

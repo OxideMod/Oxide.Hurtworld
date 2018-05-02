@@ -40,9 +40,12 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             {
                 try
                 {
-                    if (address != null) return address;
+                    if (address != null)
+                    {
+                        return address;
+                    }
 
-                    var webClient = new WebClient();
+                    WebClient webClient = new WebClient();
                     IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
                     return address;
                 }
@@ -95,14 +98,14 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         {
             get
             {
-                var time = TimeManager.Instance.GetCurrentGameTime();
+                GameTime time = TimeManager.Instance.GetCurrentGameTime();
                 return Convert.ToDateTime($"{time.Hour}:{time.Minute}:{Math.Floor(time.Second)}");
             }
             set
             {
-                var currentOffset = TimeManager.Instance.GetCurrentGameTime().offset;
-                var daysPassed = TimeManager.Instance.GetCurrentGameTime().Day + 1;
-                var newOffset = 86400 * daysPassed - currentOffset + value.TimeOfDay.TotalSeconds;
+                double currentOffset = TimeManager.Instance.GetCurrentGameTime().offset;
+                int daysPassed = TimeManager.Instance.GetCurrentGameTime().Day + 1;
+                double newOffset = 86400 * daysPassed - currentOffset + value.TimeOfDay.TotalSeconds;
                 TimeManager.Instance.InitialTimeOffset += (float)newOffset;
             }
         }
@@ -124,7 +127,10 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <param name="duration"></param>
         public void Ban(string id, string reason, TimeSpan duration = default(TimeSpan))
         {
-            if (!IsBanned(id)) Server.Ban(id, reason, duration);
+            if (!IsBanned(id))
+            {
+                Server.Ban(id, reason, duration);
+            }
         }
 
         /// <summary>
@@ -150,7 +156,10 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <param name="id"></param>
         public void Unban(string id)
         {
-            if (IsBanned(id)) Server.Unban(id);
+            if (IsBanned(id))
+            {
+                Server.Unban(id);
+            }
         }
 
         #endregion Administration

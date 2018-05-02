@@ -1,4 +1,5 @@
-﻿using Oxide.Core;
+﻿using Emotes;
+using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Steamworks;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using NetworkPlayer = uLink.NetworkPlayer;
 
 namespace Oxide.Game.Hurtworld.Libraries
 {
@@ -102,10 +104,16 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="reason"></param>
         public void Ban(PlayerSession session, string reason = "")
         {
-            if (IsBanned(session)) return;
+            if (IsBanned(session))
+            {
+                return;
+            }
 
             BanManager.AddBan(session.SteamId.m_SteamID);
-            if (session.Player.isConnected) Kick(session, reason);
+            if (session.Player.isConnected)
+            {
+                Kick(session, reason);
+            }
         }
 
         /// <summary>
@@ -116,11 +124,11 @@ namespace Oxide.Game.Hurtworld.Libraries
 #if ITEMV2
         public void Emote(PlayerSession session, int emote)
         {
-            var emoteManager = session.WorldPlayerEntity.GetComponent<EmoteManagerServer>();
+            EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<EmoteManagerServer>();
 #else
         public void Emote(PlayerSession session, Emotes.EEmoteType emote)
         {
-            var emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
+            EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
 #endif
             emoteManager?.BeginEmoteServer(emote);
         }
@@ -133,11 +141,11 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void Heal(PlayerSession session, float amount)
         {
 #if ITEMV2
-            var effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
+            EntityEffectFluid effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
 #else
-            var effect = new EntityEffectFluid(EEntityFluidEffectType.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
+            EntityEffectFluid effect = new EntityEffectFluid(EEntityFluidEffectType.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
 #endif
-            var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+            EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
             effect.Apply(stats);
         }
 
@@ -149,11 +157,11 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void Hurt(PlayerSession session, float amount)
         {
 #if ITEMV2
-            var effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
+            EntityEffectFluid effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
 #else
-            var effect = new EntityEffectFluid(EEntityFluidEffectType.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
+            EntityEffectFluid effect = new EntityEffectFluid(EEntityFluidEffectType.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
 #endif
-            var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+            EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
             effect.Apply(stats);
         }
 
@@ -170,8 +178,8 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="session"></param>
         public void Kill(PlayerSession session)
         {
-            var stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-            var entityEffectSourceDatum = new EntityEffectSourceData { SourceDescriptionKey = "EntityStats/Sources/Suicide" };
+            EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
+            EntityEffectSourceData entityEffectSourceDatum = new EntityEffectSourceData { SourceDescriptionKey = "EntityStats/Sources/Suicide" };
 #if ITEMV2
             stats.HandleEvent(new EntityEventDataRaiseEvent { EventType = EEntityEventType.Die }, entityEffectSourceDatum);
 #else
@@ -188,7 +196,10 @@ namespace Oxide.Game.Hurtworld.Libraries
         {
             //name = name.Substring(0, 32);
             name = ChatManagerServer.CleanupGeneral(name);
-            if (string.IsNullOrEmpty(name.Trim())) name = "Unnamed";
+            if (string.IsNullOrEmpty(name.Trim()))
+            {
+                name = "Unnamed";
+            }
 
             // Chat/display name
 #if !ITEMV2
@@ -234,7 +245,10 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         public void Unban(PlayerSession session)
         {
-            if (IsBanned(session)) BanManager.RemoveBan(session.SteamId.m_SteamID);
+            if (IsBanned(session))
+            {
+                BanManager.RemoveBan(session.SteamId.m_SteamID);
+            }
         }
 
         #endregion Administration
@@ -260,10 +274,14 @@ namespace Oxide.Game.Hurtworld.Libraries
         public PlayerSession Find(string nameOrIdOrIp)
         {
             PlayerSession session = null;
-            foreach (var s in Sessions)
+            foreach (KeyValuePair<NetworkPlayer, PlayerSession> s in Sessions)
             {
                 if (!nameOrIdOrIp.Equals(s.Value.Identity.Name, StringComparison.OrdinalIgnoreCase) &&
-                    !nameOrIdOrIp.Equals(s.Value.SteamId.ToString()) && !nameOrIdOrIp.Equals(s.Key.ipAddress)) continue;
+                    !nameOrIdOrIp.Equals(s.Value.SteamId.ToString()) && !nameOrIdOrIp.Equals(s.Key.ipAddress))
+                {
+                    continue;
+                }
+
                 session = s.Value;
                 break;
             }
@@ -285,10 +303,14 @@ namespace Oxide.Game.Hurtworld.Libraries
         public PlayerSession Find(Collider col)
         {
             PlayerSession session = null;
-            var stats = col.gameObject.GetComponent<EntityStatsTriggerProxy>().Stats;
-            foreach (var s in Sessions)
+            EntityStats stats = col.gameObject.GetComponent<EntityStatsTriggerProxy>().Stats;
+            foreach (KeyValuePair<NetworkPlayer, PlayerSession> s in Sessions)
             {
-                if (!s.Value.WorldPlayerEntity.GetComponent<EntityStats>() == stats) continue;
+                if (!s.Value.WorldPlayerEntity.GetComponent<EntityStats>() == stats)
+                {
+                    continue;
+                }
+
                 session = s.Value;
                 break;
             }
@@ -302,7 +324,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <returns></returns>
         public PlayerSession Find(GameObject go)
         {
-            var sessions = GameManager.Instance.GetSessions();
+            Dictionary<NetworkPlayer, PlayerSession> sessions = GameManager.Instance.GetSessions();
             return (from i in sessions where go.Equals(i.Value.WorldPlayerEntity) select i.Value).FirstOrDefault();
         }
 
@@ -314,9 +336,13 @@ namespace Oxide.Game.Hurtworld.Libraries
         public PlayerSession FindById(string id)
         {
             PlayerSession session = null;
-            foreach (var s in Sessions)
+            foreach (KeyValuePair<NetworkPlayer, PlayerSession> s in Sessions)
             {
-                if (!id.Equals(s.Value.SteamId.ToString())) continue;
+                if (!id.Equals(s.Value.SteamId.ToString()))
+                {
+                    continue;
+                }
+
                 session = s.Value;
                 break;
             }
@@ -364,7 +390,7 @@ namespace Oxide.Game.Hurtworld.Libraries
             }
 
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
-            var formatted = prefix != null ? $"{prefix} {message}" : message;
+            string formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
             ChatManager.SendChatMessage(new ServerChatMessage(formatted, false), session.Player);
 #else
@@ -422,18 +448,21 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void DropItem(PlayerSession session, int itemId)
         {
 #if ITEMV2
-            var entityReferenceCache = GameManagerUtilities.PlayerRefCache();
+            EntityReferenceCache entityReferenceCache = GameManagerUtilities.PlayerRefCache();
 #else
-            var position = session.WorldPlayerEntity.transform.position;
+            Vector3 position = session.WorldPlayerEntity.transform.position;
 #endif
-            var inventory = Inventory(session);
-            for (var slot = 0; slot < inventory.Capacity; slot++)
+            PlayerInventory inventory = Inventory(session);
+            for (int slot = 0; slot < inventory.Capacity; slot++)
             {
-                var item = inventory.GetSlot(slot);
+                ItemInstance item = inventory.GetSlot(slot);
 #if ITEMV2
                 if (item.ItemId == itemId) inventory.DropSlot(slot, entityReferenceCache.PlayerCamera.SimData.FireDirectionWorldSpace);
 #else
-                if (item.Item.ItemId == itemId) inventory.DropSlot(slot, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                if (item.Item.ItemId == itemId)
+                {
+                    inventory.DropSlot(slot, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                }
 #endif
             }
         }
@@ -449,12 +478,15 @@ namespace Oxide.Game.Hurtworld.Libraries
 #else
         public void DropItem(PlayerSession session, Assets.Scripts.Core.IItem item)
         {
-            var position = session.WorldPlayerEntity.transform.position;
-            var inventory = Inventory(session);
-            for (var s = 0; s < inventory.Capacity; s++)
+            Vector3 position = session.WorldPlayerEntity.transform.position;
+            PlayerInventory inventory = Inventory(session);
+            for (int s = 0; s < inventory.Capacity; s++)
             {
-                var i = inventory.GetSlot(s);
-                if (i.Item == item) inventory.DropSlot(s, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                ItemInstance i = inventory.GetSlot(s);
+                if (i.Item == item)
+                {
+                    inventory.DropSlot(s, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                }
             }
 #endif
         }

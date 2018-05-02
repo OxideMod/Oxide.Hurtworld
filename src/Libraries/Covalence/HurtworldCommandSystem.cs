@@ -64,7 +64,9 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
 
             // Check if command already exists
             if (registeredCommands.ContainsKey(command))
+            {
                 throw new CommandAlreadyExistsException(command);
+            }
 
             // Register command
             registeredCommands.Add(command, callback);
@@ -112,10 +114,10 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         private bool CanOverrideCommand(string command)
         {
-            var split = command.Split('.');
-            var parent = split.Length >= 2 ? split[0].Trim() : "global";
-            var name = split.Length >= 2 ? string.Join(".", split.Skip(1).ToArray()) : split[0].Trim();
-            var fullname = $"{parent}.{name}";
+            string[] split = command.Split('.');
+            string parent = split.Length >= 2 ? split[0].Trim() : "global";
+            string name = split.Length >= 2 ? string.Join(".", split.Skip(1).ToArray()) : split[0].Trim();
+            string fullname = $"{parent}.{name}";
 
             RegisteredCommand cmd;
             if (registeredCommands.TryGetValue(command, out cmd))

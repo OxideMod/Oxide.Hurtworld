@@ -24,7 +24,10 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="duration"></param>
         public void Ban(string id, string reason, TimeSpan duration = default(TimeSpan))
         {
-            if (!IsBanned(id)) BanManager.AddBan(Convert.ToUInt64(id));
+            if (!IsBanned(id))
+            {
+                BanManager.AddBan(Convert.ToUInt64(id));
+            }
         }
 
         /// <summary>
@@ -39,7 +42,10 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="id"></param>
         public void Unban(string id)
         {
-            if (IsBanned(id)) BanManager.RemoveBan(Convert.ToUInt64(id));
+            if (IsBanned(id))
+            {
+                BanManager.RemoveBan(Convert.ToUInt64(id));
+            }
         }
 
         #endregion Administration
@@ -60,7 +66,7 @@ namespace Oxide.Game.Hurtworld.Libraries
             }
 
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
-            var formatted = prefix != null ? $"{prefix} {message}" : message;
+            string formatted = prefix != null ? $"{prefix} {message}" : message;
 #if ITEMV2
             ChatManager.SendChatMessage(new ServerChatMessage(formatted));
 #else
