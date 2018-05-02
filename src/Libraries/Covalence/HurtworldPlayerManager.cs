@@ -1,8 +1,8 @@
-﻿extern alias Oxide;
+﻿extern alias References;
 
 using Oxide.Core;
 using Oxide.Core.Libraries.Covalence;
-using Oxide::ProtoBuf;
+using References::ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +54,6 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                 playerData.Add(id, record);
                 allPlayers.Add(id, new HurtworldPlayer(session));
             }
-
-            ProtoStorage.Save(playerData, "oxide.covalence");
         }
 
         internal void PlayerConnected(PlayerSession session)
@@ -65,6 +63,8 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         }
 
         internal void PlayerDisconnected(PlayerSession session) => connectedPlayers.Remove(session.SteamId.ToString());
+
+        internal void SavePlayerData() => ProtoStorage.Save(playerData, "oxide.covalence");
 
         #region Player Finding
 

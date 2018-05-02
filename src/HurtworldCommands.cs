@@ -9,7 +9,7 @@ namespace Oxide.Game.Hurtworld
     /// <summary>
     /// Game commands for the core Hurtworld plugin
     /// </summary>
-    public partial class HurtworldCore : CSPlugin
+    public partial class HurtworldCore
     {
         #region Grant Command
 
@@ -662,5 +662,19 @@ namespace Oxide.Game.Hurtworld
         }
 
         #endregion Version Command
+
+        #region Save Command
+
+        [HookMethod("SaveCommand")]
+        private void SaveCommand(IPlayer player, string command, string[] args)
+        {
+            if (PermissionsLoaded(player))
+            {
+                Interface.Oxide.OnSave();
+                player.Reply(lang.GetMessage("DataSaved", this, player.Id));
+            }
+        }
+
+        #endregion Save Command
     }
 }

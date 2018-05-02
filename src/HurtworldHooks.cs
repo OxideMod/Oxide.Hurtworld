@@ -7,7 +7,7 @@ namespace Oxide.Game.Hurtworld
     /// <summary>
     /// Game hooks and wrappers for the core Hurtworld plugin
     /// </summary>
-    public partial class HurtworldCore : CSPlugin
+    public partial class HurtworldCore
     {
         #region Player Hooks
 
