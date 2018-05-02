@@ -81,13 +81,13 @@ namespace Oxide.Game.Hurtworld.Libraries
         [LibraryFunction("AddChatCommand")]
         public void AddChatCommand(string command, Plugin plugin, string callbackName)
         {
-            var commandName = command.ToLowerInvariant();
+            string commandName = command.ToLowerInvariant();
             ChatCommand cmd;
             if (chatCommands.TryGetValue(commandName, out cmd))
             {
-                var previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
-                var newPluginName = plugin?.Name ?? "An unknown plugin";
-                var msg = $"{newPluginName} has replaced the '{commandName}' chat command previously registered by {previousPluginName}";
+                string previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
+                string newPluginName = plugin?.Name ?? "An unknown plugin";
+                string msg = $"{newPluginName} has replaced the '{commandName}' chat command previously registered by {previousPluginName}";
                 Interface.Oxide.LogWarning(msg);
             }
             cmd = new ChatCommand(commandName, plugin, callbackName);
@@ -97,7 +97,9 @@ namespace Oxide.Game.Hurtworld.Libraries
 
             // Hook the unload event
             if (plugin != null && !pluginRemovedFromManager.ContainsKey(plugin))
+            {
                 pluginRemovedFromManager[plugin] = plugin.OnRemovedFromManager.Add(plugin_OnRemovedFromManager);
+            }
         }
 
         /// <summary>
@@ -109,13 +111,13 @@ namespace Oxide.Game.Hurtworld.Libraries
         [LibraryFunction("AddConsoleCommand")]
         public void AddConsoleCommand(string command, Plugin plugin, string callbackName)
         {
-            var commandName = command.ToLowerInvariant();
+            string commandName = command.ToLowerInvariant();
             ConsoleCommand cmd;
             if (consoleCommands.TryGetValue(commandName, out cmd))
             {
-                var previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
-                var newPluginName = plugin?.Name ?? "An unknown plugin";
-                var msg = $"{newPluginName} has replaced the '{commandName}' console command previously registered by {previousPluginName}";
+                string previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
+                string newPluginName = plugin?.Name ?? "An unknown plugin";
+                string msg = $"{newPluginName} has replaced the '{commandName}' console command previously registered by {previousPluginName}";
                 Interface.Oxide.LogWarning(msg);
             }
             cmd = new ConsoleCommand(commandName, plugin, callbackName);
@@ -125,7 +127,9 @@ namespace Oxide.Game.Hurtworld.Libraries
 
             // Hook the unload event
             if (plugin != null && !pluginRemovedFromManager.ContainsKey(plugin))
+            {
                 pluginRemovedFromManager[plugin] = plugin.OnRemovedFromManager.Add(plugin_OnRemovedFromManager);
+            }
         }
 
         /// <summary>
@@ -137,7 +141,11 @@ namespace Oxide.Game.Hurtworld.Libraries
         internal bool HandleChatCommand(PlayerSession session, string command, string[] args)
         {
             ChatCommand cmd;
-            if (!chatCommands.TryGetValue(command.ToLowerInvariant(), out cmd)) return false;
+            if (!chatCommands.TryGetValue(command.ToLowerInvariant(), out cmd))
+            {
+                return false;
+            }
+
             cmd.Plugin.CallHook(cmd.CallbackName, session, command, args);
 
             return true;
@@ -152,7 +160,11 @@ namespace Oxide.Game.Hurtworld.Libraries
         internal object HandleConsoleCommand(string command, string[] args)
         {
             ConsoleCommand cmd;
-            if (!consoleCommands.TryGetValue(command.ToLowerInvariant(), out cmd)) return null;
+            if (!consoleCommands.TryGetValue(command.ToLowerInvariant(), out cmd))
+            {
+                return null;
+            }
+
             cmd.Plugin.CallHook(cmd.CallbackName, command, args);
 
             return true;
@@ -166,10 +178,16 @@ namespace Oxide.Game.Hurtworld.Libraries
         private void plugin_OnRemovedFromManager(Plugin sender, PluginManager manager)
         {
             // Remove all console commands which were registered by the plugin
-            foreach (var cmd in consoleCommands.Values.Where(c => c.Plugin == sender).ToArray()) consoleCommands.Remove(cmd.Name);
+            foreach (ConsoleCommand cmd in consoleCommands.Values.Where(c => c.Plugin == sender).ToArray())
+            {
+                consoleCommands.Remove(cmd.Name);
+            }
 
             // Remove all chat commands which were registered by the plugin
-            foreach (var cmd in chatCommands.Values.Where(c => c.Plugin == sender).ToArray()) chatCommands.Remove(cmd.Name);
+            foreach (ChatCommand cmd in chatCommands.Values.Where(c => c.Plugin == sender).ToArray())
+            {
+                chatCommands.Remove(cmd.Name);
+            }
 
             // Unhook the event
             Event.Callback<Plugin, PluginManager> callback;
@@ -188,10 +206,10 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <returns></returns>
         private bool CanOverrideCommand(string command, string type)
         {
-            var split = command.Split('.');
-            var parent = split.Length >= 2 ? split[0].Trim() : "global";
-            var name = split.Length >= 2 ? string.Join(".", split.Skip(1).ToArray()) : split[0].Trim();
-            var fullname = $"{parent}.{name}";
+            string[] split = command.Split('.');
+            string parent = split.Length >= 2 ? split[0].Trim() : "global";
+            string name = split.Length >= 2 ? string.Join(".", split.Skip(1).ToArray()) : split[0].Trim();
+            string fullname = $"{parent}.{name}";
 
             HurtworldCommandSystem.RegisteredCommand cmd;
             if (HurtworldCore.Covalence.CommandSystem.registeredCommands.TryGetValue(command, out cmd))

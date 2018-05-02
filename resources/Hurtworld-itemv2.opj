@@ -1807,6 +1807,56 @@
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 11,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.gameObject, this, l0",
+            "HookTypeName": "Simple",
+            "Name": "OnDrillDispenserGather",
+            "HookName": "OnDrillDispenserGather",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "DrillMachine",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "SpawnResource",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "PxQi4VURNwhlyrr4eNgYAmyM28RGkMh/ddnLJ0R56Os=",
+            "BaseHookName": null,
+            "HookCategory": "Resource"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 15,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.EntitySource, l0",
+            "HookTypeName": "Simple",
+            "Name": "OnEntityDropLoot",
+            "HookName": "OnEntityDropLoot",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "AnimalStatManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "DropLoot",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "EntityEffectSourceData"
+              ]
+            },
+            "MSILHash": "fuIQZQwjtAYZJAqHKoJKhwgjbtevcY/mCYMTYu6E67g=",
+            "BaseHookName": null,
+            "HookCategory": "Entity"
+          }
         }
       ],
       "Modifiers": [
