@@ -1,5 +1,4 @@
-﻿using Emotes;
-using Oxide.Core;
+﻿using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Steamworks;
@@ -128,7 +127,7 @@ namespace Oxide.Game.Hurtworld.Libraries
 #else
         public void Emote(PlayerSession session, Emotes.EEmoteType emote)
         {
-            EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
+            Emotes.EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
 #endif
             emoteManager?.BeginEmoteServer(emote);
         }
