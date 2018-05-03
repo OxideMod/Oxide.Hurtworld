@@ -184,7 +184,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "zCpyjYrd51fX3d3q4LsdPLUwxBw+1At2kLYa8bxEmA4=",
+            "MSILHash": "R2zcyhfxGbPSVshj9xXuR/wO9KlpJUAUO8Q9Q14X+nU=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -272,7 +272,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "0bPp9h7Vcvv+2BawCdPuyWl9oIcygOG5qv9J9zqvQY8=",
+            "MSILHash": "IN3moPryoQ+8sVXjo97q/d5O0OQgSlilSIyEu079ok4=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1706,7 +1706,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "0bPp9h7Vcvv+2BawCdPuyWl9oIcygOG5qv9J9zqvQY8=",
+            "MSILHash": "IN3moPryoQ+8sVXjo97q/d5O0OQgSlilSIyEu079ok4=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1779,7 +1779,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "2RjO2ttDRVEppamoCiAXq6ee3Kp+jJK6zZ39b6u909E=",
+            "MSILHash": "bPXFfMjvg9vxYXSDMaojVg2c2/X9y01TzjZWEzPwI/M=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1803,7 +1803,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "2RjO2ttDRVEppamoCiAXq6ee3Kp+jJK6zZ39b6u909E=",
+            "MSILHash": "bPXFfMjvg9vxYXSDMaojVg2c2/X9y01TzjZWEzPwI/M=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
