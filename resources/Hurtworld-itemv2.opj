@@ -1693,8 +1693,8 @@
             "RemoveCount": 5,
             "Instructions": [],
             "HookTypeName": "Modify",
-            "Name": "MoveSessionDict [patch 1]",
-            "HookName": "MoveSessionDict [patch 1]",
+            "Name": "MoveSessionDict [patch]",
+            "HookName": "MoveSessionDict [patch]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GameManager",
             "Flagged": false,
@@ -1875,6 +1875,120 @@
             ],
             "Name": "_playerSessions",
             "FullTypeName": "System.Collections.Generic.Dictionary`2<uLink.NetworkPlayer,PlayerSession> GameManager::_playerSessions",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_steamIdSession",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_steamIdSession",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<Steamworks.CSteamID,PlayerSession> GameManager::_steamIdSession",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_userTokenMap",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_userTokenMap",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.Int32,PlayerSession> GameManager::_userTokenMap",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_activePlayerCount",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_activePlayerCount",
+            "FullTypeName": "System.Int32 GameManager::_activePlayerCount",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_admins",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_admins",
+            "FullTypeName": "System.Collections.Generic.HashSet`1<Steamworks.CSteamID> GameManager::_admins",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_playerQueue",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_playerQueue",
+            "FullTypeName": "System.Collections.Generic.List`1<PlayerSession> GameManager::_playerQueue",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_reservedSlots",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_reservedSlots",
+            "FullTypeName": "System.Collections.Generic.HashSet`1<Steamworks.CSteamID> GameManager::_reservedSlots",
             "Parameters": []
           },
           "MSILHash": ""

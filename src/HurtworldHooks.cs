@@ -51,9 +51,17 @@ namespace Oxide.Game.Hurtworld
             object loginCovalence = Interface.CallHook("CanUserLogin", session.Identity.Name, id, ip);
             object canLogin = loginSpecific ?? loginCovalence;
 
-            if (canLogin is string || (canLogin is bool && !(bool)canLogin))
+            if (canLogin is string || canLogin is bool && !(bool)canLogin)
             {
                 GameManager.Instance.StartCoroutine(GameManager.Instance.DisconnectPlayerSync(session.Player, canLogin is string ? canLogin.ToString() : "Connection was rejected")); // TODO: Localization
+                if (GameManager.Instance._playerSessions.ContainsKey(session.Player))
+                {
+                    GameManager.Instance._playerSessions.Remove(session.Player);
+                }
+                if (GameManager.Instance._steamIdSession.ContainsKey(session.SteamId))
+                {
+                    GameManager.Instance._steamIdSession.Remove(session.SteamId);
+                }
                 return true;
             }
 

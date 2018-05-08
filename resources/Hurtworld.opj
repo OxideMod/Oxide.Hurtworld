@@ -1684,6 +1684,63 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_admins",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_admins",
+            "FullTypeName": "System.Collections.Generic.HashSet`1<Steamworks.CSteamID> GameManager::_admins",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_steamIdSession",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_steamIdSession",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<Steamworks.CSteamID,PlayerSession> GameManager::_steamIdSession",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "GameManager::_userTokenMap",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "GameManager",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_userTokenMap",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.Int32,PlayerSession> GameManager::_userTokenMap",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [
