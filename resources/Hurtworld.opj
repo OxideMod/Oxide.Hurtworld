@@ -1741,6 +1741,50 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "CharacterMotorSimple::Accelerate",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CharacterMotorSimple",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "Accelerate",
+            "FullTypeName": "UnityEngine.Vector3",
+            "Parameters": [
+              "UnityEngine.Vector3",
+              "System.Single",
+              "UnityEngine.Vector3",
+              "System.Single",
+              "System.Single"
+            ]
+          },
+          "MSILHash": "g9v5OSC63qyLe3/rDooFrUuIF6wnGDXicFTf3axo01w="
+        },
+        {
+          "Name": "CharacterMotorSimple::_state",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CharacterMotorSimple",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_state",
+            "FullTypeName": "CharMotorRewindDependantState CharacterMotorSimple::_state",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [
