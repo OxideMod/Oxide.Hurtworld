@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
+            "MSILHash": "7gW6RLy173p9qwdjd8K/RYdIfpL0XvEZVmDwsdFVGTc=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -168,7 +168,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 109,
+            "InjectionIndex": 114,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -184,7 +184,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "LRr39PBYW+ydYer6d+bX3p7cDzGPAKRf5seXRMIgbsc=",
+            "MSILHash": "XcLz8S9dKZXKp9wR03ArEQkLdYGUh+e0mO7Eg6cvuqE=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -254,7 +254,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 167,
+            "InjectionIndex": 172,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
             "ArgumentString": "l4",
@@ -272,7 +272,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "B86hAUuhLot9JWpSWYExnn6HMiFfwk24GGJ9PfJqdXI=",
+            "MSILHash": "9zzeGbnduLmCSptNiQFrZdfXmzwn2Q9goGJsiY1Cvr4=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -324,7 +324,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
+            "MSILHash": "7gW6RLy173p9qwdjd8K/RYdIfpL0XvEZVmDwsdFVGTc=",
             "BaseHookName": "OnServerCommand",
             "HookCategory": "_Patches"
           }
@@ -355,7 +355,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "sh0/uYLXneB9IAyhEyvmt7aGqF4EtEbmYzb/n3FtgKE=",
+            "MSILHash": "7gW6RLy173p9qwdjd8K/RYdIfpL0XvEZVmDwsdFVGTc=",
             "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
@@ -882,7 +882,7 @@
                 "EntityEffectSourceData"
               ]
             },
-            "MSILHash": "O5ms0YwZcrbhTaJ06GFoGZMaAXyQDjOG0OgiPmHdIzM=",
+            "MSILHash": "ps3twXf3CZxmxsWAbmx0Q2owEvFLwC8SyMUEqg4Z798=",
             "BaseHookName": null,
             "HookCategory": "Resource"
           }
@@ -1689,7 +1689,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 128,
+            "InjectionIndex": 133,
             "RemoveCount": 5,
             "Instructions": [],
             "HookTypeName": "Modify",
@@ -1706,7 +1706,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "B86hAUuhLot9JWpSWYExnn6HMiFfwk24GGJ9PfJqdXI=",
+            "MSILHash": "9zzeGbnduLmCSptNiQFrZdfXmzwn2Q9goGJsiY1Cvr4=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1779,7 +1779,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "xfWvezCvAI3j82Yfa3nSdcnftyJt/0FhPnkpxp3nXJw=",
+            "MSILHash": "nb7/qFvlp0q/jCL06c7ZefJ0tWl8FYIaRnXPWF2Bp1c=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1803,7 +1803,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "xfWvezCvAI3j82Yfa3nSdcnftyJt/0FhPnkpxp3nXJw=",
+            "MSILHash": "nb7/qFvlp0q/jCL06c7ZefJ0tWl8FYIaRnXPWF2Bp1c=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
@@ -1853,7 +1853,7 @@
                 "EntityEffectSourceData"
               ]
             },
-            "MSILHash": "fuIQZQwjtAYZJAqHKoJKhwgjbtevcY/mCYMTYu6E67g=",
+            "MSILHash": "IAr9VXM/UrIE2N3pYiiLgnoLqgpzQKoEIMIxLIbTgEU=",
             "BaseHookName": null,
             "HookCategory": "Entity"
           }
