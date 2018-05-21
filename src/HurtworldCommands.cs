@@ -720,7 +720,7 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("SaveCommand")]
         private void SaveCommand(IPlayer player, string command, string[] args)
         {
-            if (PermissionsLoaded(player))
+            if (PermissionsLoaded(player) && player.IsAdmin)
             {
                 Interface.Oxide.OnSave();
                 player.Reply(lang.GetMessage("DataSaved", this, player.Id));
