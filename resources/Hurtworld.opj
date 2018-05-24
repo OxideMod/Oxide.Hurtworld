@@ -13,8 +13,8 @@
             "ArgumentBehavior": 2,
             "ArgumentString": "",
             "HookTypeName": "Simple",
-            "Name": "OnServerCommand",
-            "HookName": "OnServerCommand",
+            "Name": "IOnServerCommand [internal]",
+            "HookName": "IOnServerCommand",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ConsoleManager",
             "Flagged": false,
@@ -349,7 +349,7 @@
               ]
             },
             "MSILHash": "I5va+g4gEe65liw1VFwa9mb9eL2Gq5O79T7fHysV8+Y=",
-            "BaseHookName": "OnServerCommand",
+            "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patches"
           }
         },

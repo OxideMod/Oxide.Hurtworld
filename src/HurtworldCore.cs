@@ -182,8 +182,8 @@ namespace Oxide.Game.Hurtworld
         /// </summary>
         /// <param name="arg"></param>
         /// <returns></returns>
-        [HookMethod("OnServerCommand")]
-        private object OnServerCommand(string arg)
+        [HookMethod("IOnServerCommand")]
+        private object IOnServerCommand(string arg)
         {
             if (arg == null || arg.Trim().Length == 0)
             {
@@ -192,6 +192,11 @@ namespace Oxide.Game.Hurtworld
 
             string command = $"{arg.Split(' ')[0]}";
             string[] args = arg.Split(' ').Skip(1).ToArray();
+
+            if (Interface.Call("OnServerCommand", command, args) != null)
+            {
+                return true;
+            }
 
             // Is this a covalence command?
             if (Covalence.CommandSystem.HandleConsoleMessage(Covalence.CommandSystem.consolePlayer, arg))
