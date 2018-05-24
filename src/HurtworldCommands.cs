@@ -723,6 +723,7 @@ namespace Oxide.Game.Hurtworld
             if (PermissionsLoaded(player) && player.IsAdmin)
             {
                 Interface.Oxide.OnSave();
+                Covalence.PlayerManager.SavePlayerData();
                 player.Reply(lang.GetMessage("DataSaved", this, player.Id));
             }
         }
