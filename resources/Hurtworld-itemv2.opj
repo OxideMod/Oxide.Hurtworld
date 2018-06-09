@@ -1857,6 +1857,181 @@
             "BaseHookName": null,
             "HookCategory": "Entity"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 73,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject, this, l7",
+            "HookTypeName": "Simple",
+            "Name": "OnAirEventDrop",
+            "HookName": "OnEventDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "AirDropEvent",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "SpawnDrop",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "upOKzSYVGE6ezC6byzI2htTOr4L2UXCXMtfzP/ZgjL8=",
+            "BaseHookName": null,
+            "HookCategory": "Events"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 45,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject, this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnControlTownEventDrop",
+            "HookName": "OnEventDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ControlTownEvent",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 1,
+              "Name": "EventThink",
+              "ReturnType": "System.Single",
+              "Parameters": [
+                "System.Single"
+              ]
+            },
+            "MSILHash": "+LkpqciB9yZhzwX8YaD9WLeTpmwqx0LZihnnJeTk4x8=",
+            "BaseHookName": null,
+            "HookCategory": "Events"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 9,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject,this,l0",
+            "HookTypeName": "Simple",
+            "Name": "OnExplodableMiningRockDrop",
+            "HookName": "OnExplodableMiningRockDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ExplodableMiningRock",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "DoExplode",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "nCDx8T4FO+RHdo5TLet03y1WBjgUIQTmmKlEMpCshVw=",
+            "BaseHookName": null,
+            "HookCategory": "Resource"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 38,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnLootCaseOpen",
+            "HookName": "OnLootCaseOpen",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentLootCase",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OpenCase",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "00UTzCmpZfSEBg71t/e4BMQPWhmJaGcq0xeqbNNQqUQ=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 87,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject, this, l5",
+            "HookTypeName": "Simple",
+            "Name": "OnLootFrenzyTownEventSpawn",
+            "HookName": "OnEventDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "LootFrenzyTownEvent",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "TriggerSpawn",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "30/lnJbuG2qPbYA+Sq0BP3uzMXeIZAGBnAr1l6UFK54=",
+            "BaseHookName": null,
+            "HookCategory": "Events"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 25,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject,this,l1",
+            "HookTypeName": "Simple",
+            "Name": "OnVehicleCorpseLootDrop",
+            "HookName": "OnVehicleCorpseLootDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "VehicleCorpseLoot",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "StatsOnEventPublished",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "EntityEventData",
+                "EntityEffectSourceData"
+              ]
+            },
+            "MSILHash": "OeZqnBbY+0QYT65FodFxtUsjS7SIcWc+R+7IIHyuuMw=",
+            "BaseHookName": null,
+            "HookCategory": "Resource"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 15,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.GameObject, this, l0",
+            "HookTypeName": "Simple",
+            "Name": "OnDisassembleVehicleDrop",
+            "HookName": "OnDisassembleVehicleDrop",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "VehicleStatManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "DisassembleVehicle",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "3JUyRGFY9yb3Tjuvbg58XZp0AuqfAJ5zUl4vqtgNYwo=",
+            "BaseHookName": null,
+            "HookCategory": "Resource"
+          }
         }
       ],
       "Modifiers": [
