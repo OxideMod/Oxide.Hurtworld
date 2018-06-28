@@ -184,7 +184,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "n7XKiDZ4n3vKP/kUXA30ZABmqhDuvPe1ar2VtMSd204=",
+            "MSILHash": "OFe6o71QPolptYUMjTVTaL9GLf23/qDH6MqnyIUubRI=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -272,7 +272,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "Bh8sbuUARk1miI9apnRG0Rh1GNkEOpvC139LcRYg9T0=",
+            "MSILHash": "GrAS4x3Iy7OsM+Wj05fea/tAffjz+G0DCYs8pvQoFWs=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1706,7 +1706,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "Bh8sbuUARk1miI9apnRG0Rh1GNkEOpvC139LcRYg9T0=",
+            "MSILHash": "GrAS4x3Iy7OsM+Wj05fea/tAffjz+G0DCYs8pvQoFWs=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1779,7 +1779,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "EO+B3vOBTGT1ne9AnGcWNHRLrGotoczjhFWxkuZ2OlI=",
+            "MSILHash": "X3SvArvBsi5CqaRSoLMsO7BKpxBxsxjWIM3onWSsjxA=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1803,7 +1803,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "EO+B3vOBTGT1ne9AnGcWNHRLrGotoczjhFWxkuZ2OlI=",
+            "MSILHash": "X3SvArvBsi5CqaRSoLMsO7BKpxBxsxjWIM3onWSsjxA=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
@@ -1861,7 +1861,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 73,
+            "InjectionIndex": 87,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
             "ArgumentString": "this.gameObject, this, l7",
@@ -1877,7 +1877,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "upOKzSYVGE6ezC6byzI2htTOr4L2UXCXMtfzP/ZgjL8=",
+            "MSILHash": "/VYC4m9R24mISRJC+7T01NwhneJIPgOmq4Y6ek5Ri9Y=",
             "BaseHookName": null,
             "HookCategory": "Events"
           }
