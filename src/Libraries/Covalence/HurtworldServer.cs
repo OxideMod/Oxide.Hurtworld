@@ -3,6 +3,7 @@ using Oxide.Core.Libraries.Covalence;
 using System;
 using System.Globalization;
 using System.Net;
+using uLink;
 
 namespace Oxide.Game.Hurtworld.Libraries.Covalence
 {
@@ -42,11 +43,20 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                 {
                     if (address != null)
                     {
-                        return address;
+                        try
+                        {
+                            if (Utility.ValidateIPv4(Network.config.localIP) && !Utility.IsLocalIP(Network.config.localIP))
+                            {
+                                IPAddress.TryParse(Network.config.localIP, out address);
+                            }
+                        }
+                        catch
+                        {
+                            WebClient webClient = new WebClient();
+                            IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
+                        }
                     }
 
-                    WebClient webClient = new WebClient();
-                    IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
                     return address;
                 }
                 catch (Exception ex)
