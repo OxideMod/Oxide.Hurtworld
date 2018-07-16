@@ -1,4 +1,4 @@
-﻿using Oxide.Core;
+using Oxide.Core;
 using Oxide.Core.Extensions;
 using Oxide.Core.RemoteConsole;
 using Oxide.Plugins;
@@ -6,11 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
 using uLink;
-
 using UnityEngine;
-
 using NetworkPlayer = uLink.NetworkPlayer;
 
 namespace Oxide.Game.Hurtworld
@@ -157,7 +154,7 @@ namespace Oxide.Game.Hurtworld
 
         internal static void ServerConsole()
         {
-            if (Interface.Oxide.ServerConsole == null)
+            if (Interface.Oxide.ServerConsole == null || GameManager.Instance.GameState != EGameState.Hosting)
             {
                 return;
             }
