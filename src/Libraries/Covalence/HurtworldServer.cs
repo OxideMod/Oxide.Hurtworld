@@ -41,7 +41,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             {
                 try
                 {
-                    if (address != null)
+                    if (address == null)
                     {
                         if (Utility.ValidateIPv4(GameManager.Instance.ServerConfig.BoundIP) && !Utility.IsLocalIP(GameManager.Instance.ServerConfig.BoundIP))
                         {
