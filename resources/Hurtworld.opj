@@ -192,30 +192,6 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 101,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "IOnServerInitialized [internal]",
-            "HookName": "IOnServerInitialized",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "SteamworksManagerClient",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "InvalidateServerConfig",
-              "ReturnType": "System.Void",
-              "Parameters": []
-            },
-            "MSILHash": "a3t9959aG+ATe0n/01gjHgzIhDjb9Bg7+Rc5OgGlJYk=",
-            "BaseHookName": null,
-            "HookCategory": "Server"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
             "InjectionIndex": 8,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
@@ -1661,6 +1637,30 @@
             },
             "MSILHash": "iQTqGYaK1iGbuUzLWeuAJ/zBN7ty0JbIx3Y7ie4HirQ=",
             "BaseHookName": "InitOxide [internal]",
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 376,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnServerInitialized [internal]",
+            "HookName": "IOnServerInitialized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameManager/<HostAsync>c__Iterator6A",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "MoveNext",
+              "ReturnType": "System.Boolean",
+              "Parameters": []
+            },
+            "MSILHash": "dKOPM800ExTIFmpjkikA8jX9sZdyjAOPqsKydFU7IBs=",
+            "BaseHookName": null,
             "HookCategory": "Server"
           }
         }
