@@ -25,8 +25,8 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// </summary>
         public string Name
         {
-            get { return GameManager.Instance.ServerConfig.GameName; }
-            set { GameManager.Instance.ServerConfig.GameName = value; }
+            get => GameManager.Instance.ServerConfig.GameName;
+            set => GameManager.Instance.ServerConfig.GameName = value;
         }
 
         private static IPAddress address;
@@ -51,7 +51,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                         }
                         else if ((ip = Steamworks.SteamGameServer.GetPublicIP()) > 0)
                         {
-                            string publicIp = string.Concat(ip >> 24 & 255, ".", ip >> 16 & 255, ".", ip >> 8 & 255, ".", ip & 255);
+                            string publicIp = string.Concat(ip >> 24 & 255, ".", ip >> 16 & 255, ".", ip >> 8 & 255, ".", ip & 255); // TODO: uint IP address utility method
                             IPAddress.TryParse(publicIp, out address);
                             Interface.Oxide.LogDebug($"IP address from Steam query: {address}");
                         }
@@ -122,8 +122,8 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// </summary>
         public int MaxPlayers
         {
-            get { return GameManager.Instance.ServerConfig.MaxPlayers; }
-            set { GameManager.Instance.ServerConfig.MaxPlayers = value; }
+            get => GameManager.Instance.ServerConfig.MaxPlayers;
+            set => GameManager.Instance.ServerConfig.MaxPlayers = value;
         }
 
         /// <summary>

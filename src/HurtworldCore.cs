@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-
 using NetworkPlayer = uLink.NetworkPlayer;
 
 namespace Oxide.Game.Hurtworld
@@ -140,17 +139,15 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnServerInitialized")] // Internal wrapper to avoid call on each player connection
         private void IOnServerInitialized()
         {
-            if (serverInitialized)
+            if (!serverInitialized)
             {
-                return;
+                Analytics.Collect();
+                HurtworldExtension.ServerConsole();
+                SteamGameServer.SetGameTags("oxide,modded");
+
+                Interface.CallHook("OnServerInitialized");
+                serverInitialized = true;
             }
-
-            Analytics.Collect();
-            HurtworldExtension.ServerConsole();
-            SteamGameServer.SetGameTags("oxide,modded");
-
-            Interface.CallHook("OnServerInitialized");
-            serverInitialized = true;
         }
 
         /// <summary>
