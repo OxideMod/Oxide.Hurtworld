@@ -4,7 +4,6 @@ using Oxide.Core.Libraries.Covalence;
 using Steamworks;
 using System;
 using System.Globalization;
-
 using UnityEngine;
 
 namespace Oxide.Game.Hurtworld.Libraries.Covalence
