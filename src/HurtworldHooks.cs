@@ -3,7 +3,6 @@ using Oxide.Core.Configuration;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
 using UnityEngine;
-
 using NetworkPlayer = uLink.NetworkPlayer;
 
 namespace Oxide.Game.Hurtworld

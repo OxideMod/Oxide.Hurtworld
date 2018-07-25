@@ -3,7 +3,6 @@ using Oxide.Core.Extensions;
 using Oxide.Core.RemoteConsole;
 using Oxide.Plugins;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using uLink;
@@ -172,7 +171,7 @@ namespace Oxide.Game.Hurtworld
             Interface.Oxide.ServerConsole.Status2Left = () => $"{GameManager.Instance.GetPlayerCount()}/{GameManager.Instance.ServerConfig.MaxPlayers} players";
             Interface.Oxide.ServerConsole.Status2Right = () =>
             {
-                if (uLink.NetworkTime.serverTime <= 0)
+                if (NetworkTime.serverTime <= 0)
                 {
                     return "not connected";
                 }
@@ -182,22 +181,25 @@ namespace Oxide.Game.Hurtworld
                 foreach (NetworkPlayer connection in uLink.Network.connections)
                 {
                     NetworkStatistics stats = connection.statistics;
-                    if (stats == null)
+                    if (stats != null)
                     {
-                        continue;
+                        bytesReceived += stats.bytesReceivedPerSecond;
+                        bytesSent += stats.bytesSentPerSecond;
                     }
-
-                    bytesReceived += stats.bytesReceivedPerSecond;
-                    bytesSent += stats.bytesSentPerSecond;
                 }
                 return $"{Utility.FormatBytes(bytesReceived)}/s in, {Utility.FormatBytes(bytesSent)}/s out";
             };
 
             Interface.Oxide.ServerConsole.Status3Left = () =>
             {
-                GameTime time = TimeManager.Instance.GetCurrentGameTime();
-                string gameTime = Convert.ToDateTime($"{time.Hour}:{time.Minute}:{Math.Floor(time.Second)}").ToString("h:mm tt");
-                return $"{gameTime.ToLower()}, {GameManager.Instance?.ServerConfig?.Map ?? "Unknown"}";
+                if (TimeManager.Instance != null && GameManager.Instance != null)
+                {
+                    GameTime time = TimeManager.Instance.GetCurrentGameTime();
+                    string gameTime = Convert.ToDateTime($"{time.Hour}:{time.Minute}:{Math.Floor(time.Second)}").ToString("h:mm tt");
+                    return $"{gameTime.ToLower()}, {GameManager.Instance.ServerConfig?.Map ?? "Unknown"}";
+                }
+
+                return string.Empty;
             };
             Interface.Oxide.ServerConsole.Status3Right = () => $"Oxide.Hurtworld {AssemblyVersion}";
             Interface.Oxide.ServerConsole.Status3RightColor = ConsoleColor.Yellow;
@@ -214,37 +216,36 @@ namespace Oxide.Game.Hurtworld
 
         internal static void HandleLog(string message, string stackTrace, LogType type)
         {
-            if (string.IsNullOrEmpty(message) || Filter.Any(message.StartsWith))
+            if (!string.IsNullOrEmpty(message) && !Filter.Any(message.StartsWith))
             {
-                return;
-            }
+                ConsoleColor color = ConsoleColor.Gray;
+                string remoteType = "generic";
 
-            ConsoleColor color = ConsoleColor.Gray;
-            string remoteType = "generic";
+                if (type == LogType.Warning)
+                {
+                    color = ConsoleColor.Yellow;
+                    remoteType = "warning";
+                }
+                else if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert)
+                {
+                    color = ConsoleColor.Red;
+                    remoteType = "error";
+                }
 
-            if (type == LogType.Warning)
-            {
-                color = ConsoleColor.Yellow;
-                remoteType = "warning";
-            }
-            else if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert)
-            {
-                color = ConsoleColor.Red;
-                remoteType = "error";
-            }
-            if (message.ToLower().StartsWith("[chat]"))
-            {
-                remoteType = "chat";
-            }
+                if (message.ToLower().StartsWith("[chat]"))
+                {
+                    remoteType = "chat";
+                }
 
-            Interface.Oxide.ServerConsole.AddMessage(message, color);
-            Interface.Oxide.RemoteConsole.SendMessage(new RemoteMessage
-            {
-                Message = message,
-                Identifier = 0,
-                Type = remoteType,
-                Stacktrace = stackTrace
-            });
+                Interface.Oxide.ServerConsole.AddMessage(message, color);
+                Interface.Oxide.RemoteConsole.SendMessage(new RemoteMessage
+                {
+                    Message = message,
+                    Identifier = 0,
+                    Type = remoteType,
+                    Stacktrace = stackTrace
+                });
+            }
         }
     }
 }

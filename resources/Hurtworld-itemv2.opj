@@ -168,30 +168,6 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 114,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 0,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "IOnServerInitialized [internal]",
-            "HookName": "IOnServerInitialized",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "SteamworksManagerClient",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "InvalidateServerConfig",
-              "ReturnType": "System.Void",
-              "Parameters": []
-            },
-            "MSILHash": "8CKdqY7/OIG+nYbIR4BnaKYSLDRdkhMKYzXvhp1fFtU=",
-            "BaseHookName": null,
-            "HookCategory": "Server"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
             "InjectionIndex": 8,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
@@ -2031,6 +2007,30 @@
             "MSILHash": "jjt0WGjDJU/QWFf0rCNM5HgE7wi65M3CpeCFk61QcYg=",
             "BaseHookName": null,
             "HookCategory": "Resource"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 388,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnServerInitialized [internal]",
+            "HookName": "IOnServerInitialized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameManager/<HostAsync>c__Iterator6",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "MoveNext",
+              "ReturnType": "System.Boolean",
+              "Parameters": []
+            },
+            "MSILHash": "Px+XFfvwhmWn+WKJCu2QD0hQk7kDK3q5oB7bsFRagdY=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
           }
         }
       ],
