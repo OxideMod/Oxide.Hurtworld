@@ -42,6 +42,9 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>Dependencies\Patched\$(ManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>Dependencies\Patched\$(ManagedDir)\mscorlib.dll</HintPath>
+    </Reference>
     <Reference Include="Rewired_Core">
       <HintPath>Dependencies\Patched\$(ManagedDir)\Rewired_Core.dll</HintPath>
     </Reference>
