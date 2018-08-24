@@ -47,19 +47,19 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                         if (Utility.ValidateIPv4(GameManager.Instance.ServerConfig.BoundIP) && !Utility.IsLocalIP(GameManager.Instance.ServerConfig.BoundIP))
                         {
                             IPAddress.TryParse(GameManager.Instance.ServerConfig.BoundIP, out address);
-                            Interface.Oxide.LogDebug($"IP address from command-line: {address}");
+                            Interface.Oxide.LogInfo($"IP address from command-line: {address}");
                         }
                         else if ((ip = Steamworks.SteamGameServer.GetPublicIP()) > 0)
                         {
                             string publicIp = string.Concat(ip >> 24 & 255, ".", ip >> 16 & 255, ".", ip >> 8 & 255, ".", ip & 255); // TODO: uint IP address utility method
                             IPAddress.TryParse(publicIp, out address);
-                            Interface.Oxide.LogDebug($"IP address from Steam query: {address}");
+                            Interface.Oxide.LogInfo($"IP address from Steam query: {address}");
                         }
                         else
                         {
                             WebClient webClient = new WebClient();
                             IPAddress.TryParse(webClient.DownloadString("http://api.ipify.org"), out address);
-                            Interface.Oxide.LogDebug($"IP address from external API: {address}");
+                            Interface.Oxide.LogInfo($"IP address from external API: {address}");
                         }
                     }
 
