@@ -147,6 +147,8 @@ namespace Oxide.Game.Hurtworld
 
                 Interface.CallHook("OnServerInitialized");
                 serverInitialized = true;
+
+                Interface.Oxide.LogInfo($"Server version is: {Server.Version}");
             }
         }
 
