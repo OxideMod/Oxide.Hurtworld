@@ -295,12 +295,7 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnTakeDamage")]
         private void IOnTakeDamage(EntityEffectFluid effect, EntityStats target, EntityEffectSourceData source)
         {
-            Interface.Oxide.LogWarning("effect == null? " + (effect == null));
-            Interface.Oxide.LogWarning("target == null? " + (target == null));
-            Interface.Oxide.LogWarning("source == null? " + (source == null));
-            Interface.Oxide.LogWarning("source.Value != 0? " + (source?.Value.Equals(0f)));
-
-            if (effect == null || target == null || source != null && source.Value.Equals(0f))
+            if (effect == null || target == null || source == null || source.Value.Equals(0f))
             {
                 return;
             }
@@ -316,7 +311,6 @@ namespace Oxide.Game.Hurtworld
             if (networkView != null)
             {
                 PlayerSession session = GameManager.Instance.GetSession(networkView.owner);
-                Interface.Oxide.LogDebug("session is null? " + (session == null));
                 if (session != null)
                 {
                     Interface.CallHook("OnPlayerTakeDamage", session, source);
