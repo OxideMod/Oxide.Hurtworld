@@ -1,6 +1,6 @@
 {
   "Name": "Hurtworld",
-  "TargetDirectory": "E:\\Servers\\Hurtworld-itemv2\\Hurtworld_Data\\Managed",
+  "TargetDirectory": "D:\\Servers\\Hurtworld-itemv2\\Hurtworld_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "/Lg9ekD39rppFPZjGy3IGoGWNDGLUgc8qEUA8+hlU7I=",
+            "MSILHash": "apap08vshOnSYIOhGX2QO7cHdgB5QhD7u0IZFdMQz7c=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -248,7 +248,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "qfBK5FiN02frXcUBcHhslHMkPPnYx0PLJdtHFdggifM=",
+            "MSILHash": "QlkUUv4I+yKNDLJ2iyJ8eQrSfBTfba/ADZkmNdwGGqw=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -275,7 +275,7 @@
                 "EntityEffectSourceData"
               ]
             },
-            "MSILHash": "PeiwEVgRAHNTR360mf/Sype67Kscg61vjYruWz485Wg=",
+            "MSILHash": "uPP7ZpcvawDv/bVqT3nscayzVaRRgm6rrpGUbgHtAdA=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "/Lg9ekD39rppFPZjGy3IGoGWNDGLUgc8qEUA8+hlU7I=",
+            "MSILHash": "apap08vshOnSYIOhGX2QO7cHdgB5QhD7u0IZFdMQz7c=",
             "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patches"
           }
@@ -308,7 +308,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 2865,
+            "InjectionIndex": 2885,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -331,7 +331,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "/Lg9ekD39rppFPZjGy3IGoGWNDGLUgc8qEUA8+hlU7I=",
+            "MSILHash": "apap08vshOnSYIOhGX2QO7cHdgB5QhD7u0IZFdMQz7c=",
             "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
@@ -1682,7 +1682,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "qfBK5FiN02frXcUBcHhslHMkPPnYx0PLJdtHFdggifM=",
+            "MSILHash": "QlkUUv4I+yKNDLJ2iyJ8eQrSfBTfba/ADZkmNdwGGqw=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1755,7 +1755,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "MT8+M8jzXamtsyGuia+ZOlcUVrLIjACkjW3F5TcXAjY=",
+            "MSILHash": "ltFxY/M7df1TGJd9Tk6ngH8c7LauP/u+yTnKFVVZ2WY=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1779,7 +1779,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "MT8+M8jzXamtsyGuia+ZOlcUVrLIjACkjW3F5TcXAjY=",
+            "MSILHash": "ltFxY/M7df1TGJd9Tk6ngH8c7LauP/u+yTnKFVVZ2WY=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
