@@ -307,7 +307,11 @@ namespace Oxide.Game.Hurtworld
                 return;
             }
 
-            uLinkNetworkView networkView = target.GetComponent<uLinkNetworkView>();
+#if ITEMV2
+            HNetworkView networkView = target.networkView;
+#else
+            uLink.NetworkView networkView = target.uLinkNetworkView();
+#endif
             if (networkView != null)
             {
                 PlayerSession session = GameManager.Instance.GetSession(networkView.owner);
