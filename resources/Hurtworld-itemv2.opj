@@ -2039,7 +2039,7 @@
             "InjectionIndex": 19,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
-            "ArgumentString": "l0, a1",
+            "ArgumentString": "l0",
             "HookTypeName": "Simple",
             "Name": "OnPlayerSpawn",
             "HookName": "OnPlayerSpawn",
