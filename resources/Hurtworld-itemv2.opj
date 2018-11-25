@@ -1,6 +1,6 @@
 {
   "Name": "Hurtworld",
-  "TargetDirectory": "C:\\Users\\pimmo\\Documents\\JoPiDev\\AltCom\\Oxide\\OxideGits\\Oxide.Patcher\\uMod.Patcher\\src\\bin\\Debug\\net45",
+  "TargetDirectory": "D:\\Servers\\Hurtworld-itemv2\\Hurtworld_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
