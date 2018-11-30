@@ -1,4 +1,4 @@
-﻿using Oxide.Core;
+using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Steamworks;
@@ -30,7 +30,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <summary>
         /// Gets the player's language
         /// </summary>
-        public CultureInfo Language(PlayerSession session) => CultureInfo.GetCultureInfo("en"); // TODO: Implement when possible
+        public CultureInfo Language(PlayerSession session) => CultureInfo.GetCultureInfo(session.WorldPlayerEntity.PlayerOptions.CurrentConfig.CurrentLanguage);
 
         /// <summary>
         /// Gets the player's IP address
