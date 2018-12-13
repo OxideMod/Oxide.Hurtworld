@@ -1,4 +1,4 @@
-﻿using Oxide.Core;
+using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Steamworks;
@@ -30,7 +30,14 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <summary>
         /// Gets the player's language
         /// </summary>
-        public CultureInfo Language(PlayerSession session) => CultureInfo.GetCultureInfo("en"); // TODO: Implement when possible
+        public CultureInfo Language(PlayerSession session)
+        {
+#if ITEMV2
+            return CultureInfo.GetCultureInfo(session.WorldPlayerEntity.PlayerOptions.CurrentConfig.CurrentLanguage);
+#else
+            return CultureInfo.GetCultureInfo("en");
+#endif
+        }
 
         /// <summary>
         /// Gets the player's IP address
@@ -125,6 +132,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         {
             EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<EmoteManagerServer>();
 #else
+
         public void Emote(PlayerSession session, Emotes.EEmoteType emote)
         {
             Emotes.EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
@@ -476,6 +484,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void DropItem(PlayerSession session, IItem item)
         {
 #else
+
         public void DropItem(PlayerSession session, Assets.Scripts.Core.IItem item)
         {
             Vector3 position = session.WorldPlayerEntity.transform.position;
@@ -508,7 +517,9 @@ namespace Oxide.Game.Hurtworld.Libraries
 #if ITEMV2
         public void GiveItem(PlayerSession session, ItemObject item, int quantity = 1) => ItemManager.GiveItem(session.Player, item.Generator, quantity);
 #else
+
         public void GiveItem(PlayerSession session, Assets.Scripts.Core.IItem item, int quantity = 1) => ItemManager.GiveItem(session.Player, item, quantity);
+
 #endif
 
         #endregion Item Handling
@@ -529,7 +540,9 @@ namespace Oxide.Game.Hurtworld.Libraries
 #if ITEMV2
         public void ClearInventory(PlayerSession session) => Inventory(session)?.ClearItems();
 #else
+
         public void ClearInventory(PlayerSession session) => Inventory(session)?.DestroyAll();
+
 #endif
 
         #endregion Inventory Handling

@@ -7,7 +7,7 @@
     <Authors>Oxide and Contributors</Authors>
     <Description>Hurtworld extension for the Oxide modding framework</Description>
     <RepositoryUrl>https://github.com/OxideMod/Oxide.Hurtworld</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/OxideMod/Oxide.Hurtworld/blob/develop/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/OxideMod/Oxide.Hurtworld</PackageProjectUrl>
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/10712027?s=64</PackageIconUrl>
     <Copyright>Copyright (c) 2013-$([System.DateTime]::Now.Year) $(Authors)</Copyright>
