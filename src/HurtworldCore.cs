@@ -1,4 +1,4 @@
-﻿using Oxide.Core;
+using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
@@ -126,27 +126,27 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("OnPluginLoaded")]
         private void OnPluginLoaded(Plugin plugin)
         {
-            // Call OnServerInitialized for hotloaded plugins
             if (serverInitialized)
             {
-                plugin.CallHook("OnServerInitialized");
+                // Call OnServerInitialized for hotloaded plugins
+                plugin.CallHook("OnServerInitialized", false);
             }
         }
 
         /// <summary>
         /// Called when the server is first initialized
         /// </summary>
-        [HookMethod("IOnServerInitialized")] // Internal wrapper to avoid call on each player connection
+        [HookMethod("IOnServerInitialized")]
         private void IOnServerInitialized()
         {
             if (!serverInitialized)
             {
                 Analytics.Collect();
-                HurtworldExtension.ServerConsole();
                 SteamGameServer.SetGameTags("oxide,modded");
 
-                Interface.CallHook("OnServerInitialized");
+                // Let plugins know server startup is complete
                 serverInitialized = true;
+                Interface.CallHook("OnServerInitialized", serverInitialized);
 
                 Interface.Oxide.LogInfo($"Server version is: {Server.Version}");
             }
