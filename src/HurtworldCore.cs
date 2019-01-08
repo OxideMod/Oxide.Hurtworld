@@ -142,6 +142,7 @@ namespace Oxide.Game.Hurtworld
             if (!serverInitialized)
             {
                 Analytics.Collect();
+                HurtworldExtension.ServerConsole();
                 SteamGameServer.SetGameTags("oxide,modded");
 
                 // Let plugins know server startup is complete
