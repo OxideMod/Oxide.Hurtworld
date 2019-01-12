@@ -44,11 +44,7 @@ namespace Oxide.Game.Hurtworld
         /// <summary>
         /// Gets the branch of this extension
         /// </summary>
-#if ITEMV2
-        public override string Branch => "itemv2"; // TODO: Handle this programmatically
-#else
-        public override string Branch => "public";
-#endif
+        public override string Branch => "public"; // TODO: Handle this programmatically
 
         /// <summary>
         /// Default game-specific references for use in plugins

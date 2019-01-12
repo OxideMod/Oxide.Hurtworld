@@ -1,4 +1,4 @@
-﻿using Oxide.Core.Libraries;
+using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
 using System;
 
@@ -67,11 +67,7 @@ namespace Oxide.Game.Hurtworld.Libraries
 
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             string formatted = prefix != null ? $"{prefix} {message}" : message;
-#if ITEMV2
             ChatManager.SendChatMessage(new ServerChatMessage(formatted));
-#else
-            ChatManager.RPC("RelayChat", uLink.RPCMode.Others, formatted);
-#endif
             ConsoleManager.SendLog($"[Chat] {message}");
         }
 
