@@ -138,21 +138,12 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             get
             {
                 EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-#if ITEMV2
                 return stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health).GetValue();
-#else
-                return stats.GetFluidEffect(EEntityFluidEffectType.Health).GetValue();
-#endif
             }
             set
             {
                 EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-#if ITEMV2
                 StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
-#else
-                StandardEntityFluidEffect effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
-                effect?.SetValue(value);
-#endif
             }
         }
 
@@ -181,22 +172,16 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             get
             {
                 EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-#if ITEMV2
                 return stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health).GetMaxValue();
-#else
-                return stats.GetFluidEffect(EEntityFluidEffectType.Health).GetMaxValue();
-#endif
             }
             set
             {
                 EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-#if ITEMV2
                 StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
-                if (effect != null) effect.MaxValue = value;
-#else
-                StandardEntityFluidEffect effect = stats.GetFluidEffect(EEntityFluidEffectType.Health) as StandardEntityFluidEffect;
-                effect?.MaxValue(value);
-#endif
+                if (effect != null)
+                {
+                    effect.MaxValue = value;
+                }
             }
         }
 
