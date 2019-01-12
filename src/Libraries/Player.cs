@@ -32,11 +32,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         public CultureInfo Language(PlayerSession session)
         {
-#if ITEMV2
             return CultureInfo.GetCultureInfo(session.WorldPlayerEntity.PlayerOptions.CurrentConfig.CurrentLanguage);
-#else
-            return CultureInfo.GetCultureInfo("en");
-#endif
         }
 
         /// <summary>
@@ -127,16 +123,9 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         /// <param name="session"></param>
         /// <param name="emote"></param>
-#if ITEMV2
         public void Emote(PlayerSession session, int emote)
         {
             EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<EmoteManagerServer>();
-#else
-
-        public void Emote(PlayerSession session, Emotes.EEmoteType emote)
-        {
-            Emotes.EmoteManagerServer emoteManager = session.WorldPlayerEntity.GetComponent<Emotes.EmoteManagerServer>();
-#endif
             emoteManager?.BeginEmoteServer(emote);
         }
 
@@ -147,11 +136,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="amount"></param>
         public void Heal(PlayerSession session, float amount)
         {
-#if ITEMV2
             EntityEffectFluid effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
-#else
-            EntityEffectFluid effect = new EntityEffectFluid(EEntityFluidEffectType.Health, EEntityEffectFluidModifierType.AddValuePure, amount);
-#endif
             EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
             effect.Apply(stats);
         }
@@ -163,11 +148,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="amount"></param>
         public void Hurt(PlayerSession session, float amount)
         {
-#if ITEMV2
             EntityEffectFluid effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
-#else
-            EntityEffectFluid effect = new EntityEffectFluid(EEntityFluidEffectType.Damage, EEntityEffectFluidModifierType.AddValuePure, -amount);
-#endif
             EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
             effect.Apply(stats);
         }
@@ -187,11 +168,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         {
             EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
             EntityEffectSourceData entityEffectSourceDatum = new EntityEffectSourceData { SourceDescriptionKey = "EntityStats/Sources/Suicide" };
-#if ITEMV2
             stats.HandleEvent(new EntityEventDataRaiseEvent { EventType = EEntityEventType.Die }, entityEffectSourceDatum);
-#else
-            stats.HandleEvent(new EntityEventData { EventType = EEntityEventType.Die }, entityEffectSourceDatum);
-#endif
         }
 
         /// <summary>
@@ -209,9 +186,6 @@ namespace Oxide.Game.Hurtworld.Libraries
             }
 
             // Chat/display name
-#if !ITEMV2
-            session.Name = name;
-#endif
             session.Identity.Name = name;
             session.WorldPlayerEntity.GetComponent<HurtMonoBehavior>().RPC("UpdateName", uLink.RPCMode.All, name);
             SteamGameServer.BUpdateUserData(session.SteamId, name, 0);
@@ -398,11 +372,7 @@ namespace Oxide.Game.Hurtworld.Libraries
 
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
             string formatted = prefix != null ? $"{prefix} {message}" : message;
-#if ITEMV2
             ChatManager.SendChatMessage(new ServerChatMessage(formatted, false), session.Player);
-#else
-            ChatManager.RPC("RelayChat", session.Player, formatted);
-#endif
         }
 
         /// <summary>
@@ -454,50 +424,16 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="itemId"></param>
         public void DropItem(PlayerSession session, int itemId)
         {
-#if ITEMV2
             EntityReferenceCache entityReferenceCache = GameManagerUtilities.PlayerRefCache();
-#else
-            Vector3 position = session.WorldPlayerEntity.transform.position;
-#endif
             PlayerInventory inventory = Inventory(session);
             for (int slot = 0; slot < inventory.Capacity; slot++)
             {
-#if ITEMV2
                 ItemObject item = inventory.GetSlot(slot);
-                if (item.ItemId == itemId) inventory.DropSlot(slot, entityReferenceCache.PlayerCamera.SimData.FireDirectionWorldSpace);
-#else
-                ItemInstance item = inventory.GetSlot(slot);
-                if (item.Item.ItemId == itemId)
+                if (item.ItemId == itemId)
                 {
-                    inventory.DropSlot(slot, position + new Vector3(0f, 1f, 0f) + position / 2f, (position + new Vector3(0f, 0.2f, 0f)) * 8f);
-                }
-#endif
-            }
-        }
-
-        /// <summary>
-        /// Drops item from the player's inventory
-        /// </summary>
-        /// <param name="session"></param>
-        /// <param name="item"></param>
-#if ITEMV2
-        public void DropItem(PlayerSession session, IItem item)
-        {
-#else
-
-        public void DropItem(PlayerSession session, Assets.Scripts.Core.IItem item)
-        {
-            Vector3 position = session.WorldPlayerEntity.transform.position;
-            PlayerInventory inventory = Inventory(session);
-            for (int s = 0; s < inventory.Capacity; s++)
-            {
-                ItemInstance i = inventory.GetSlot(s);
-                if (i.Item == item)
-                {
-                    inventory.DropSlot(s, (position + new Vector3(0f, 1f, 0f)) + (position / 2f), (position + new Vector3(0f, 0.2f, 0f)) * 8f);
+                    inventory.DropSlot(slot, entityReferenceCache.PlayerCamera.SimData.FireDirectionWorldSpace);
                 }
             }
-#endif
         }
 
         /// <summary>
@@ -514,13 +450,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="session"></param>
         /// <param name="item"></param>
         /// <param name="quantity"></param>
-#if ITEMV2
         public void GiveItem(PlayerSession session, ItemObject item, int quantity = 1) => ItemManager.GiveItem(session.Player, item.Generator, quantity);
-#else
-
-        public void GiveItem(PlayerSession session, Assets.Scripts.Core.IItem item, int quantity = 1) => ItemManager.GiveItem(session.Player, item, quantity);
-
-#endif
 
         #endregion Item Handling
 
@@ -537,13 +467,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// Clears the inventory of the player
         /// </summary>
         /// <param name="session"></param>
-#if ITEMV2
         public void ClearInventory(PlayerSession session) => Inventory(session)?.ClearItems();
-#else
-
-        public void ClearInventory(PlayerSession session) => Inventory(session)?.DestroyAll();
-
-#endif
 
         #endregion Inventory Handling
     }
