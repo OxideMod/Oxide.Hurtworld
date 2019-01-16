@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "LHg6uHf9Pno0rlIWkZi10r/EbJ+77CskU8OQRgx5h10=",
+            "MSILHash": "/m9w5sRx08FcBCqvVZxI3QThLQa/9RxSTdUeOdmWc5s=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -248,7 +248,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "gipDod8E4N7lFErho4CW0hUKvncHTTOSVQpHyMA99+4=",
+            "MSILHash": "+j4SbFysGC2rhnCcVQXs4Z/uVuKKNjdpwNq2PczZuSU=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "LHg6uHf9Pno0rlIWkZi10r/EbJ+77CskU8OQRgx5h10=",
+            "MSILHash": "/m9w5sRx08FcBCqvVZxI3QThLQa/9RxSTdUeOdmWc5s=",
             "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patches"
           }
@@ -308,7 +308,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 2935,
+            "InjectionIndex": 3018,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -331,7 +331,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "LHg6uHf9Pno0rlIWkZi10r/EbJ+77CskU8OQRgx5h10=",
+            "MSILHash": "/m9w5sRx08FcBCqvVZxI3QThLQa/9RxSTdUeOdmWc5s=",
             "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
@@ -1390,7 +1390,7 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
-            "ArgumentString": "a0.ConnectedSession, a1",
+            "ArgumentString": "a0.ConnectedSession, a1, this",
             "HookTypeName": "Simple",
             "Name": "OnPlayerAuthorize",
             "HookName": "OnPlayerAuthorize",
@@ -1683,7 +1683,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "gipDod8E4N7lFErho4CW0hUKvncHTTOSVQpHyMA99+4=",
+            "MSILHash": "+j4SbFysGC2rhnCcVQXs4Z/uVuKKNjdpwNq2PczZuSU=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1756,7 +1756,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "3cMNW41J13wRH8q7V/R3UJpG2pay1z9D38PUwCiE2NE=",
+            "MSILHash": "UwlR98ENaxA6fEvjjSAIMYN0b627uSyR26aZSDXG/go=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1780,7 +1780,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "3cMNW41J13wRH8q7V/R3UJpG2pay1z9D38PUwCiE2NE=",
+            "MSILHash": "UwlR98ENaxA6fEvjjSAIMYN0b627uSyR26aZSDXG/go=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
@@ -2140,6 +2140,557 @@
             "MSILHash": "2bWUJiWLVUbUHituF9UwX0521oD/bVZBfAFghsIEyg4=",
             "BaseHookName": "OnPlayerRespawn",
             "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 25,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClanRegister",
+            "HookName": "OnClanRegister",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RegisterClan",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 7,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClanDisband",
+            "HookName": "OnClanDisband",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "DisbandClan",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "dMMXrS1U9r0NV1zFSj2xtqjz95pJopPm+Xd6kNlJckw=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 8,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0, a1.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberAdded",
+            "HookName": "OnClanMemberAdded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "NotifyOnClanMemberAdded",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan",
+                "PlayerIdentity"
+              ]
+            },
+            "MSILHash": "zr8seSnXyt7jAqTqV+oa3EmLetyGN8HN5M4ChTh+k7Y=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 8,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0, a1.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberRemoved",
+            "HookName": "OnClanMemberRemoved",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "NotifyOnClanMemberRemoved",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan",
+                "PlayerIdentity"
+              ]
+            },
+            "MSILHash": "tlWwPpQTFXPAXaQg/F8oiBAcuZB/g2xIIneYuYf3qcA=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 15,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, a0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberAdd",
+            "HookName": "OnClanMemberAdd",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "AddMember",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "PlayerIdentity"
+              ]
+            },
+            "MSILHash": "QbtPH0sHJ0zISHAX8JGBFeqUm72hnXwGE36zVQcOD+I=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 16,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, a0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberRemove",
+            "HookName": "OnClanMemberRemove",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RemoveMember",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity"
+              ]
+            },
+            "MSILHash": "uZU+QUqFFFDu/fWoKBPOiWuH+QeS7z2UgBVn9YAr2UI=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 49,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClanRegistered",
+            "HookName": "OnClanRegistered",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RegisterClan",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
+            "BaseHookName": "OnClanRegister",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 36,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClanDisbanded",
+            "HookName": "OnClanDisbanded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "DisbandClan",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "dMMXrS1U9r0NV1zFSj2xtqjz95pJopPm+Xd6kNlJckw=",
+            "BaseHookName": "OnClanDisband",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 25,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnItemExplode",
+            "HookName": "OnItemExplode",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ExplosiveDynamicServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExplodeNoDestroy",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "RSi3/R92YZEqdE8e8upU9nTIHGc5CDNWko8yt5KPEvU=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 89,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerAuthorized",
+            "HookName": "OnPlayerAuthorized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Authorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "JFLnaV2yxGtJAaePsKDglKjIvX/Q6VCN4fjYi2hgOFE=",
+            "BaseHookName": "OnPlayerAuthorize",
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerDeauthorize",
+            "HookName": "OnPlayerDeauthorize",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Deauthorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "J8A6nEjxV4VRvMdfjwyrFy7Stdo202dyVHTw8buwoqI=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 51,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerDeauthorized",
+            "HookName": "OnPlayerDeauthorized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Deauthorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "J8A6nEjxV4VRvMdfjwyrFy7Stdo202dyVHTw8buwoqI=",
+            "BaseHookName": "OnPlayerDeauthorize",
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 66,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberApply",
+            "HookName": "OnClanMemberApply",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCSubmitApplication",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "YXL+qZZuW5zWCSOkV6wburNK1wyEjGiLhnrYQ4nYPMI=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 136,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberApplied",
+            "HookName": "OnClanMemberApplied",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCSubmitApplication",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "YXL+qZZuW5zWCSOkV6wburNK1wyEjGiLhnrYQ4nYPMI=",
+            "BaseHookName": "OnClanMemberApply",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 146,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberPromote",
+            "HookName": "OnClanMemberPromote",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCPromoteToOfficer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "Twfkmz+C+k5TL8FiNqS0yBwYRKgOfkqENwUudOGXtfQ=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 174,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberPromoted",
+            "HookName": "OnClanMemberPromoted",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCPromoteToOfficer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "Twfkmz+C+k5TL8FiNqS0yBwYRKgOfkqENwUudOGXtfQ=",
+            "BaseHookName": "OnClanMemberPromote",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 146,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberDemote",
+            "HookName": "OnClanMemberDemote",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCDemoteToRecruit",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "7HKrekueXmHuIJT3GGEHo2jKu2RR1tv+Qq6hCY/LBS4=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 174,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberDemoted",
+            "HookName": "OnClanMemberDemoted",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCDemoteToRecruit",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "7HKrekueXmHuIJT3GGEHo2jKu2RR1tv+Qq6hCY/LBS4=",
+            "BaseHookName": "OnClanMemberDemote",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 31,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.sender, l0, l3",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerClaimTerritory [internal]",
+            "HookName": "IOnPlayerClaimTerritory",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ClaimPoints",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 58,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.sender, l0, l3",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerClaimedTerritory [internal]",
+            "HookName": "IOnPlayerClaimedTerritory",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ClaimPoints",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
+            "BaseHookName": "IOnPlayerClaimTerritory [internal]",
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 56,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnItemExploded",
+            "HookName": "OnItemExploded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ExplosiveDynamicServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExplodeNoDestroy",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "RSi3/R92YZEqdE8e8upU9nTIHGc5CDNWko8yt5KPEvU=",
+            "BaseHookName": "OnItemExplode",
+            "HookCategory": null
           }
         }
       ],

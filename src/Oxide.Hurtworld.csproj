@@ -99,15 +99,6 @@
     <ItemGroup>
       <DeployFiles Include="$(ProjectDir)\bin\Bundle\$(PackageId)\**\*.*" />
     </ItemGroup>
-    <PropertyGroup>
-      <DeployPath Condition="!$(SteamBranch.Contains(','))">$(DeployPath)-$(SteamBranch)</DeployPath>
-    </PropertyGroup>
     <Copy Condition="'$(DeployPath)' != ''" SourceFiles="@(DeployFiles)" DestinationFiles="@(DeployFiles->'$(DeployPath)\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
-  <Target Name="BuildBranch" AfterTargets="Pack" Condition="$(SteamBranch.Contains(','))">
-    <PropertyGroup>
-      <SteamBranch>$(SteamBranch.Split(',')[1])</SteamBranch>
-    </PropertyGroup>
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Clean;Build" Properties="PackageId=$(AssemblyName)-$(SteamBranch);SteamBranch=$(SteamBranch)" />
   </Target>
 </Project>
