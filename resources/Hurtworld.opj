@@ -2141,6 +2141,58 @@
             "BaseHookName": "OnPlayerRespawn",
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 31,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.sender, l0, l3",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerClaimTerritory [internal]",
+            "HookName": "IOnPlayerClaimTerritory",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ClaimPoints",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 58,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.sender, l0, l3",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerClaimedTerritory [internal]",
+            "HookName": "IOnPlayerClaimedTerritory",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ClaimPoints",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
+            "BaseHookName": "IOnPlayerClaimTerritory [internal]",
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [

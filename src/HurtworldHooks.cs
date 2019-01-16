@@ -113,6 +113,34 @@ namespace Oxide.Game.Hurtworld
         }
 
         /// <summary>
+        /// Called when the player is attempting to claim territory
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="clan"></param>
+        /// <param name="territory"></param>
+        /// <returns></returns>
+        [HookMethod("IOnPlayerClaimTerritory")]
+        private object IOnPlayerClaimTerritory(uLink.NetworkPlayer player, Clan clan, float territory)
+        {
+            PlayerSession session = Player.Find(player);
+            return Interface.CallHook("OnPlayerClaimTerritory", session, clan, territory);
+        }
+
+        /// <summary>
+        /// Called when the player has claimed territory
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="clan"></param>
+        /// <param name="territory"></param>
+        /// <returns></returns>
+        [HookMethod("IOnPlayerClaimedTerritory")]
+        private object IOnPlayerClaimedTerritory(uLink.NetworkPlayer player, Clan clan, float territory)
+        {
+            PlayerSession session = Player.Find(player);
+            return Interface.CallHook("OnPlayerClaimedTerritory", session, clan, territory);
+        }
+
+        /// <summary>
         /// Called when the player has connected
         /// </summary>
         /// <param name="session"></param>
