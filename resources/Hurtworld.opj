@@ -2355,6 +2355,30 @@
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 25,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnItemExplode",
+            "HookName": "OnItemExplode",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ExplosiveDynamicServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExplodeNoDestroy",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "RSi3/R92YZEqdE8e8upU9nTIHGc5CDNWko8yt5KPEvU=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
             "InjectionIndex": 89,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
@@ -2643,6 +2667,30 @@
             "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
             "BaseHookName": "IOnPlayerClaimTerritory [internal]",
             "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 56,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l1",
+            "HookTypeName": "Simple",
+            "Name": "OnItemExploded",
+            "HookName": "OnItemExploded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ExplosiveDynamicServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ExplodeNoDestroy",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "RSi3/R92YZEqdE8e8upU9nTIHGc5CDNWko8yt5KPEvU=",
+            "BaseHookName": "OnItemExplode",
+            "HookCategory": null
           }
         }
       ],
