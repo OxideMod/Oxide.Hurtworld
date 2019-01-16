@@ -1390,7 +1390,7 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
-            "ArgumentString": "a0.ConnectedSession, a1",
+            "ArgumentString": "a0.ConnectedSession, a1, this",
             "HookTypeName": "Simple",
             "Name": "OnPlayerAuthorize",
             "HookName": "OnPlayerAuthorize",
