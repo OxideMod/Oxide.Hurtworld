@@ -2145,6 +2145,87 @@
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 89,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerAuthorized",
+            "HookName": "OnPlayerAuthorized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Authorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "JFLnaV2yxGtJAaePsKDglKjIvX/Q6VCN4fjYi2hgOFE=",
+            "BaseHookName": "OnPlayerAuthorize",
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerDeauthorize",
+            "HookName": "OnPlayerDeauthorize",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Deauthorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "J8A6nEjxV4VRvMdfjwyrFy7Stdo202dyVHTw8buwoqI=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 51,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.ConnectedSession, a1, this",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerDeauthorized",
+            "HookName": "OnPlayerDeauthorized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "OwnershipStakeServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Deauthorize",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "PlayerIdentity",
+                "UnityEngine.GameObject"
+              ]
+            },
+            "MSILHash": "J8A6nEjxV4VRvMdfjwyrFy7Stdo202dyVHTw8buwoqI=",
+            "BaseHookName": "OnPlayerDeauthorize",
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
             "InjectionIndex": 31,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
