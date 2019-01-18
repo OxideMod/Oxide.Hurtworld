@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "S1+d3M2ZPUK40T9zshf3MY9UfPU7BVIpXtZvUDszd1Y=",
+            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "S1+d3M2ZPUK40T9zshf3MY9UfPU7BVIpXtZvUDszd1Y=",
+            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
             "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patches"
           }
@@ -308,7 +308,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 3036,
+            "InjectionIndex": 3020,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -331,7 +331,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "S1+d3M2ZPUK40T9zshf3MY9UfPU7BVIpXtZvUDszd1Y=",
+            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
             "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
