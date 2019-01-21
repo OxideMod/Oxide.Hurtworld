@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
+            "MSILHash": "1l3BABRdvsV/6Mhfnkn3LhRfLTNUVuo4PpA+pVtuTqs=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -248,7 +248,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "4vbVUMSYpqQuR9Ae8xRNk61n8WuRPcOO9zuyp5uRecQ=",
+            "MSILHash": "5EEc0YtaRyT0B5UwkIAJA19LPqumLBgkBqJLHOTvtWI=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -300,39 +300,8 @@
                 "System.String"
               ]
             },
-            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
+            "MSILHash": "1l3BABRdvsV/6Mhfnkn3LhRfLTNUVuo4PpA+pVtuTqs=",
             "BaseHookName": "IOnServerCommand [internal]",
-            "HookCategory": "_Patches"
-          }
-        },
-        {
-          "Type": "Modify",
-          "Hook": {
-            "InjectionIndex": 3020,
-            "RemoveCount": 1,
-            "Instructions": [
-              {
-                "OpCode": "ldc_i4",
-                "OpType": "Int32",
-                "Operand": "244"
-              }
-            ],
-            "HookTypeName": "Modify",
-            "Name": "MaxMaxPlayers [patch]",
-            "HookName": "MaxMaxPlayers [patch]",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "ConsoleManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 0,
-              "Name": "ExecuteCommandRaw",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "System.String"
-              ]
-            },
-            "MSILHash": "BgDd7RNH6OMBwg/g0K9LAe3bjaOGREi1C3QU1P/czLg=",
-            "BaseHookName": "FixDupeCommand [patch]",
             "HookCategory": "_Patches"
           }
         },
@@ -1683,7 +1652,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "4vbVUMSYpqQuR9Ae8xRNk61n8WuRPcOO9zuyp5uRecQ=",
+            "MSILHash": "5EEc0YtaRyT0B5UwkIAJA19LPqumLBgkBqJLHOTvtWI=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1756,7 +1725,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "sMjRc0zrz+2Jl8Us+SrdqJ9XZTQ4lkIUMoOrGSROfAU=",
+            "MSILHash": "DIFgwJrGvc8m0/ANMkJhb0itUqHv9KAvrlW/c1tmjFw=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1780,7 +1749,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "sMjRc0zrz+2Jl8Us+SrdqJ9XZTQ4lkIUMoOrGSROfAU=",
+            "MSILHash": "DIFgwJrGvc8m0/ANMkJhb0itUqHv9KAvrlW/c1tmjFw=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
