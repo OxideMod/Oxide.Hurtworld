@@ -2119,8 +2119,8 @@
             "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
-            "Name": "OnClanRegister",
-            "HookName": "OnClanRegister",
+            "Name": "IOnClanRegister [internal]",
+            "HookName": "IOnClanRegister",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ClanManager",
             "Flagged": false,
@@ -2225,8 +2225,8 @@
             "ArgumentBehavior": 4,
             "ArgumentString": "this, a0.ConnectedSession",
             "HookTypeName": "Simple",
-            "Name": "OnClanMemberAdd",
-            "HookName": "OnClanMemberAdd",
+            "Name": "IOnClanMemberAdd [internal]",
+            "HookName": "IOnClanMemberAdd",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Clan",
             "Flagged": false,
@@ -2291,7 +2291,7 @@
               ]
             },
             "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
-            "BaseHookName": "OnClanRegister",
+            "BaseHookName": "IOnClanRegister [internal]",
             "HookCategory": "Clan"
           }
         },
@@ -2661,6 +2661,88 @@
             "BaseHookName": "OnItemExplode",
             "HookCategory": "Item"
           }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 20,
+            "RemoveCount": 7,
+            "Instructions": [
+              {
+                "OpCode": "ldnull",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "beq_s",
+                "OpType": "Instruction",
+                "Operand": 28
+              },
+              {
+                "OpCode": "ldc_i4_0",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "IOnClanMemberAdd [object]",
+            "HookName": "OnClanRegistered [object]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "AddMember",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "PlayerIdentity"
+              ]
+            },
+            "MSILHash": "QbtPH0sHJ0zISHAX8JGBFeqUm72hnXwGE36zVQcOD+I=",
+            "BaseHookName": "IOnClanMemberAdd [internal]",
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 28,
+            "RemoveCount": 7,
+            "Instructions": [
+              {
+                "OpCode": "ldnull",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "beq_s",
+                "OpType": "Instruction",
+                "Operand": 36
+              },
+              {
+                "OpCode": "ldc_i4_0",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "OnClanRegistered [object]",
+            "HookName": "OnClanRegistered [object]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RegisterClan",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
+            "BaseHookName": "OnClanRegistered",
+            "HookCategory": "_Patches"
+          }
         }
       ],
       "Modifiers": [
@@ -2840,6 +2922,25 @@
             ]
           },
           "MSILHash": "g9v5OSC63qyLe3/rDooFrUuIF6wnGDXicFTf3axo01w="
+        },
+        {
+          "Name": "OwnershipStakeServer::InvalidateServer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "OwnershipStakeServer",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "InvalidateServer",
+            "FullTypeName": "System.Void",
+            "Parameters": []
+          },
+          "MSILHash": "PaG7wNUP13NwJTeRdpT7Malp7reIq3UgnbvHAqX8+XE="
         }
       ],
       "Fields": [
