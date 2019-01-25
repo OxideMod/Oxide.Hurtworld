@@ -152,10 +152,11 @@ namespace Oxide.Game.Hurtworld
                 return;
             }
 
+            string id = session.SteamId.ToString();
+
             // Update player's permissions group and name
             if (permission.IsLoaded)
             {
-                string id = session.SteamId.ToString();
                 permission.UpdateNickname(id, session.Identity.Name);
                 OxideConfig.DefaultGroups defaultGroups = Interface.Oxide.Config.Options.DefaultGroups;
                 if (!permission.UserHasGroup(id, defaultGroups.Players))
@@ -167,6 +168,13 @@ namespace Oxide.Game.Hurtworld
                 {
                     permission.AddUserGroup(id, defaultGroups.Administrators);
                 }
+            }
+
+
+            // Set default language for player if not set
+            if (string.IsNullOrEmpty(lang.GetLanguage(id)))
+            {
+                lang.SetLanguage(session.WorldPlayerEntity.PlayerOptions.CurrentConfig.CurrentLanguage, id);
             }
 
             // Let covalence know
