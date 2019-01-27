@@ -2114,58 +2114,6 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 25,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 2,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "OnClanRegister",
-            "HookName": "OnClanRegister",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "ClanManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "RegisterClan",
-              "ReturnType": "System.Boolean",
-              "Parameters": [
-                "Clan"
-              ]
-            },
-            "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
-            "BaseHookName": null,
-            "HookCategory": "Clan"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 7,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 2,
-            "ArgumentString": null,
-            "HookTypeName": "Simple",
-            "Name": "OnClanDisband",
-            "HookName": "OnClanDisband",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "ClanManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "DisbandClan",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "Clan"
-              ]
-            },
-            "MSILHash": "dMMXrS1U9r0NV1zFSj2xtqjz95pJopPm+Xd6kNlJckw=",
-            "BaseHookName": null,
-            "HookCategory": "Clan"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
             "InjectionIndex": 8,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
@@ -2220,65 +2168,13 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 15,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "this, a0.ConnectedSession",
-            "HookTypeName": "Simple",
-            "Name": "OnClanMemberAdd",
-            "HookName": "OnClanMemberAdd",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "Clan",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "AddMember",
-              "ReturnType": "System.Boolean",
-              "Parameters": [
-                "PlayerIdentity"
-              ]
-            },
-            "MSILHash": "QbtPH0sHJ0zISHAX8JGBFeqUm72hnXwGE36zVQcOD+I=",
-            "BaseHookName": null,
-            "HookCategory": "Clan"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 16,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "this, a0.ConnectedSession",
-            "HookTypeName": "Simple",
-            "Name": "OnClanMemberRemove",
-            "HookName": "OnClanMemberRemove",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "Clan",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "RemoveMember",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "PlayerIdentity"
-              ]
-            },
-            "MSILHash": "uZU+QUqFFFDu/fWoKBPOiWuH+QeS7z2UgBVn9YAr2UI=",
-            "BaseHookName": null,
-            "HookCategory": "Clan"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 49,
+            "InjectionIndex": 38,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
             "HookTypeName": "Simple",
-            "Name": "OnClanRegistered",
-            "HookName": "OnClanRegistered",
+            "Name": "OnClanCreated",
+            "HookName": "OnClanCreated",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ClanManager",
             "Flagged": false,
@@ -2291,14 +2187,14 @@
               ]
             },
             "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
-            "BaseHookName": "OnClanRegister",
+            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 36,
+            "InjectionIndex": 30,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
             "ArgumentString": null,
@@ -2317,7 +2213,7 @@
               ]
             },
             "MSILHash": "dMMXrS1U9r0NV1zFSj2xtqjz95pJopPm+Xd6kNlJckw=",
-            "BaseHookName": "OnClanDisband",
+            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2348,7 +2244,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 89,
+            "InjectionIndex": 111,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
             "ArgumentString": "a0.ConnectedSession, a1, this",
@@ -2402,7 +2298,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 51,
+            "InjectionIndex": 54,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
             "ArgumentString": "a0.ConnectedSession, a1, this",
@@ -2689,7 +2585,7 @@
             "HookName": "OnClanMemberAdd [object]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Clan",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "AddMember",
@@ -2699,49 +2595,290 @@
               ]
             },
             "MSILHash": "QbtPH0sHJ0zISHAX8JGBFeqUm72hnXwGE36zVQcOD+I=",
-            "BaseHookName": "OnClanMemberAdd",
+            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         },
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 28,
+            "InjectionIndex": 22,
             "RemoveCount": 7,
             "Instructions": [
               {
-                "OpCode": "ldnull",
-                "OpType": "None",
-                "Operand": null
-              },
-              {
-                "OpCode": "beq_s",
+                "OpCode": "brfalse",
                 "OpType": "Instruction",
-                "Operand": 36
+                "Operand": 23
               },
               {
-                "OpCode": "ldc_i4_0",
+                "OpCode": "ldnull",
                 "OpType": "None",
                 "Operand": null
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "OnClanRegistered [object]",
-            "HookName": "OnClanRegistered [object]",
+            "Name": "OnPlayerSpawn [object]",
+            "HookName": "OnPlayerSpawn [object]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "PlayerSpawnManager",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SpawnPlayerEntity",
+              "ReturnType": "EntityReferenceCache",
+              "Parameters": [
+                "uLink.NetworkPlayer",
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "IuWLU6A6vq9vOLCYpvDIJmfQorzmlhyq1JmiKFirVHs=",
+            "BaseHookName": "OnPlayerSpawned",
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 165,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0, a2, a3, a4, l0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanCreate",
+            "HookName": "OnClanCreate",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ClanManager",
             "Flagged": false,
             "Signature": {
               "Exposure": 2,
-              "Name": "RegisterClan",
-              "ReturnType": "System.Boolean",
+              "Name": "RPCCreateClan",
+              "ReturnType": "System.Void",
               "Parameters": [
-                "Clan"
+                "System.String",
+                "System.Int32",
+                "System.String",
+                "UnityEngine.Color",
+                "System.String",
+                "uLink.NetworkMessageInfo"
               ]
             },
-            "MSILHash": "9oDpEl7uBbSo900OI40n+uW02vDfnFA9My/gFJyiamg=",
-            "BaseHookName": "OnClanRegistered",
-            "HookCategory": "_Patches"
+            "MSILHash": "RRFhe9DDtto2+7harbl02oo6+ncwzQbERvx65SsDYko=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 91,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0.Clan, l0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberLeave",
+            "HookName": "OnClanMemberLeave",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCLeaveClan",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "L9J8lH9nvtxypb9KzpWYaIHE/6GLxLP0OiDeXBWQX6A=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 62,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 1,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClanDisband",
+            "HookName": "OnClanDisband",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCDisbandClan",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "OZDd3CumAMKEAY9Us9Mj9sEhDOAJAIdKS2Vm+Xil6L8=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 117,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0.ConnectedSession, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanTransfer",
+            "HookName": "OnClanTransfer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCTransferOwnership",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "xkn3HTBGmwhpM3OyJ9Hg5wa6nTbodoN17ZGQjTvGzmg=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 80,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberDeny",
+            "HookName": "OnClanMemberDeny",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCDenyApplication",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "mwySVFeMCU0alfbfICNiRiTJ5h5L1++8Xn0LUmTVaHc=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 141,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l4.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberRemove",
+            "HookName": "OnClanMemberRemove",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCKickMember",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "fFMGfPRSmb4RYS+yafNuza8ERArj1Ofk1Pf/sPk7itc=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 144,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberAdd",
+            "HookName": "OnClanMemberAdd",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCAcceptApplication",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "zFMKSbsxFhY8SD/EQOIdXJA0G/LhAyrFXN5/C11KFic=",
+            "BaseHookName": null,
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 159,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0.ConnectedSession, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanTransferred",
+            "HookName": "OnClanTransferred",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCTransferOwnership",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "xkn3HTBGmwhpM3OyJ9Hg5wa6nTbodoN17ZGQjTvGzmg=",
+            "BaseHookName": "OnClanTransfer",
+            "HookCategory": "Clan"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 148,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l3.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberDenied",
+            "HookName": "OnClanMemberDenied",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Clan",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCDenyApplication",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt64",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "mwySVFeMCU0alfbfICNiRiTJ5h5L1++8Xn0LUmTVaHc=",
+            "BaseHookName": "OnClanMemberDeny",
+            "HookCategory": "Clan"
           }
         }
       ],
