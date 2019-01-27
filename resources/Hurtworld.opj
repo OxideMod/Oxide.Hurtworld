@@ -835,13 +835,13 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 90,
+            "InjectionIndex": 94,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
-            "ArgumentString": "this, a0, a1",
+            "ArgumentString": "a0, l2, a1",
             "HookTypeName": "Simple",
-            "Name": "IOnTakeDamage",
-            "HookName": "IOnTakeDamage",
+            "Name": "IOnEntityEffect [internal]",
+            "HookName": "IOnEntityEffect",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -879,8 +879,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 1]",
-            "HookName": "IOnTakeDamage [patch 1]",
+            "Name": "IOnEntityEffect [patch 1]",
+            "HookName": "IOnEntityEffect [patch 1]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -896,7 +896,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage",
+            "BaseHookName": "IOnEntityEffect [internal]",
             "HookCategory": "_Patches"
           }
         },
@@ -918,8 +918,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 2]",
-            "HookName": "IOnTakeDamage [patch 2]",
+            "Name": "IOnEntityEffect [patch 2]",
+            "HookName": "IOnEntityEffect [patch 2]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -935,7 +935,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 1]",
+            "BaseHookName": "IOnEntityEffect [patch 1]",
             "HookCategory": "_Patches"
           }
         },
@@ -957,8 +957,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 3]",
-            "HookName": "IOnTakeDamage [patch 3]",
+            "Name": "IOnEntityEffect [patch 3]",
+            "HookName": "IOnEntityEffect [patch 3]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -974,7 +974,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 2]",
+            "BaseHookName": "IOnEntityEffect [patch 2]",
             "HookCategory": "_Patches"
           }
         },
@@ -996,8 +996,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 4]",
-            "HookName": "IOnTakeDamage [patch 4]",
+            "Name": "IOnEntityEffect [patch 4]",
+            "HookName": "IOnEntityEffect [patch 4]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1013,7 +1013,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 3]",
+            "BaseHookName": "IOnEntityEffect [patch 3]",
             "HookCategory": "_Patches"
           }
         },
@@ -1035,8 +1035,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 5]",
-            "HookName": "IOnTakeDamage [patch 5]",
+            "Name": "IOnEntityEffect [patch 5]",
+            "HookName": "IOnEntityEffect [patch 5]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1052,7 +1052,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 4]",
+            "BaseHookName": "IOnEntityEffect [patch 4]",
             "HookCategory": "_Patches"
           }
         },
@@ -1074,8 +1074,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 6]",
-            "HookName": "IOnTakeDamage [patch 6]",
+            "Name": "IOnEntityEffect [patch 6]",
+            "HookName": "IOnEntityEffect [patch 6]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1091,7 +1091,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 5]",
+            "BaseHookName": "IOnEntityEffect [patch 5]",
             "HookCategory": "_Patches"
           }
         },
@@ -1113,8 +1113,8 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "IOnTakeDamage [patch 7]",
-            "HookName": "IOnTakeDamage [patch 7]",
+            "Name": "IOnEntityEffect [patch 7]",
+            "HookName": "IOnEntityEffect [patch 7]",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "EntityEffectFluid",
             "Flagged": false,
@@ -1130,7 +1130,7 @@
               ]
             },
             "MSILHash": "hZ5VBXRcCNqxklvOpxZpls4sSj1dQpC4jT0nUqGSU2Q=",
-            "BaseHookName": "IOnTakeDamage [patch 6]",
+            "BaseHookName": "IOnEntityEffect [patch 6]",
             "HookCategory": "_Patches"
           }
         },
