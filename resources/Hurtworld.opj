@@ -2839,6 +2839,32 @@
             "BaseHookName": "OnClanMemberDeny",
             "HookCategory": "Clan"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 108,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0.Clan, l0.ConnectedSession",
+            "HookTypeName": "Simple",
+            "Name": "OnClanMemberLeft",
+            "HookName": "OnClanMemberLeft",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ClanManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCLeaveClan",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "L9J8lH9nvtxypb9KzpWYaIHE/6GLxLP0OiDeXBWQX6A=",
+            "BaseHookName": "OnClanMemberLeave",
+            "HookCategory": "Clan"
+          }
         }
       ],
       "Modifiers": [
