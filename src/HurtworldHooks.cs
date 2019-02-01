@@ -17,13 +17,13 @@ namespace Oxide.Game.Hurtworld
         /// <summary>
         /// Called when the player is attempting to craft
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         /// <param name="recipe"></param>
         /// <returns></returns>
         [HookMethod("ICanCraft")]
-        private object ICanCraft(uLink.NetworkPlayer player, ICraftable recipe)
+        private object ICanCraft(NetworkPlayer netPlayer, ICraftable recipe)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             return Interface.CallHook("CanCraft", session, recipe);
         }
 
@@ -78,6 +78,32 @@ namespace Oxide.Game.Hurtworld
             object chatSpecific = Interface.CallHook("OnPlayerChat", session, message);
             object chatCovalence = Interface.CallHook("OnUserChat", session.IPlayer, message);
             return chatSpecific ?? chatCovalence;
+        }
+
+        /// <summary>
+        /// Called when the player atempts to claim territory
+        /// </summary>
+        /// <param name="netPlayer"></param>
+        /// <param name="clan"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        [HookMethod("IOnPlayerClaimTerritory")]
+        private object IOnPlayerClaimTerritory(NetworkPlayer netPlayer, Clan clan, int point)
+        {
+            return Interface.CallHook("OnPlayerClaimTerritory", Player.Find(netPlayer), clan, point);
+        }
+
+        /// <summary>
+        /// Called when the player has claimed territory
+        /// </summary>
+        /// <param name="netPlayer"></param>
+        /// <param name="clan"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        [HookMethod("IOnPlayerClaimedTerritory")]
+        private void IOnPlayerClaimedTerritory(NetworkPlayer netPlayer, Clan clan, int point)
+        {
+            Interface.CallHook("OnPlayerClaimedTerritory", Player.Find(netPlayer), clan, point);
         }
 
         /// <summary>
@@ -209,12 +235,12 @@ namespace Oxide.Game.Hurtworld
         /// <summary>
         /// Called when the server receives input from the player
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         /// <param name="input"></param>
         [HookMethod("IOnPlayerInput")]
-        private void IOnPlayerInput(uLink.NetworkPlayer player, InputControls input)
+        private void IOnPlayerInput(NetworkPlayer netPlayer, InputControls input)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             if (session != null)
             {
                 Interface.CallHook("OnPlayerInput", session, input);
@@ -224,22 +250,22 @@ namespace Oxide.Game.Hurtworld
         /// <summary>
         /// Called when the player attempts to suicide
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         [HookMethod("IOnPlayerSuicide")]
-        private object IOnPlayerSuicide(uLink.NetworkPlayer player)
+        private object IOnPlayerSuicide(NetworkPlayer netPlayer)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             return session != null ? Interface.CallHook("OnPlayerSuicide", session) : null;
         }
 
         /// <summary>
         /// Called when the player attempts to suicide
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         [HookMethod("IOnPlayerVoice")]
-        private object IOnPlayerVoice(uLink.NetworkPlayer player)
+        private object IOnPlayerVoice(NetworkPlayer netPlayer)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             return session != null ? Interface.CallHook("OnPlayerVoice", session) : null;
         }
 
@@ -347,16 +373,14 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnGarageDoorUsed")]
         private void IOnGarageDoorUsed(GarageDoorServer door)
         {
-            NetworkPlayer? player = door.LastUsedBy;
-            if (player == null)
+            NetworkPlayer? netPlayer = door.LastUsedBy;
+            if (netPlayer != null)
             {
-                return;
-            }
-
-            PlayerSession session = Player.Find((uLink.NetworkPlayer)player);
-            if (session != null)
-            {
-                Interface.CallHook("OnGarageDoorUsed", door, session);
+                PlayerSession session = Player.Find((NetworkPlayer)netPlayer);
+                if (session != null)
+                {
+                    Interface.CallHook("OnGarageDoorUsed", door, session);
+                }
             }
         }
 
@@ -391,26 +415,26 @@ namespace Oxide.Game.Hurtworld
         /// <summary>
         /// Called when a player enters a vehicle
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         /// <param name="vehicle"></param>
         /// <returns></returns>
         [HookMethod("IOnEnterVehicle")]
-        private void IOnEnterVehicle(uLink.NetworkPlayer player, VehiclePassenger vehicle)
+        private void IOnEnterVehicle(NetworkPlayer netPlayer, VehiclePassenger vehicle)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             Interface.CallHook("OnEnterVehicle", session, vehicle);
         }
 
         /// <summary>
         /// Called when a player exits a vehicle
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="netPlayer"></param>
         /// <param name="vehicle"></param>
         /// <returns></returns>
         [HookMethod("IOnExitVehicle")]
-        private void IOnExitVehicle(uLink.NetworkPlayer player, VehiclePassenger vehicle)
+        private void IOnExitVehicle(NetworkPlayer netPlayer, VehiclePassenger vehicle)
         {
-            PlayerSession session = Player.Find(player);
+            PlayerSession session = Player.Find(netPlayer);
             Interface.CallHook("OnExitVehicle", session, vehicle);
         }
 
