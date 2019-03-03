@@ -178,22 +178,21 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// </summary>
         public void Rename(PlayerSession session, string name)
         {
-            //name = name.Substring(0, 32);
+            // Clean up and set if empty
             name = ChatManagerServer.CleanupGeneral(name);
             if (string.IsNullOrEmpty(name.Trim()))
             {
                 name = "Unnamed";
             }
 
-            // Chat/display name
+            // Set chat/display name
             session.Identity.Name = name;
-            session.WorldPlayerEntity.GetComponent<HurtMonoBehavior>().RPC("UpdateName", uLink.RPCMode.All, name);
+            session.WorldPlayerEntity.RPC("UpdateName", uLink.RPCMode.OthersExceptOwnerBuffered, name);
+
+            // Update name with Steam
             SteamGameServer.BUpdateUserData(session.SteamId, name, 0);
 
-            // Overhead name // TODO: Implement when possible
-            //var displayProxyName = session.WorldPlayerEntity.GetComponent<DisplayProxyName>();
-            //displayProxyName.UpdateName(name);
-
+            // Update name with Oxide
             session.IPlayer.Name = name;
             permission.UpdateNickname(session.Identity.SteamId.ToString(), name);
         }
