@@ -189,24 +189,24 @@ namespace Oxide.Game.Hurtworld
                 {
                     permission.AddUserGroup(id, defaultGroups.Players);
                 }
-
                 if (session.IsAdmin && !permission.UserHasGroup(id, defaultGroups.Administrators))
                 {
                     permission.AddUserGroup(id, defaultGroups.Administrators);
                 }
             }
 
-            // Set default language for player if not set
-            if (string.IsNullOrEmpty(lang.GetLanguage(id)))
-            {
-                lang.SetLanguage(session.WorldPlayerEntity.PlayerOptions.CurrentConfig.CurrentLanguage, id);
-            }
-
             // Let covalence know
             Covalence.PlayerManager.PlayerConnected(session);
             IPlayer iplayer = Covalence.PlayerManager.FindPlayerById(session.SteamId.ToString());
+
             if (iplayer != null)
             {
+                // Set default language for player if not set
+                if (string.IsNullOrEmpty(lang.GetLanguage(id)))
+                {
+                    lang.SetLanguage(iplayer.Language.TwoLetterISOLanguageName, id);
+                }
+
                 session.IPlayer = iplayer;
                 Interface.CallHook("OnUserConnected", session.IPlayer);
             }
