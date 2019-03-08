@@ -290,13 +290,13 @@ namespace Oxide.Game.Hurtworld
             AIEntity entity = target.GetComponent<AIEntity>();
             if (entity != null)
             {
-                if (source.Value >= 0)
-                {
-                    Interface.CallHook("OnEntityTakeDamage", entity, source);
-                }
-                else
+                if (source.Value > 0)
                 {
                     Interface.CallHook("OnEntityHeal", entity, source);
+                }
+                else if (source.Value < 0)
+                {
+                    Interface.CallHook("OnEntityTakeDamage", entity, source);
                 }
                 return;
             }
@@ -307,13 +307,13 @@ namespace Oxide.Game.Hurtworld
                 PlayerSession session = GameManager.Instance.GetSession(networkView.owner);
                 if (session != null)
                 {
-                    if (source.Value >= 0)
-                    {
-                        Interface.CallHook("OnPlayerTakeDamage", session, source);
-                    }
-                    else
+                    if (source.Value > 0)
                     {
                         Interface.CallHook("OnPlayerHeal", session, source);
+                    }
+                    else if (source.Value < 0)
+                    {
+                        Interface.CallHook("OnPlayerTakeDamage", session, source);
                     }
                 }
             }
