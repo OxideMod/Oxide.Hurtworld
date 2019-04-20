@@ -2551,8 +2551,8 @@
             "ArgumentBehavior": 4,
             "ArgumentString": "a0, a2, a3, a4, l0.ConnectedSession",
             "HookTypeName": "Simple",
-            "Name": "OnClanCreate",
-            "HookName": "OnClanCreate",
+            "Name": "IOnClanCreate",
+            "HookName": "IOnClanCreate",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ClanManager",
             "Flagged": false,
@@ -2841,7 +2841,7 @@
               ]
             },
             "MSILHash": "RRFhe9DDtto2+7harbl02oo6+ncwzQbERvx65SsDYko=",
-            "BaseHookName": "OnClanCreate",
+            "BaseHookName": "IOnClanCreate",
             "HookCategory": "Clan"
           }
         },
