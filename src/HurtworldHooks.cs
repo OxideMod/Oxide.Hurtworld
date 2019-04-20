@@ -12,6 +12,31 @@ namespace Oxide.Game.Hurtworld
     /// </summary>
     public partial class HurtworldCore
     {
+        #region Clan Hooks
+        /// <summary>
+        /// Called when the player attempts to create a clan
+        /// </summary>
+        /// <param name="clanName"></param>
+        /// <param name="clanTag"></param>
+        /// <param name="color"></param>
+        /// <param name="description"></param>
+        /// <param name="session"></param>
+        /// <returns></returns>
+        [HookMethod("IOnClanCreate")]
+        private object IOnClanCreate(string clanName, string clanTag, Color color, string description, PlayerSession session)
+        {
+            object canCreateClan = Interface.CallHook("OnClanCreate", clanName, clanTag, color, description, session);
+
+            if (canCreateClan is string || canCreateClan is bool && !(bool)canCreateClan)
+            {
+                ClanManager.Instance.RPC("RPCClanCreationError", session.Player, canCreateClan is string ? canCreateClan.ToString() : "Clan creation was denied");
+                return false;
+            }
+            return null;
+        }
+        
+        #endregion
+
         #region Player Hooks
 
         /// <summary>
