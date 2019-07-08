@@ -3087,6 +3087,25 @@
             "Parameters": []
           },
           "MSILHash": "CMAHccWGB61kiM+Zl+QO96EmULy3Mg/kayyv7b0rPNQ="
+        },
+        {
+          "Name": "PlayerStatManager::UpdateClanTracking",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "PlayerStatManager",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "UpdateClanTracking",
+            "FullTypeName": "System.Void",
+            "Parameters": []
+          },
+          "MSILHash": "0TwyY2M7+pFGBOtDtnKcagwzVoCnSipkNwLGGh7SGrE="
         }
       ],
       "Fields": [
