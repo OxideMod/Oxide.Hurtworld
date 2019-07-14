@@ -331,17 +331,18 @@ namespace Oxide.Game.Hurtworld
 
             float newValue = Mathf.Clamp((effect.Value + relativeValue), effect.MinValue, effect.MaxValue);
             float updatedValue = newValue - effect.Value;
+            source.Value = updatedValue;
 
             AIEntity entity = stats.GetComponent<AIEntity>();
             if (entity != null)
             {
                 if (updatedValue > 0)
                 {
-                    return Interface.CallHook("OnEntityHeal", entity, source, updatedValue);
+                    return Interface.CallHook("OnEntityHeal", entity, source);
                 }
                 else if (updatedValue < 0)
                 {
-                    return Interface.CallHook("OnEntityTakeDamage", entity, source, updatedValue);
+                    return Interface.CallHook("OnEntityTakeDamage", entity, source);
                 }
 
                 return null;
@@ -355,11 +356,11 @@ namespace Oxide.Game.Hurtworld
                 {
                     if (updatedValue > 0)
                     {
-                        return Interface.CallHook("OnPlayerHeal", session, source, updatedValue);
+                        return Interface.CallHook("OnPlayerHeal", session, source);
                     }
                     else if (updatedValue < 0)
                     {
-                        return Interface.CallHook("OnPlayerTakeDamage", session, source, updatedValue);
+                        return Interface.CallHook("OnPlayerTakeDamage", session, source);
                     }
                 }
             }
