@@ -36,7 +36,7 @@ namespace Oxide.Game.Hurtworld
             return null;
         }
 
-        #endregion
+        #endregion Clan Hooks
 
         #region Player Hooks
 
@@ -300,49 +300,71 @@ namespace Oxide.Game.Hurtworld
         #region Entity Hooks
 
         /// <summary>
+        /// Called when an entity effect is initialized
+        /// </summary>
+        /// <param name="effect"></param>
+        [HookMethod("IOnEntityEffectInitialize")]
+        private void IOnEntityEffectInitialize(StandardEntityFluidEffect effect, EntityStats stats)
+        {
+            effect.EntityStats = stats;
+        }
+
+        /// <summary>
         /// Called when an entity effect is applied
         /// </summary>
-        /// <param name="target"></param>
         /// <param name="effect"></param>
         /// <param name="source"></param>
+        /// <param name="relativeValue"></param>
         [HookMethod("IOnEntityEffect")]
-        private void IOnEntityEffect(EntityStats target, IEntityFluidEffect effect, EntityEffectSourceData source)
+        private object IOnEntityEffect(StandardEntityFluidEffect effect, EntityEffectSourceData source, float relativeValue)
         {
             if (source == null || effect.ResolveTargetType() != EntityFluidEffectKeyDatabase.Instance?.Health)
             {
-                return;
+                return null;
             }
 
-            AIEntity entity = target.GetComponent<AIEntity>();
+            EntityStats stats = effect.EntityStats;
+            if (stats == null)
+            {
+                return null;
+            }
+
+            float newValue = Mathf.Clamp((effect.Value + relativeValue), effect.MinValue, effect.MaxValue);
+            float updatedValue = newValue - effect.Value;
+
+            AIEntity entity = stats.GetComponent<AIEntity>();
             if (entity != null)
             {
-                if (source.Value > 0)
+                if (updatedValue > 0)
                 {
-                    Interface.CallHook("OnEntityHeal", entity, source);
+                    return Interface.CallHook("OnEntityHeal", entity, source, updatedValue);
                 }
-                else if (source.Value < 0)
+                else if (updatedValue < 0)
                 {
-                    Interface.CallHook("OnEntityTakeDamage", entity, source);
+                    return Interface.CallHook("OnEntityTakeDamage", entity, source, updatedValue);
                 }
-                return;
+
+                return null;
             }
 
-            HNetworkView networkView = target.networkView;
+            HNetworkView networkView = stats.networkView;
             if (networkView != null)
             {
-                PlayerSession session = GameManager.Instance.GetSession(networkView.owner);
+                PlayerSession session = GameManager.Instance.GetSession(stats.networkView.owner);
                 if (session != null)
                 {
-                    if (source.Value > 0)
+                    if (updatedValue > 0)
                     {
-                        Interface.CallHook("OnPlayerHeal", session, source);
+                        return Interface.CallHook("OnPlayerHeal", session, source, updatedValue);
                     }
-                    else if (source.Value < 0)
+                    else if (updatedValue < 0)
                     {
-                        Interface.CallHook("OnPlayerTakeDamage", session, source);
+                        return Interface.CallHook("OnPlayerTakeDamage", session, source, updatedValue);
                     }
                 }
             }
+
+            return null;
         }
 
         #endregion Entity Hooks
