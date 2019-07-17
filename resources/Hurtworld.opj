@@ -728,7 +728,7 @@
           "Type": "Simple",
           "Hook": {
             "InjectionIndex": 9,
-            "ReturnBehavior": 0,
+            "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
             "ArgumentString": "this._storage, a0",
             "HookTypeName": "Simple",
@@ -2622,6 +2622,188 @@
             "MSILHash": "NprlM/9+rSOEwnBDz4bAQQZ7Mda17JqAvRz+l3vUPRQ=",
             "BaseHookName": null,
             "HookCategory": "Entity"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberStack",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ProtectAll",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "K14ATux2Bj622Qs1pjyrqg1Z4d++Ji/BOL+Nd8YWFXM=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberProtectionStorage",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Protect",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "aI22FIy22aFKPZNAwvZvDM25HzK4eFw1OxR3iNTMIts=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": "",
+            "HookTypeName": "Simple",
+            "Name": "OnItemRename",
+            "HookName": "OnItemRename",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentNameApplier",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ApplyToItemServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject",
+                "System.String"
+              ]
+            },
+            "MSILHash": "zBicOKr0cAO3OC85M3R3qD31tQvn4jVExywIF+RbdZo=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 7,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0",
+            "HookTypeName": "Simple",
+            "Name": "OnMozzyRocketFire",
+            "HookName": "OnMozzyRocketFire",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "VehicleHelicopter",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "AttemptRocketFire",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "6hQ11+68RxMfz/lFmy+G523r2+i8qHuMknrnPahPHLM=",
+            "BaseHookName": null,
+            "HookCategory": "Vehicle"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 1,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnSamSiteFire",
+            "HookName": "OnSamSiteFire",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "SAMSiteServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "FireRocket",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "kRw8FqghDm8CB/KXdoTWnQnt2QF3kZT0iaJ9D+EpKwM=",
+            "BaseHookName": null,
+            "HookCategory": "Vehicle"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, a1",
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberProtectionStorage",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "AcceptItem",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "qd7LTibEGRzNhovMgKTIwkkrowadjOXWMN/n0X7KUKk=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 47,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0, l2",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerItemPing",
+            "HookName": "OnPlayerItemPing",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ChatManagerServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SendPlayerItemPing",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Int32",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "kSks9lioDQCwETzhS+njs2FO5XfUQSnP9Ei0rKYpD6s=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
           }
         }
       ],
