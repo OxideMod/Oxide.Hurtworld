@@ -2654,6 +2654,54 @@
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 1,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnSamSiteFire",
+            "HookName": "OnSamSiteFire",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "SAMSiteServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "FireRocket",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "kRw8FqghDm8CB/KXdoTWnQnt2QF3kZT0iaJ9D+EpKwM=",
+            "BaseHookName": null,
+            "HookCategory": "Entity"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 7,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0",
+            "HookTypeName": "Simple",
+            "Name": "OnHelicopterRocketFire",
+            "HookName": "OnHelicopterRocketFire",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "VehicleHelicopter",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "AttemptRocketFire",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "6hQ11+68RxMfz/lFmy+G523r2+i8qHuMknrnPahPHLM=",
+            "BaseHookName": null,
+            "HookCategory": "Vehicle"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
             "InjectionIndex": 12,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
