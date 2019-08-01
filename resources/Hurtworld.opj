@@ -2627,6 +2627,33 @@
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 47,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0, l2",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerItemPing",
+            "HookName": "OnPlayerItemPing",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ChatManagerServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SendPlayerItemPing",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Int32",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "kSks9lioDQCwETzhS+njs2FO5XfUQSnP9Ei0rKYpD6s=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
             "InjectionIndex": 8,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
