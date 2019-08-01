@@ -3086,6 +3086,25 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "MapManagerServer::_markerLookup",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "MapManagerServer",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_markerLookup",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<MapMarkerData,NetworkedMapMarkerServer> MapManagerServer::_markerLookup",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [
