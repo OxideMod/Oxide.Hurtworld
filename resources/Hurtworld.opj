@@ -2783,10 +2783,10 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 0,
+            "InjectionIndex": 50,
             "ReturnBehavior": 1,
-            "ArgumentBehavior": 3,
-            "ArgumentString": null,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l5",
             "HookTypeName": "Simple",
             "Name": "OnAmberProtect [stack]",
             "HookName": "OnAmberProtect",
@@ -2830,6 +2830,42 @@
             "MSILHash": "vcrMt3dA8BcI5cIKWmAQBZ9MMhebzjmeWI8nAqHClNY=",
             "BaseHookName": null,
             "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 54,
+            "RemoveCount": 3,
+            "Instructions": [
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 57
+              },
+              {
+                "OpCode": "br",
+                "OpType": "Instruction",
+                "Operand": 85
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "OnAmberProtect [stack, patch]",
+            "HookName": "OnAmberProtect [stack, patch]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberStack",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ProtectAll",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "K14ATux2Bj622Qs1pjyrqg1Z4d++Ji/BOL+Nd8YWFXM=",
+            "BaseHookName": "OnAmberProtect [stack]",
+            "HookCategory": "Item"
           }
         }
       ],
