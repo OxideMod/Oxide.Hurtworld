@@ -2656,6 +2656,59 @@
           "Hook": {
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, a1",
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect [storage]",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberProtectionStorage",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "AcceptItem",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "qd7LTibEGRzNhovMgKTIwkkrowadjOXWMN/n0X7KUKk=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberProtectionStorage",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Protect",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "aI22FIy22aFKPZNAwvZvDM25HzK4eFw1OxR3iNTMIts=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
             "ArgumentBehavior": 1,
             "ArgumentString": null,
             "HookTypeName": "Simple",
@@ -2723,6 +2776,32 @@
               ]
             },
             "MSILHash": "zBicOKr0cAO3OC85M3R3qD31tQvn4jVExywIF+RbdZo=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnAmberProtect [stack]",
+            "HookName": "OnAmberProtect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentAmberStack",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ProtectAll",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "K14ATux2Bj622Qs1pjyrqg1Z4d++Ji/BOL+Nd8YWFXM=",
             "BaseHookName": null,
             "HookCategory": "Item"
           }
