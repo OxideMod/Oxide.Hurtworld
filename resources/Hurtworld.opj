@@ -2654,6 +2654,34 @@
         {
           "Type": "Simple",
           "Hook": {
+            "InjectionIndex": 12,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnItemRename",
+            "HookName": "OnItemRename",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentNameApplier",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ApplyToItemServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject",
+                "System.String"
+              ]
+            },
+            "MSILHash": "zBicOKr0cAO3OC85M3R3qD31tQvn4jVExywIF+RbdZo=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
             "InjectionIndex": 8,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
