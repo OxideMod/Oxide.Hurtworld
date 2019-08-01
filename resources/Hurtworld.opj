@@ -2623,6 +2623,32 @@
             "BaseHookName": null,
             "HookCategory": "Entity"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 8,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnNewSave",
+            "HookName": "OnNewSave",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameSerializer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "LoadServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "vcrMt3dA8BcI5cIKWmAQBZ9MMhebzjmeWI8nAqHClNY=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
         }
       ],
       "Modifiers": [
