@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
+            "MSILHash": "N6G3wb8fzyw391WqzgVTdJQfLZIicrFA8m+GgzkEzr8=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
+            "MSILHash": "N6G3wb8fzyw391WqzgVTdJQfLZIicrFA8m+GgzkEzr8=",
             "BaseHookName": "IOnServerCommand [internal]",
             "HookCategory": "_Patches"
           }
