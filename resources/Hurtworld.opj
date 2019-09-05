@@ -2867,6 +2867,60 @@
             "BaseHookName": "OnAmberProtect [stack]",
             "HookCategory": "Item"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 44,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 3,
+            "ArgumentString": "",
+            "HookTypeName": "Simple",
+            "Name": "OnItemMutatorApplied",
+            "HookName": "OnItemMutatorApplied",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentItemMutatorApplier",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ApplyToItem",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "B1KjdiKWSc4FGvqp8ePg8RBD1uwxelP38Ta+9J7N6v4=",
+            "BaseHookName": null,
+            "HookCategory": "Item"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": "",
+            "HookTypeName": "Simple",
+            "Name": "OnItemMutatorApply",
+            "HookName": "OnItemMutatorApply",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "ItemComponentItemMutatorApplier",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ApplyToItem",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "ItemObject",
+                "ItemObject"
+              ]
+            },
+            "MSILHash": "B1KjdiKWSc4FGvqp8ePg8RBD1uwxelP38Ta+9J7N6v4=",
+            "BaseHookName": "OnItemMutatorApplied",
+            "HookCategory": "Item"
+          }
         }
       ],
       "Modifiers": [
