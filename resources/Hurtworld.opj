@@ -2948,7 +2948,7 @@
             },
             "MSILHash": "LsysxKFOGEWaCv9jbN76mMADbgU9+YahBL96aihiRfI=",
             "BaseHookName": null,
-            "HookCategory": null
+            "HookCategory": "Player"
           }
         }
       ],
