@@ -41,16 +41,27 @@ namespace Oxide.Game.Hurtworld
         #region Player Hooks
 
         /// <summary>
+        /// Called when the player craft attempt is initialized
+        /// </summary>
+        /// <param name="crafter"></param>
+        /// <param name="networkPlayer"></param>
+        [HookMethod("ICanCraftInitialize")]
+        private void ICanCraftInitialize(Crafter crafter, uLink.NetworkPlayer networkPlayer)
+        {
+            crafter.NetworkPlayer = networkPlayer;
+        }
+
+        /// <summary>
         /// Called when the player is attempting to craft
         /// </summary>
         /// <param name="netPlayer"></param>
         /// <param name="recipe"></param>
         /// <returns></returns>
         [HookMethod("ICanCraft")]
-        private object ICanCraft(NetworkPlayer netPlayer, ICraftable recipe)
+        private object ICanCraft(Crafter crafter, ICraftable recipe, int count)
         {
-            PlayerSession session = Player.Find(netPlayer);
-            return Interface.CallHook("CanCraft", session, recipe);
+            PlayerSession session = Player.Find(crafter.NetworkPlayer);
+            return Interface.CallHook("CanCraft", crafter, session, recipe, count);
         }
 
         /// <summary>
@@ -303,6 +314,7 @@ namespace Oxide.Game.Hurtworld
         /// Called when an entity effect is initialized
         /// </summary>
         /// <param name="effect"></param>
+        /// <param name="stats"></param>
         [HookMethod("IOnEntityEffectInitialize")]
         private void IOnEntityEffectInitialize(StandardEntityFluidEffect effect, EntityStats stats)
         {
