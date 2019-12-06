@@ -38,6 +38,25 @@ namespace Oxide.Game.Hurtworld
 
         #endregion Clan Hooks
 
+        #region Event Hooks
+
+        /// <summary>
+        /// Called when territory claim messages is broadcasted to chat
+        /// </summary>
+        /// <param name="territoryMarker"></param>
+        /// <param name="clan"></param>
+        [HookMethod("IOnClanTerritoryClaimBroadcast")]
+        private void IOnClanTerritoryClaimBroadcast(TerritoryControlMarker territoryMarker, Clan clan)
+        {
+            object shouldBroadcast = Interface.CallHook("OnClanTerritoryClaimBroadcast", territoryMarker, clan);
+            if (shouldBroadcast == null)
+            {
+                Singleton<ChatManagerServer>.Instance.SendChatMessage(new ServerChatMessage("Territory " + territoryMarker.Stake.TerritoryName + " has been claimed by " + clan.ClanName, Color.magenta, true));
+            }
+        }
+
+        #endregion Event Hooks
+
         #region Player Hooks
 
         /// <summary>
