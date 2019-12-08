@@ -196,10 +196,9 @@ namespace Oxide.Game.Hurtworld
 
             if (session != null)
             {
-                if (Interface.Call("IOnPlayerCommand", session, arg) != null)
-                {
-                    return true;
-                }
+                object blockedSpecific = Interface.CallHook("OnPlayerCommand", session, command, args); // TODO: Deprecate OnChatCommand
+                object blockedCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, command, args);
+                if (blockedSpecific != null || blockedCovalence != null) return true;
             }
             else
             {
@@ -210,7 +209,7 @@ namespace Oxide.Game.Hurtworld
             }
 
             // Is this a covalence command?
-            if (Covalence.CommandSystem.HandleConsoleMessage(Covalence.CommandSystem.consolePlayer, arg))
+            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg))
             {
                 return true;
             }
