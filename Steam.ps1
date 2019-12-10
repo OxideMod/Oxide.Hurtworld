@@ -62,7 +62,7 @@ function Find-Dependencies {
         Write-Host "Getting references for $branch branch of $appid"
         try {
             # TODO: Exclude dependencies included in repository
-            $hint_path = "Dependencies\\Patched\\\$\(ManagedDir\)\\"
+            $hint_path = "Dependencies\\Patched\\\$\(SteamBranch\)\\\$\(ManagedDir\)\\"
             ($xml.selectNodes("//Reference") | Select-Object HintPath -ExpandProperty HintPath | Select-String -Pattern "Oxide" -NotMatch) -Replace $hint_path | Out-File "$tools_dir\.references"
         } catch {
             Write-Host "Could not get references or none found in $project.csproj"
@@ -156,7 +156,7 @@ function Get-Dependencies {
     Write-Host "Copying latest build of Oxide.Core.dll for $game_name"
     if (!(Test-Path "$tools_dir\Oxide.Core.dll")) {
         try {
-            Copy-Item "$root_dir\packages\oxide.core\*\lib\net46\Oxide.Core.dll" "$tools_dir" -Force
+            Copy-Item "$root_dir\packages\oxide.core\*\lib\$dotnet\Oxide.Core.dll" "$tools_dir" -Force
         } catch {
             Write-Host "Could not copy Oxide.Core.dll to $tools_dir"
             Write-Host $_.Exception.Message
@@ -167,7 +167,7 @@ function Get-Dependencies {
     Write-Host "Copying latest build of Oxide.Core.dll for patcher"
     if (!(Test-Path "$managed_dir\Oxide.Core.dll")) {
         try {
-            Copy-Item "$root_dir\packages\oxide.core\*\lib\net46\Oxide.Core.dll" "$managed_dir" -Force
+            Copy-Item "$root_dir\packages\oxide.core\*\lib\$dotnet\Oxide.Core.dll" "$managed_dir" -Force
         } catch {
             Write-Host "Could not copy Oxide.Core.dll to $managed_dir"
             Write-Host $_.Exception.Message
