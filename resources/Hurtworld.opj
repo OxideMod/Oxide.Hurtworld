@@ -949,7 +949,7 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
-            "ArgumentString": "this.networkView.owner, a0",
+            "ArgumentString": "this, a0, a1",
             "HookTypeName": "Simple",
             "Name": "ICanCraft [internal]",
             "HookName": "ICanCraft",
@@ -3043,6 +3043,35 @@
             "BaseHookName": "OnTownEventBroadcast [patch]",
             "HookCategory": "Events"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 6,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, a3.sender",
+            "HookTypeName": "Simple",
+            "Name": "ICanCraftInitialize [internal]",
+            "HookName": "ICanCraftInitialize",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Crafter",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCBeginCraftingServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Byte",
+                "System.Int32",
+                "System.Int32",
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "LsysxKFOGEWaCv9jbN76mMADbgU9+YahBL96aihiRfI=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [
@@ -3332,6 +3361,13 @@
           "AssemblyName": "Assembly-CSharp.dll",
           "TypeName": "StandardEntityFluidEffect",
           "FieldType": "Assembly-CSharp|EntityStats",
+          "Flagged": false
+        },
+        {
+          "Name": "NetworkPlayer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Crafter",
+          "FieldType": "uLink|uLink.NetworkPlayer",
           "Flagged": false
         }
       ]
