@@ -181,9 +181,10 @@ namespace Oxide.Game.Hurtworld
         /// Called when a console command was run
         /// </summary>
         /// <param name="arg"></param>
+        /// <param name="session"></param>
         /// <returns></returns>
-        [HookMethod("IOnServerCommand")]
-        private object IOnServerCommand(string arg)
+        [HookMethod("IOnCommand")]
+        private object IOnCommand(string arg, PlayerSession session)
         {
             if (arg == null || arg.Trim().Length == 0)
             {
@@ -193,13 +194,25 @@ namespace Oxide.Game.Hurtworld
             string command = $"{arg.Split(' ')[0]}";
             string[] args = arg.Split(' ').Skip(1).ToArray();
 
-            if (Interface.Call("OnServerCommand", command, args) != null)
+            if (session != null)
             {
-                return true;
+                object blockedSpecific = Interface.CallHook("OnPlayerCommand", session, command, args);
+                object blockedCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, command, args);
+                if (blockedSpecific != null || blockedCovalence != null)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (Interface.Call("OnServerCommand", command, args) != null)
+                {
+                    return true;
+                }
             }
 
             // Is this a covalence command?
-            if (Covalence.CommandSystem.HandleConsoleMessage(Covalence.CommandSystem.consolePlayer, arg))
+            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg))
             {
                 return true;
             }

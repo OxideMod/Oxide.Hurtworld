@@ -10,11 +10,11 @@
           "Hook": {
             "InjectionIndex": 24,
             "ReturnBehavior": 1,
-            "ArgumentBehavior": 2,
-            "ArgumentString": "",
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0, this._rconSender",
             "HookTypeName": "Simple",
-            "Name": "IOnServerCommand [internal]",
-            "HookName": "IOnServerCommand",
+            "Name": "IOnCommand [internal]",
+            "HookName": "IOnCommand",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "ConsoleManager",
             "Flagged": false,
@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "VTQAuuYpcB/JD/lzO/IdRVgnosw9cfqL0ytNRKLXsyc=",
+            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -300,8 +300,8 @@
                 "System.String"
               ]
             },
-            "MSILHash": "VTQAuuYpcB/JD/lzO/IdRVgnosw9cfqL0ytNRKLXsyc=",
-            "BaseHookName": "IOnServerCommand [internal]",
+            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
+            "BaseHookName": "IOnCommand [internal]",
             "HookCategory": "_Patches"
           }
         },
