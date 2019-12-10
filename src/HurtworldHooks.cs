@@ -38,6 +38,28 @@ namespace Oxide.Game.Hurtworld
 
         #endregion Clan Hooks
 
+        #region Event Hooks
+
+        /// <summary>
+        /// Called when town event message is broadcasted to chat
+        /// </summary>
+        /// <param name="townEvent"></param>
+        /// <param name="name"></param>
+        [HookMethod("IOnTownEventBroadcast")]
+        private void IOnTownEventBroadcast(BaseTownEvent townEvent, string name)
+        {
+            object shouldBroadcast = Interface.CallHook("OnTownEventBroadcast", townEvent, name);
+            if (shouldBroadcast == null)
+            {
+                Singleton<ChatManagerServer>.Instance.SendChatMessage((IChatMessage)new LocalizedChatMessage(Color.yellow, "UI/Chat/TownEventStartFormat", new string[1]
+                {
+                    name
+                }));
+            }
+        }
+
+        #endregion Event Hooks
+
         #region Player Hooks
 
         /// <summary>

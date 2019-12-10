@@ -2945,6 +2945,53 @@
             "BaseHookName": null,
             "HookCategory": "Events"
           }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 14,
+            "RemoveCount": 11,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "OnTownEventBroadcast [patch]",
+            "HookName": "OnTownEventBroadcast [patch]",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "BaseTownEvent",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Activate",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "7DriMjLwKa5p7fHAHpFqKHc1BktY3vrEV2UwgAbkkhY=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 14,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this, l0",
+            "HookTypeName": "Simple",
+            "Name": "IOnTownEventBroadcast [internal]",
+            "HookName": "IOnTownEventBroadcast",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "BaseTownEvent",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Activate",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "7DriMjLwKa5p7fHAHpFqKHc1BktY3vrEV2UwgAbkkhY=",
+            "BaseHookName": "OnTownEventBroadcast [patch]",
+            "HookCategory": "Events"
+          }
         }
       ],
       "Modifiers": [
