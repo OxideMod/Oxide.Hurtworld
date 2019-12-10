@@ -16,7 +16,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <ManagedDir>Hurtworld_Data\Managed</ManagedDir>
     <SteamAppId>405100</SteamAppId>
-    <SteamBranch>public</SteamBranch>
+    <SteamBranch>privatetest</SteamBranch>
     <SteamLogin>anonymous</SteamLogin>
     <!--
       Workaround for targeting net35 with dotnet CLI

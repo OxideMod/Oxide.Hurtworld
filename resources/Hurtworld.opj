@@ -1,6 +1,6 @@
 {
   "Name": "Hurtworld",
-  "TargetDirectory": "D:\\Servers\\Hurtworld\\Hurtworld_Data\\Managed",
+  "TargetDirectory": "D:\\Servers\\Hurtworld-privatetest\\Hurtworld_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
+            "MSILHash": "PgPp387Q+IWfcBgMUXxe1FHYx3tFV4IXfW73+/6SavM=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -248,7 +248,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "ajHCarDJNv+Q8iJtRkNj2aUyD9WIp7Def/CbHqU5vUw=",
+            "MSILHash": "YLDFDWBuIhewJ80QD4W4cBxaVorlLvyj10eqdFvREvE=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "v/ykGl+kfAFzpRCtdfErjDwNujuKBSHBRFzaXb1Q550=",
+            "MSILHash": "PgPp387Q+IWfcBgMUXxe1FHYx3tFV4IXfW73+/6SavM=",
             "BaseHookName": "IOnCommand [internal]",
             "HookCategory": "_Patches"
           }
@@ -919,7 +919,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 118,
+            "InjectionIndex": 144,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
             "ArgumentString": "a1.sender, l1",
@@ -938,7 +938,7 @@
                 "uLink.NetworkMessageInfo"
               ]
             },
-            "MSILHash": "qYyu5e7EX8KhRxr7d9XkbRpo0G0qsAnwE0yMfyaCzHs=",
+            "MSILHash": "xsBq0qn70WrLm1R1Vo0vFnBOGMHVfIYoMjLb0bCPRYY=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1350,7 +1350,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "ajHCarDJNv+Q8iJtRkNj2aUyD9WIp7Def/CbHqU5vUw=",
+            "MSILHash": "YLDFDWBuIhewJ80QD4W4cBxaVorlLvyj10eqdFvREvE=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1423,7 +1423,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "yAAUAHZtv3hE5WHhjYLm8QOGzipPL2APK41sU4rwHC8=",
+            "MSILHash": "welZPH+zUsAdvvUNcX3I+hEXgwUWIskmhESOmpn/DSs=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1447,7 +1447,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "yAAUAHZtv3hE5WHhjYLm8QOGzipPL2APK41sU4rwHC8=",
+            "MSILHash": "welZPH+zUsAdvvUNcX3I+hEXgwUWIskmhESOmpn/DSs=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
