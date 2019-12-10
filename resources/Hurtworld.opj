@@ -2923,6 +2923,57 @@
           }
         },
         {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 14,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "IOnClanTerritoryClaimBroadcast",
+            "HookName": "IOnClanTerritoryClaimBroadcast",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnClanAuthorized",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "Sy2xffDRwPDD0Br6g5L2rYRc/OVJtykZgb3r9IOfhTs=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnClanTerritoryClaimBroadcast",
+            "HookName": "IOnClanTerritoryClaimBroadcast",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "TerritoryControlMarker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnClanAuthorized",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Clan"
+              ]
+            },
+            "MSILHash": "Sy2xffDRwPDD0Br6g5L2rYRc/OVJtykZgb3r9IOfhTs=",
+            "BaseHookName": null,
+            "HookCategory": "Events"
+          }
+        },
+        {
           "Type": "Simple",
           "Hook": {
             "InjectionIndex": 141,
