@@ -1,6 +1,6 @@
 {
   "Name": "Hurtworld",
-  "TargetDirectory": "D:\\Servers\\Hurtworld-devtest\\Hurtworld_Data\\Managed",
+  "TargetDirectory": "D:\\Servers\\Hurtworld\\Hurtworld_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
