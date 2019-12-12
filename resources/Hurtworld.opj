@@ -3098,6 +3098,32 @@
             "BaseHookName": null,
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 36,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this._refCache.PlayerStatManager.AttachedIdentity.ConnectedSession, this.transform.position",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerInsideRock",
+            "HookName": "OnPlayerInsideRock",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "PlayerInsideGeometryChecker",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "RPCConfirmInsideRock",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkMessageInfo"
+              ]
+            },
+            "MSILHash": "iJ/AYdIfw6NIPhgDxc8gUnz9jht+CR87o8md0HroTdg=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
         }
       ],
       "Modifiers": [
