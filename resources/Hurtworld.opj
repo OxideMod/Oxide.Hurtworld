@@ -3072,6 +3072,32 @@
             "BaseHookName": null,
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "CanJoinQueue",
+            "HookName": "CanJoinQueue",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "ShouldQueue",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "PlayerSession"
+              ]
+            },
+            "MSILHash": "iq3oF/9DdWBfOtA71Uu1bzjtjzz6Z/E5OgkcdbVdPYY=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [
