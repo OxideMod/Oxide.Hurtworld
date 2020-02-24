@@ -26,7 +26,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "ru/3KMpVzc4zseD84PryJg8Ip6l63Vg7pFzpb1zwXFM=",
+            "MSILHash": "98QfTfdvHFDVU2ciKZNZrC0AM8MhERRpvfxIFOjoAsc=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -248,7 +248,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "CIRTOL3FQ1ApR0dqQxtLtDm+BUQkePSVoz0S0D5Ye+E=",
+            "MSILHash": "6yrT1Tt2ElCLLOcFmawuDM933hv/IY8IyNYUAt28ESw=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -300,7 +300,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "ru/3KMpVzc4zseD84PryJg8Ip6l63Vg7pFzpb1zwXFM=",
+            "MSILHash": "98QfTfdvHFDVU2ciKZNZrC0AM8MhERRpvfxIFOjoAsc=",
             "BaseHookName": "IOnCommand [internal]",
             "HookCategory": "_Patches"
           }
@@ -1350,7 +1350,7 @@
                 "uLink.NetworkPlayer"
               ]
             },
-            "MSILHash": "CIRTOL3FQ1ApR0dqQxtLtDm+BUQkePSVoz0S0D5Ye+E=",
+            "MSILHash": "6yrT1Tt2ElCLLOcFmawuDM933hv/IY8IyNYUAt28ESw=",
             "BaseHookName": "IOnUserApprove [internal]",
             "HookCategory": "_Patches"
           }
@@ -1423,7 +1423,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "ntkVgWn5jtU8AL9Z5RTyugZvSiZPr7462nT0YuN88Ug=",
+            "MSILHash": "bWdzqDpK1VB+p0HoU89jZB61zXhwtisq1dVXTE8u95E=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -1447,7 +1447,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "ntkVgWn5jtU8AL9Z5RTyugZvSiZPr7462nT0YuN88Ug=",
+            "MSILHash": "bWdzqDpK1VB+p0HoU89jZB61zXhwtisq1dVXTE8u95E=",
             "BaseHookName": "InitOxide [internal]",
             "HookCategory": "Server"
           }
@@ -2244,7 +2244,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 165,
+            "InjectionIndex": 193,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
             "ArgumentString": "a0, a2, a3, a4, l0.ConnectedSession",
@@ -2267,7 +2267,7 @@
                 "uLink.NetworkMessageInfo"
               ]
             },
-            "MSILHash": "RRFhe9DDtto2+7harbl02oo6+ncwzQbERvx65SsDYko=",
+            "MSILHash": "mVRQ53yqhtXwTwRorzwDQ1+q1FWDzfPc5kr/aNi8TKg=",
             "BaseHookName": null,
             "HookCategory": "Clan"
           }
@@ -2515,7 +2515,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 204,
+            "InjectionIndex": 232,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 1,
             "ArgumentString": null,
@@ -2538,7 +2538,7 @@
                 "uLink.NetworkMessageInfo"
               ]
             },
-            "MSILHash": "RRFhe9DDtto2+7harbl02oo6+ncwzQbERvx65SsDYko=",
+            "MSILHash": "mVRQ53yqhtXwTwRorzwDQ1+q1FWDzfPc5kr/aNi8TKg=",
             "BaseHookName": "IOnClanCreate",
             "HookCategory": "Clan"
           }
