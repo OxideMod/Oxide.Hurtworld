@@ -4,8 +4,8 @@
   <Import Project="..\netfx.props" />
   <PropertyGroup>
     <Version>2.0.0</Version>
-    <AssemblyName>Oxide.Hurtworld</AssemblyName>
-    <Authors>Oxide and Contributors</Authors>
+    <GameName>Hurtworld</GameName>
+    <Authors>Oxide Team and Contributors</Authors>
     <Copyright>(c) 2013-$([System.DateTime]::Now.Year) $(Authors)</Copyright>
     <Description>Hurtworld extension for the Oxide modding framework</Description>
     <RepositoryUrl>https://github.com/OxideMod/Oxide.Hurtworld</RepositoryUrl>
@@ -17,7 +17,9 @@
     <SteamAppId>405100</SteamAppId>
     <SteamBranch>public</SteamBranch>
     <SteamLogin>anonymous</SteamLogin>
-    <ManagedDir>Hurtworld_Data\Managed</ManagedDir>
+    <GamePlatform>windows</GamePlatform>
+    <GameExe>Hurtworld.exe;Hurtworld.x86_64</GameExe>
+    <ManagedDir>Hurtworld_Data/Managed</ManagedDir>
     <NoWarn>NU1701</NoWarn>
   </PropertyGroup>
   <ItemGroup>
@@ -27,71 +29,19 @@
     <PackageReference Include="Oxide.MySql" Version="2.0.*" />
     <PackageReference Include="Oxide.SQLite" Version="2.0.*" />
     <PackageReference Include="Oxide.Unity" Version="2.0.*" />
-    <Reference Include="Assembly-CSharp">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\mscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="Rewired_Core">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\Rewired_Core.dll</HintPath>
-    </Reference>
-    <Reference Include="uLink">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\uLink.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\UnityEngine.UI.dll</HintPath>
-    </Reference>
+    <Reference Include="Assembly-CSharp" />
+    <Reference Include="Assembly-CSharp-firstpass" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Rewired_Core" />
+    <Reference Include="uLink" />
+    <Reference Include="UnityEngine" />
+    <Reference Include="UnityEngine.UI" />
     <None Include="..\resources\icon.png" Pack="true" PackagePath="\" />
-    <None Remove="Bundle\**; Files\**; Patched\**; **\Original\**; *.config; *.opj" />
+    <None Remove="Bundle\**; dependencies\**; *.config; *.opj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PatchedFiles Include="$(TargetDir)\Assembly-CSharp.dll" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
-  <Target Name="Clean">
-    <RemoveDir Directories="$(ProjectDir)\bin\Bundle\$(PackageId)" Condition="Exists('$(ProjectDir)\bin\Bundle\$(PackageId)')" />
-  </Target>
-  <Target Name="BeforeBuild">
-    <Exec Command="powershell -ExecutionPolicy Bypass &quot;$(SolutionDir)\Steam.ps1&quot; -project $(AssemblyName) -managed '$(ManagedDir)' -dotnet $(TargetFramework) -appid $(SteamAppId) -branch $(SteamBranch)" />
-  </Target>
-  <Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
-    <ItemGroup>
-      <ReferencePath Condition="'%(FileName)' == 'Oxide.References'">
-        <Aliases>References</Aliases>
-      </ReferencePath>
-    </ItemGroup>
-  </Target>
-  <Target Name="AfterBuild">
-    <ItemGroup>
-      <CoreFiles Include="$(TargetDir)\Oxide.*.dll" />
-      <PatchedFiles Include="$(ProjectDir)\Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\Assembly-CSharp.dll" />
-      <ContentFiles Include="$(SolutionDir)\packages\oxide.csharp\**\lib\any\*.*" />
-      <ContentFiles Include="$(SolutionDir)\packages\oxide.references\**\lib\any\net35\*.*" />
-      <ContentFiles Include="$(SolutionDir)\packages\oxide.mysql\**\lib\any\*.*; $(SolutionDir)\packages\oxide.mysql\**\lib\$(TargetFramework)\*.*" />
-      <ContentFiles Include="$(SolutionDir)\packages\oxide.sqlite\**\lib\any\*.*; $(SolutionDir)\packages\oxide.sqlite\**\lib\$(TargetFramework)\*.*" />
-      <ContentX64Files Include="$(SolutionDir)\packages\oxide.references\**\lib\any\x64\*.*; $(SolutionDir)\packages\oxide.sqlite\**\lib\any\x64\*.*" />
-      <ContentX86Files Include="$(SolutionDir)\packages\oxide.references\**\lib\any\x86\*.*; $(SolutionDir)\packages\oxide.sqlite\**\lib\any\x86\*.*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(CoreFiles)" DestinationFiles="@(CoreFiles->'$(ProjectDir)\bin\Bundle\$(PackageId)\$(ManagedDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(PatchedFiles)" DestinationFiles="@(PatchedFiles->'$(ProjectDir)\bin\Bundle\$(PackageId)\$(ManagedDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(ContentFiles)" DestinationFiles="@(ContentFiles->'$(ProjectDir)\bin\Bundle\$(PackageId)\$(ManagedDir)\%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(ContentX64Files)" DestinationFiles="@(ContentX64Files->'$(ProjectDir)\bin\Bundle\$(PackageId)\$(ManagedDir)\x64\%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(ContentX86Files)" DestinationFiles="@(ContentX86Files->'$(ProjectDir)\bin\Bundle\$(PackageId)\$(ManagedDir)\x86\%(Filename)%(Extension)')" />
-    <!--<Exec Command="pdb2mdb %(PatchedFiles.Identity)" Condition="'$(Configuration)' == 'Debug' And '$(OS)' == 'Windows_NT'" IgnoreExitCode="true" />-->
-  </Target>
-  <Target Name="LocalDeploy" AfterTargets="AfterBuild" Condition="Exists('$(SolutionDir)\.deploy')">
-    <Exec Command="start /b /wait taskkill /f /im Hurtworld.exe /fi &quot;memusage gt 2&quot;" Condition="'$(OS)' == 'Windows_NT'" />
-    <Exec Command="start /b /wait taskkill /f /im Compiler.exe /fi &quot;memusage gt 2&quot;" Condition="'$(OS)' == 'Windows_NT'" />
-    <ReadLinesFromFile File="$(SolutionDir)\.deploy">
-      <Output PropertyName="DeployPath" TaskParameter="Lines" />
-    </ReadLinesFromFile>
-    <ItemGroup>
-      <DeployFiles Include="$(ProjectDir)\bin\Bundle\$(PackageId)\**\*.*" />
-    </ItemGroup>
-    <Copy Condition="'$(DeployPath)' != ''" SourceFiles="@(DeployFiles)" DestinationFiles="@(DeployFiles->'$(DeployPath)\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
+  <Import Project="..\Game.targets" />
 </Project>
