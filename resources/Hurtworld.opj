@@ -3398,6 +3398,29 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "ConsoleManager::CaptureLog",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "ConsoleManager",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "CaptureLog",
+            "FullTypeName": "System.Void",
+            "Parameters": [
+              "System.String",
+              "System.String",
+              "UnityEngine.LogType"
+            ]
+          },
+          "MSILHash": "GLgSMIQlCqfPmdHa1Rt2RNC9Xz7dS1K2R3/G8XZ5YIg="
         }
       ],
       "Fields": [
