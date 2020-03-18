@@ -3091,6 +3091,32 @@
             "BaseHookName": "OnPlayerSpawn",
             "HookCategory": "Player"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 2,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnNetworkAttack",
+            "HookName": "OnNetworkAttack",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GameManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnDDOSAttackerDetected",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "uLink.NetworkEndPoint"
+              ]
+            },
+            "MSILHash": "QuMKMuhJ7i285R7+JcCAlh+tX+Ok5NHAiQFiVznVCzk=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
         }
       ],
       "Modifiers": [
