@@ -1305,32 +1305,6 @@
           }
         },
         {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 0,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "a0.ConnectedSession",
-            "HookTypeName": "Simple",
-            "Name": "CanSpawn",
-            "HookName": "CanSpawn",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "PlayerSpawnPoint",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "CanSpawnPlayer",
-              "ReturnType": "System.Boolean",
-              "Parameters": [
-                "PlayerIdentity"
-              ]
-            },
-            "MSILHash": "P3Mx+v3adUs95vU27ANKY5mvZxgLUs14zJrrTfI5vlw=",
-            "BaseHookName": null,
-            "HookCategory": "Player"
-          }
-        },
-        {
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 154,
