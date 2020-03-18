@@ -1704,60 +1704,6 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 19,
-            "ReturnBehavior": 1,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "l0",
-            "HookTypeName": "Simple",
-            "Name": "OnPlayerSpawn",
-            "HookName": "OnPlayerSpawn",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "PlayerSpawnManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "SpawnPlayerEntity",
-              "ReturnType": "EntityReferenceCache",
-              "Parameters": [
-                "uLink.NetworkPlayer",
-                "UnityEngine.Vector3"
-              ]
-            },
-            "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
-            "BaseHookName": null,
-            "HookCategory": "Player"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
-            "InjectionIndex": 265,
-            "ReturnBehavior": 0,
-            "ArgumentBehavior": 4,
-            "ArgumentString": "l0, l0.WorldPlayerEntity.transform.position",
-            "HookTypeName": "Simple",
-            "Name": "OnPlayerSpawned",
-            "HookName": "OnPlayerSpawned",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "PlayerSpawnManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "SpawnPlayerEntity",
-              "ReturnType": "EntityReferenceCache",
-              "Parameters": [
-                "uLink.NetworkPlayer",
-                "UnityEngine.Vector3"
-              ]
-            },
-            "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
-            "BaseHookName": "OnPlayerSpawn",
-            "HookCategory": "Player"
-          }
-        },
-        {
-          "Type": "Simple",
-          "Hook": {
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
@@ -2202,43 +2148,6 @@
             "MSILHash": "/Dp9nXVBhRsth1BQOVlIxJXoxnm+0xz2E5DXWr/Pdm4=",
             "BaseHookName": "OnItemExplode",
             "HookCategory": "Item"
-          }
-        },
-        {
-          "Type": "Modify",
-          "Hook": {
-            "InjectionIndex": 22,
-            "RemoveCount": 7,
-            "Instructions": [
-              {
-                "OpCode": "brfalse",
-                "OpType": "Instruction",
-                "Operand": 23
-              },
-              {
-                "OpCode": "ldnull",
-                "OpType": "None",
-                "Operand": null
-              }
-            ],
-            "HookTypeName": "Modify",
-            "Name": "OnPlayerSpawn [object]",
-            "HookName": "OnPlayerSpawn [object]",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "PlayerSpawnManager",
-            "Flagged": true,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "SpawnPlayerEntity",
-              "ReturnType": "EntityReferenceCache",
-              "Parameters": [
-                "uLink.NetworkPlayer",
-                "UnityEngine.Vector3"
-              ]
-            },
-            "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
-            "BaseHookName": "OnPlayerSpawned",
-            "HookCategory": "_Patches"
           }
         },
         {
@@ -3122,6 +3031,90 @@
             },
             "MSILHash": "iJ/AYdIfw6NIPhgDxc8gUnz9jht+CR87o8md0HroTdg=",
             "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 19,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "OnPlayerSpawn"
+              },
+              {
+                "OpCode": "ldloc_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "Oxide.Core|Oxide.Core.Interface|CallHook(System.String,System.Object)"
+              },
+              {
+                "OpCode": "brfalse_s",
+                "OpType": "Instruction",
+                "Operand": 19
+              },
+              {
+                "OpCode": "ldnull",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "OnPlayerSpawn",
+            "HookName": "OnPlayerSpawn",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "PlayerSpawnManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SpawnPlayerEntity",
+              "ReturnType": "EntityReferenceCache",
+              "Parameters": [
+                "uLink.NetworkPlayer",
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 260,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0, l0.WorldPlayerEntity.transform.position",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerSpawned",
+            "HookName": "OnPlayerSpawned",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "PlayerSpawnManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SpawnPlayerEntity",
+              "ReturnType": "EntityReferenceCache",
+              "Parameters": [
+                "uLink.NetworkPlayer",
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
+            "BaseHookName": "OnPlayerSpawn",
             "HookCategory": "Player"
           }
         }
