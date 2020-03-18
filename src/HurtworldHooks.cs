@@ -1,4 +1,4 @@
-using Oxide.Core;
+﻿using Oxide.Core;
 using Oxide.Core.Configuration;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
@@ -122,13 +122,42 @@ namespace Oxide.Game.Hurtworld
             if (canLogin is string || canLogin is bool && !(bool)canLogin)
             {
                 GameManager.Instance.StartCoroutine(GameManager.Instance.DisconnectPlayerSync(session.Player, canLogin is string ? canLogin.ToString() : "Connection was rejected")); // TODO: Localization
-                if (GameManager.Instance._playerSessions.ContainsKey(session.Player))
+                if (session.IsActiveSlot)
                 {
-                    GameManager.Instance._playerSessions.Remove(session.Player);
+                    session.IsActiveSlot = false;
+                    GameManager.Instance._activePlayerCount--;
                 }
                 if (GameManager.Instance._steamIdSession.ContainsKey(session.SteamId))
                 {
                     GameManager.Instance._steamIdSession.Remove(session.SteamId);
+                }
+                if (GameManager.Instance._playerQueue.Contains(session))
+                {
+                    GameManager.Instance._playerQueue.Remove(session);
+                }
+                if (GameManager.Instance._steamIdSession.ContainsKey(session.SteamId))
+                {
+                    GameManager.Instance._steamIdSession.Remove(session.SteamId);
+                }
+                int authTicketHash = session.AuthTicketBuffer.ComputeHash();
+                if (GameManager.Instance._userTokenMap.ContainsKey(authTicketHash))
+                {
+                    GameManager.Instance._userTokenMap.Remove(authTicketHash);
+                }
+                if (GameManager.Instance._playerSessions.ContainsKey(session.Player))
+                {
+                    GameManager.Instance._playerSessions.Remove(session.Player);
+                }
+                if (session.Identity.ConnectedSession != session)
+                {
+                    HNetworkManager.Instance.FinalDestroyPlayerObjects(session.Player);
+                    session.Reset();
+                    ClassInstancePool.Instance.ReleaseInstanceExplicit(session);
+                }
+                else
+                {
+                    session.Identity.WriteFromEntity(false);
+                    GameManager.Instance.StartCoroutine(GameManager.Instance.RemovePlayerWorldEntity(session));
                 }
                 return true;
             }
