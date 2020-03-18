@@ -1,4 +1,4 @@
-﻿using Oxide.Core;
+using Oxide.Core;
 using Oxide.Core.Configuration;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
@@ -192,9 +192,7 @@ namespace Oxide.Game.Hurtworld
             string str = command.TrimStart('/');
 
             // Parse it
-            string cmd;
-            string[] args;
-            ParseCommand(str, out cmd, out args);
+            ParseCommand(str, out string cmd, out string[] args);
             if (cmd == null) return null;
 
             // Is the command blocked?
