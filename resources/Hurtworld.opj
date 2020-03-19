@@ -3117,6 +3117,33 @@
             "BaseHookName": null,
             "HookCategory": "Server"
           }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 3,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnSleeperStatsChange",
+            "HookName": "IOnSleeperStatsChange",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "SleeperServer",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "SleeperStatsOnOnEventPublished",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "EntityEventData",
+                "EntityEffectSourceData"
+              ]
+            },
+            "MSILHash": "U825sICovvhfMkNsOOY+DkfjOV2uPtb3r69VgRBdmfw=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
         }
       ],
       "Modifiers": [
@@ -3414,6 +3441,44 @@
             ]
           },
           "MSILHash": "GLgSMIQlCqfPmdHa1Rt2RNC9Xz7dS1K2R3/G8XZ5YIg="
+        },
+        {
+          "Name": "SleeperServer::_linkedPlayer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "SleeperServer",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_linkedPlayer",
+            "FullTypeName": "PlayerIdentity SleeperServer::_linkedPlayer",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "SleeperServer::_sleeperStats",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "SleeperServer",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_sleeperStats",
+            "FullTypeName": "EntityStats SleeperServer::_sleeperStats",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [

@@ -370,6 +370,36 @@ namespace Oxide.Game.Hurtworld
             return session != null ? Interface.CallHook("OnPlayerVoice", session) : null;
         }
 
+        /// <summary>
+        /// Called when the stats for a sleeper changes
+        /// </summary>
+        /// <param name="sleeper"></param>
+        /// <param name="eventData"></param>
+        /// <param name="sourceData"></param>
+        [HookMethod("IOnSleeperStatsChange")]
+        private object IOnSleeperStatsChange(SleeperServer sleeper, EntityEventData eventData, EntityEffectSourceData sourceData)
+        {
+            if (sourceData == null || !(eventData is IEventTypeEventData eventTypeEventData))
+            {
+                return null;
+            }
+
+            if (eventTypeEventData.EventType == EEntityEventType.Damaged)
+            {
+                // TODO: Implement OnSleeperTakeDamage hook
+                return null;
+            }
+            else if (eventTypeEventData.EventType == EEntityEventType.Die)
+            {
+                if (sleeper._linkedPlayer != null)
+                {
+                    return Interface.CallHook("OnSleeperDeath", sleeper._linkedPlayer, sourceData);
+                }
+            }
+
+            return null;
+        }
+
         #endregion Player Hooks
 
         #region Entity Hooks
@@ -389,12 +419,12 @@ namespace Oxide.Game.Hurtworld
         /// Called when an entity effect is applied
         /// </summary>
         /// <param name="effect"></param>
-        /// <param name="source"></param>
+        /// <param name="sourceData"></param>
         /// <param name="relativeValue"></param>
         [HookMethod("IOnEntityEffect")]
-        private object IOnEntityEffect(StandardEntityFluidEffect effect, EntityEffectSourceData source, float relativeValue)
+        private object IOnEntityEffect(StandardEntityFluidEffect effect, EntityEffectSourceData sourceData, float relativeValue)
         {
-            if (source == null || effect.ResolveTargetType() != EntityFluidEffectKeyDatabase.Instance?.Health)
+            if (sourceData == null || effect.ResolveTargetType() != EntityFluidEffectKeyDatabase.Instance?.Health)
             {
                 return null;
             }
@@ -405,20 +435,20 @@ namespace Oxide.Game.Hurtworld
                 return null;
             }
 
-            float newValue = Mathf.Clamp((effect.Value + relativeValue), effect.MinValue, effect.MaxValue);
+            float newValue = Mathf.Clamp(effect.Value + relativeValue, effect.MinValue, effect.MaxValue);
             float updatedValue = newValue - effect.Value;
-            source.Value = updatedValue;
+            sourceData.Value = updatedValue;
 
             AIEntity entity = stats.GetComponent<AIEntity>();
             if (entity != null)
             {
                 if (updatedValue > 0)
                 {
-                    return Interface.CallHook("OnEntityHeal", entity, source);
+                    return Interface.CallHook("OnEntityHeal", entity, sourceData);
                 }
                 else if (updatedValue < 0)
                 {
-                    return Interface.CallHook("OnEntityTakeDamage", entity, source);
+                    return Interface.CallHook("OnEntityTakeDamage", entity, sourceData);
                 }
 
                 return null;
@@ -432,11 +462,11 @@ namespace Oxide.Game.Hurtworld
                 {
                     if (updatedValue > 0)
                     {
-                        return Interface.CallHook("OnPlayerHeal", session, source);
+                        return Interface.CallHook("OnPlayerHeal", session, sourceData);
                     }
                     else if (updatedValue < 0)
                     {
-                        return Interface.CallHook("OnPlayerTakeDamage", session, source);
+                        return Interface.CallHook("OnPlayerTakeDamage", session, sourceData);
                     }
                 }
             }
