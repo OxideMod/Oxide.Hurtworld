@@ -1,4 +1,4 @@
-extern alias References;
+﻿extern alias References;
 
 using Oxide.Core;
 using Oxide.Core.Libraries.Covalence;
@@ -123,13 +123,42 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         public IEnumerable<IPlayer> FindPlayers(string partialNameOrId)
         {
-            foreach (HurtworldPlayer player in allPlayers.Values)
+            List<IPlayer> foundPlayers = new List<IPlayer>();
+
+            foreach (HurtworldPlayer player in connectedPlayers.Values)
             {
-                if (player.Name != null && player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) >= 0 || player.Id == partialNameOrId)
+                if (player.Name.Equals(partialNameOrId, StringComparison.OrdinalIgnoreCase) || player.Id == partialNameOrId)
                 {
-                    yield return player;
+                    foundPlayers = new List<IPlayer> { player };
+                    break;
+                }
+
+                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) > 0)
+                {
+                    foundPlayers.Add(player);
                 }
             }
+
+            if (foundPlayers.Count() > 0)
+            {
+                return foundPlayers;
+            }
+
+            foreach (HurtworldPlayer player in allPlayers.Values)
+            {
+                if (player.Name.Equals(partialNameOrId, StringComparison.OrdinalIgnoreCase) || player.Id == partialNameOrId)
+                {
+                    foundPlayers = new List<IPlayer> { player };
+                    break;
+                }
+
+                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) > 0)
+                {
+                    foundPlayers.Add(player);
+                }
+            }
+
+            return foundPlayers;
         }
 
         #endregion Player Finding
