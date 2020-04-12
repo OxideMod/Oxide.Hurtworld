@@ -1,5 +1,4 @@
-﻿using Oxide.Core;
-using Oxide.Core.Libraries.Covalence;
+﻿using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
 using System.Collections.Generic;
 
@@ -11,12 +10,6 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
     public class HurtworldCommandSystem : ICommandSystem
     {
         #region Initialization
-
-        // The covalence provider
-        private readonly HurtworldCovalenceProvider hurtworldCovalence = HurtworldCovalenceProvider.Instance;
-
-        // The command library
-        private readonly Command cmdlib = Interface.Oxide.GetLibrary<Command>();
 
         // The console player
         internal HurtworldConsolePlayer consolePlayer;
@@ -39,8 +32,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
 
         private bool ChatCommandCallback(IPlayer caller, string command, string[] args)
         {
-            CommandCallback callback;
-            return registeredCommands.TryGetValue(command, out callback) && callback(caller, command, args);
+            return registeredCommands.TryGetValue(command, out CommandCallback callback) && callback(caller, command, args);
         }
 
         #endregion Initialization

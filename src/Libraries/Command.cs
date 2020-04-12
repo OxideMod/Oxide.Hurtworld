@@ -82,8 +82,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void AddChatCommand(string command, Plugin plugin, string callbackName)
         {
             string commandName = command.ToLowerInvariant();
-            ChatCommand cmd;
-            if (chatCommands.TryGetValue(commandName, out cmd))
+            if (chatCommands.TryGetValue(commandName, out ChatCommand cmd))
             {
                 string previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
                 string newPluginName = plugin?.Name ?? "An unknown plugin";
@@ -112,8 +111,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         public void AddConsoleCommand(string command, Plugin plugin, string callbackName)
         {
             string commandName = command.ToLowerInvariant();
-            ConsoleCommand cmd;
-            if (consoleCommands.TryGetValue(commandName, out cmd))
+            if (consoleCommands.TryGetValue(commandName, out ConsoleCommand cmd))
             {
                 string previousPluginName = cmd.Plugin?.Name ?? "an unknown plugin";
                 string newPluginName = plugin?.Name ?? "An unknown plugin";
@@ -140,8 +138,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <param name="args"></param>
         internal bool HandleChatCommand(PlayerSession session, string command, string[] args)
         {
-            ChatCommand cmd;
-            if (!chatCommands.TryGetValue(command.ToLowerInvariant(), out cmd))
+            if (!chatCommands.TryGetValue(command.ToLowerInvariant(), out ChatCommand cmd))
             {
                 return false;
             }
@@ -159,8 +156,7 @@ namespace Oxide.Game.Hurtworld.Libraries
         /// <returns></returns>
         internal object HandleConsoleCommand(string command, string[] args)
         {
-            ConsoleCommand cmd;
-            if (!consoleCommands.TryGetValue(command.ToLowerInvariant(), out cmd))
+            if (!consoleCommands.TryGetValue(command.ToLowerInvariant(), out ConsoleCommand cmd))
             {
                 return null;
             }
@@ -190,8 +186,7 @@ namespace Oxide.Game.Hurtworld.Libraries
             }
 
             // Unhook the event
-            Event.Callback<Plugin, PluginManager> callback;
-            if (pluginRemovedFromManager.TryGetValue(sender, out callback))
+            if (pluginRemovedFromManager.TryGetValue(sender, out Event.Callback<Plugin, PluginManager> callback))
             {
                 callback.Remove();
                 pluginRemovedFromManager.Remove(sender);

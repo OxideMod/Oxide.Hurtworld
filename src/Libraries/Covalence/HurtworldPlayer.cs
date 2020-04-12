@@ -1,7 +1,6 @@
 ﻿using Oxide.Core;
 using Oxide.Core.Libraries;
 using Oxide.Core.Libraries.Covalence;
-using Steamworks;
 using System;
 using System.Globalization;
 using UnityEngine;
@@ -19,7 +18,6 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
 
         private static Permission libPerms;
         private readonly PlayerSession session;
-        private readonly CSteamID cSteamId;
         private readonly ulong steamId;
 
         internal HurtworldPlayer(ulong id, string name)
@@ -37,7 +35,6 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         internal HurtworldPlayer(PlayerSession session) : this(session.SteamId.m_SteamID, session.Identity.Name)
         {
             this.session = session;
-            cSteamId = session.SteamId;
         }
 
         #endregion Initialization
@@ -117,7 +114,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// </summary>
         /// <param name="reason"></param>
         /// <param name="duration"></param>
-        public void Ban(string reason, TimeSpan duration = default(TimeSpan)) => Player.Ban(session, reason);
+        public void Ban(string reason, TimeSpan duration = default) => Player.Ban(session, reason);
 
         /// <summary>
         /// Gets the amount of time remaining on the player's ban
@@ -142,8 +139,8 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             }
             set
             {
-                EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-                StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
+                EntityEffectFluid effect = new EntityEffectFluid(EntityFluidEffectKeyDatabase.Instance.Health, EEntityEffectFluidModifierType.SetValuePure, value);
+                effect.Apply(session.WorldPlayerEntity.GetComponent<EntityStats>());
             }
         }
 
@@ -177,8 +174,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             set
             {
                 EntityStats stats = session.WorldPlayerEntity.GetComponent<EntityStats>();
-                StandardEntityFluidEffect effect = stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) as StandardEntityFluidEffect;
-                if (effect != null)
+                if (stats.GetFluidEffect(EntityFluidEffectKeyDatabase.Instance.Health) is StandardEntityFluidEffect effect)
                 {
                     effect.MaxValue = value;
                 }

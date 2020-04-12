@@ -1,4 +1,4 @@
-﻿extern alias References;
+extern alias References;
 
 using Oxide.Core;
 using Oxide.Core.Libraries.Covalence;
@@ -43,8 +43,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
             string id = session.SteamId.ToString();
             string name = session.Identity.Name.Sanitize();
 
-            PlayerRecord record;
-            if (playerData.TryGetValue(id, out record))
+            if (playerData.TryGetValue(id, out PlayerRecord record))
             {
                 record.Name = name;
                 playerData[id] = record;
@@ -96,8 +95,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
         /// <returns></returns>
         public IPlayer FindPlayerById(string id)
         {
-            HurtworldPlayer player;
-            return allPlayers.TryGetValue(id, out player) ? player : null;
+            return allPlayers.TryGetValue(id, out HurtworldPlayer player) ? player : null;
         }
 
         /// <summary>
