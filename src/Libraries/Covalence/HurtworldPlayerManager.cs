@@ -133,7 +133,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                     break;
                 }
 
-                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) > 0)
+                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     foundPlayers.Add(player);
                 }
@@ -152,7 +152,7 @@ namespace Oxide.Game.Hurtworld.Libraries.Covalence
                     break;
                 }
 
-                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) > 0)
+                if (player.Name.IndexOf(partialNameOrId, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     foundPlayers.Add(player);
                 }
