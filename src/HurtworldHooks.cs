@@ -2,6 +2,7 @@
 using Oxide.Core.Configuration;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
+using System.Linq;
 using UnityEngine;
 using NetworkPlayer = uLink.NetworkPlayer;
 
@@ -110,16 +111,17 @@ namespace Oxide.Game.Hurtworld
         private object IOnUserApprove(PlayerSession session)
         {
             session.Identity.Name = session.Identity.Name ?? "Unnamed";
-            string id = session.SteamId.ToString();
-            string ip = session.Player.ipAddress;
+            string playerId = session.SteamId.ToString();
+            string playerIp = session.Player.ipAddress;
 
+            // Let covalence know
             Covalence.PlayerManager.PlayerJoin(session);
 
+            // Call hooks for plugins
             object loginSpecific = Interface.CallHook("CanClientLogin", session);
-            object loginCovalence = Interface.CallHook("CanUserLogin", session.Identity.Name, id, ip);
-            object canLogin = loginSpecific ?? loginCovalence;
-
-            if (canLogin is string || canLogin is bool && !(bool)canLogin)
+            object loginCovalence = Interface.CallHook("CanUserLogin", session.Identity.Name, playerId, playerIp);
+            object canLogin = loginSpecific is null ? loginCovalence : loginSpecific;
+            if (canLogin is string || canLogin is bool loginBlocked && !loginBlocked)
             {
                 GameManager.Instance.StartCoroutine(GameManager.Instance.DisconnectPlayerSync(session.Player, canLogin is string ? canLogin.ToString() : "Connection was rejected")); // TODO: Localization
                 if (session.IsActiveSlot)
@@ -165,8 +167,8 @@ namespace Oxide.Game.Hurtworld
             GameManager.Instance._playerSessions[session.Player] = session;
 
             object approvedSpecific = Interface.CallHook("OnUserApprove", session);
-            object approvedCovalence = Interface.CallHook("OnUserApproved", session.Identity.Name, id, ip);
-            return approvedSpecific ?? approvedCovalence;
+            object approvedCovalence = Interface.CallHook("OnUserApproved", session.Identity.Name, playerId, playerIp);
+            return approvedSpecific is null ? approvedCovalence : approvedSpecific;
         }
 
         /// <summary>
@@ -178,9 +180,10 @@ namespace Oxide.Game.Hurtworld
         [HookMethod("IOnPlayerChat")]
         private object IOnPlayerChat(PlayerSession session, string message)
         {
+            // Call hooks for plugins
             object chatSpecific = Interface.CallHook("OnPlayerChat", session, message);
             object chatCovalence = Interface.CallHook("OnUserChat", session.IPlayer, message);
-            return chatSpecific ?? chatCovalence;
+            return chatSpecific is null ? chatCovalence : chatSpecific;
         }
 
         /// <summary>
@@ -220,21 +223,27 @@ namespace Oxide.Game.Hurtworld
             // Get the full command
             string str = command.TrimStart('/');
 
-            // Parse it
+            // Parse the command
             ParseCommand(str, out string cmd, out string[] args);
-            if (cmd == null) return null;
+            if (cmd == null)
+            {
+                return null;
+            }
 
             // Is the command blocked?
-            object blockedSpecific = Interface.CallHook("OnPlayerCommand", session, cmd, args); // TODO: Deprecate OnChatCommand
-            object blockedCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, cmd, args);
-            if (blockedSpecific != null || blockedCovalence != null) return true;
+            object commandSpecific = Interface.CallHook("OnPlayerCommand", session, cmd, args);
+            object commandCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, cmd, args);
+            object canBlock = commandSpecific is null ? commandCovalence : commandSpecific;
+            if (canBlock is bool commandBlocked && !commandBlocked)
+            {
+                return true;
+            }
 
-            // Is it a covalance command?
-            if (Covalence.CommandSystem.HandleChatMessage(session.IPlayer, command)) return true;
-
-            // Is it a regular chat command?
-            if (!cmdlib.HandleChatCommand(session, cmd, args))
+            // Is it a valid chat command?
+            if (!Covalence.CommandSystem.HandleChatMessage(session.IPlayer, command) && !cmdlib.HandleChatCommand(session, cmd, args))
+            {
                 session.IPlayer.Reply(string.Format(lang.GetMessage("UnknownCommand", this, session.IPlayer.Id), cmd));
+            }
 
             return true;
         }
@@ -279,36 +288,38 @@ namespace Oxide.Game.Hurtworld
                 return;
             }
 
-            string id = session.SteamId.ToString();
+            string playerId = session.SteamId.ToString();
 
-            // Update player's permissions group and name
+            // Update name and groups with permissions
             if (permission.IsLoaded)
             {
-                permission.UpdateNickname(id, session.Identity.Name);
+                permission.UpdateNickname(playerId, session.Identity.Name);
                 OxideConfig.DefaultGroups defaultGroups = Interface.Oxide.Config.Options.DefaultGroups;
-                if (!permission.UserHasGroup(id, defaultGroups.Players))
+                if (!permission.UserHasGroup(playerId, defaultGroups.Players))
                 {
-                    permission.AddUserGroup(id, defaultGroups.Players);
+                    permission.AddUserGroup(playerId, defaultGroups.Players);
                 }
-                if (session.IsAdmin && !permission.UserHasGroup(id, defaultGroups.Administrators))
+                if (session.IsAdmin && !permission.UserHasGroup(playerId, defaultGroups.Administrators))
                 {
-                    permission.AddUserGroup(id, defaultGroups.Administrators);
+                    permission.AddUserGroup(playerId, defaultGroups.Administrators);
                 }
             }
 
             // Let covalence know
             Covalence.PlayerManager.PlayerConnected(session);
-            IPlayer iplayer = Covalence.PlayerManager.FindPlayerById(session.SteamId.ToString());
 
-            if (iplayer != null)
+            IPlayer player = Covalence.PlayerManager.FindPlayerById(session.SteamId.ToString());
+            if (player != null)
             {
                 // Set default language for player if not set
-                if (string.IsNullOrEmpty(lang.GetLanguage(id)))
+                if (string.IsNullOrEmpty(lang.GetLanguage(playerId)))
                 {
-                    lang.SetLanguage(iplayer.Language.TwoLetterISOLanguageName, id);
+                    lang.SetLanguage(player.Language.TwoLetterISOLanguageName, playerId);
                 }
 
-                session.IPlayer = iplayer;
+                session.IPlayer = player;
+
+                // Call hooks for plugins
                 Interface.CallHook("OnUserConnected", session.IPlayer);
             }
         }
@@ -325,11 +336,11 @@ namespace Oxide.Game.Hurtworld
                 return;
             }
 
-            // Call game-specific hook
+            // Call hooks for plugins
             Interface.CallHook("OnPlayerDisconnected", session);
+            Interface.CallHook("OnUserDisconnected", session.IPlayer, "Unknown");
 
             // Let covalence know
-            Interface.CallHook("OnUserDisconnected", session.IPlayer, "Unknown");
             Covalence.PlayerManager.PlayerDisconnected(session);
         }
 
@@ -401,6 +412,56 @@ namespace Oxide.Game.Hurtworld
         }
 
         #endregion Player Hooks
+
+        #region Server Hooks
+
+        /// <summary>
+        /// Called when a console command was run
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <param name="session"></param>
+        /// <returns></returns>
+        [HookMethod("IOnCommand")]
+        private object IOnCommand(string arg, PlayerSession session)
+        {
+            if (arg == null || arg.Trim().Length == 0)
+            {
+                return null;
+            }
+
+            // Parse the command
+            string command = $"{arg.Split(' ')[0]}";
+            string[] args = arg.Split(' ').Skip(1).ToArray();
+
+            // Call hooks for plugins
+            if (session != null)
+            {
+                object commandSpecific = Interface.CallHook("OnPlayerCommand", session, command, args);
+                object commandCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, command, args);
+                object canBlock = commandSpecific is null ? commandCovalence : commandSpecific;
+                if (canBlock is bool commandBlocked && !commandBlocked)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (Interface.Call("OnServerCommand", command, args) != null)
+                {
+                    return true;
+                }
+            }
+
+            // Is this a valid console command?
+            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg) || (bool)cmdlib.HandleConsoleCommand(command, args))
+            {
+                return true;
+            }
+
+            return null;
+        }
+
+        #endregion Server Hooks
 
         #region Entity Hooks
 

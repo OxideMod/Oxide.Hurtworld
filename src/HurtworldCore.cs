@@ -33,12 +33,14 @@ namespace Oxide.Game.Hurtworld
 
         // Libraries
         internal readonly Command cmdlib = Interface.Oxide.GetLibrary<Command>();
+
         internal readonly Lang lang = Interface.Oxide.GetLibrary<Lang>();
         internal readonly Permission permission = Interface.Oxide.GetLibrary<Permission>();
         internal readonly Player Player = Interface.Oxide.GetLibrary<Player>();
 
         // Instances
         internal static readonly HurtworldCovalenceProvider Covalence = HurtworldCovalenceProvider.Instance;
+
         internal readonly PluginManager pluginManager = Interface.Oxide.RootPluginManager;
         internal readonly IServer Server = Covalence.CreateServer();
 
@@ -171,49 +173,6 @@ namespace Oxide.Game.Hurtworld
         #endregion Core Hooks
 
         #region Command Handling
-
-        /// <summary>
-        /// Called when a console command was run
-        /// </summary>
-        /// <param name="arg"></param>
-        /// <param name="session"></param>
-        /// <returns></returns>
-        [HookMethod("IOnCommand")]
-        private object IOnCommand(string arg, PlayerSession session)
-        {
-            if (arg == null || arg.Trim().Length == 0)
-            {
-                return null;
-            }
-
-            string command = $"{arg.Split(' ')[0]}";
-            string[] args = arg.Split(' ').Skip(1).ToArray();
-
-            if (session != null)
-            {
-                object blockedSpecific = Interface.CallHook("OnPlayerCommand", session, command, args);
-                object blockedCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, command, args);
-                if (blockedSpecific != null || blockedCovalence != null)
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                if (Interface.Call("OnServerCommand", command, args) != null)
-                {
-                    return true;
-                }
-            }
-
-            // Is this a covalence command?
-            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg))
-            {
-                return true;
-            }
-
-            return cmdlib.HandleConsoleCommand(command, args);
-        }
 
         /// <summary>
         /// Parses the specified command
