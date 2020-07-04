@@ -234,7 +234,7 @@ namespace Oxide.Game.Hurtworld
             object commandSpecific = Interface.CallHook("OnPlayerCommand", session, cmd, args);
             object commandCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, cmd, args);
             object canBlock = commandSpecific is null ? commandCovalence : commandSpecific;
-            if (canBlock is bool commandBlocked && !commandBlocked)
+            if (canBlock != null)
             {
                 return true;
             }
@@ -439,7 +439,7 @@ namespace Oxide.Game.Hurtworld
                 object commandSpecific = Interface.CallHook("OnPlayerCommand", session, command, args);
                 object commandCovalence = Interface.CallHook("OnUserCommand", session.IPlayer, command, args);
                 object canBlock = commandSpecific is null ? commandCovalence : commandSpecific;
-                if (canBlock is bool commandBlocked && !commandBlocked)
+                if (canBlock != null)
                 {
                     return true;
                 }
