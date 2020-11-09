@@ -453,12 +453,12 @@ namespace Oxide.Game.Hurtworld
             }
 
             // Is this a valid console command?
-            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg) || (bool)cmdlib.HandleConsoleCommand(command, args))
+            if (Covalence.CommandSystem.HandleConsoleMessage(session != null ? session.IPlayer : Covalence.CommandSystem.consolePlayer, arg))
             {
                 return true;
             }
 
-            return null;
+            return cmdlib.HandleConsoleCommand(command, args);
         }
 
         #endregion Server Hooks
