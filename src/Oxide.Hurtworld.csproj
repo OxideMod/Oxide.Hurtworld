@@ -17,7 +17,7 @@
     <SteamAppId>405100</SteamAppId>
     <SteamBranch>public</SteamBranch>
     <SteamLogin>anonymous</SteamLogin>
-    <GamePlatform>windows</GamePlatform>
+    <GamePlatform>windows;linux</GamePlatform>
     <GameExe>Hurtworld.exe;Hurtworld.x86_64</GameExe>
     <ManagedDir>Hurtworld_Data/Managed</ManagedDir>
     <NoWarn>NU1701</NoWarn>
