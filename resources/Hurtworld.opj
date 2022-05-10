@@ -3479,6 +3479,234 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_blockedFieldsCache",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_blockedFieldsCache",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.Reflection.FieldInfo,System.Boolean> RuntimeHurtDB::_blockedFieldsCache",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_assetReplacementList",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_assetReplacementList",
+            "FullTypeName": "System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,HurtAssetDatabaseRecord>> RuntimeHurtDB::_assetReplacementList",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_fieldInfoCache",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_fieldInfoCache",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.List`1<System.Reflection.FieldInfo>> RuntimeHurtDB::_fieldInfoCache",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_indexLookup",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_indexLookup",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.Type,SymmetricDictionary`2<UnityEngine.Object,System.UInt16>> RuntimeHurtDB::_indexLookup",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_lastObjectName",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_lastObjectName",
+            "FullTypeName": "System.String RuntimeHurtDB::_lastObjectName",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_objectDatabase",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_objectDatabase",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.String,HurtAssetDatabaseRecord> RuntimeHurtDB::_objectDatabase",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_objectLookup",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_objectLookup",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<UnityEngine.Object,HurtAssetDatabaseRecord> RuntimeHurtDB::_objectLookup",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_overrideLookup",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_overrideLookup",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<UnityEngine.Object,HurtAssetDatabaseRecord> RuntimeHurtDB::_overrideLookup",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_postResolutionCallbacks",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_postResolutionCallbacks",
+            "FullTypeName": "System.Collections.Generic.HashSet`1<IPostProxyResolutionCallback> RuntimeHurtDB::_postResolutionCallbacks",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_proxyLookup",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_proxyLookup",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<UnityEngine.Object,HurtAssetDatabaseRecord> RuntimeHurtDB::_proxyLookup",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_resolveCount",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_resolveCount",
+            "FullTypeName": "System.Int32 RuntimeHurtDB::_resolveCount",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "RuntimeHurtDB::_sortBuffer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "RuntimeHurtDB",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "_sortBuffer",
+            "FullTypeName": "System.Collections.Generic.List`1<HurtAssetDatabaseRecord> RuntimeHurtDB::_sortBuffer",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [
