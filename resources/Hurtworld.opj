@@ -27,7 +27,6 @@
               ]
             },
             "MSILHash": "Pc+9e9ZAC0YbeSSXOn2ZBXv70DI3xfpoY2Wmp/80GWw=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -54,7 +53,6 @@
               ]
             },
             "MSILHash": "z/gvAoIVEvixzx3jQGpAFtgNJH35YsREn+I6y++7dHg=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -64,7 +62,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnServerSave",
             "HookName": "OnServerSave",
@@ -81,7 +78,6 @@
               ]
             },
             "MSILHash": "53aeCVOMPNT/iq9ZqIBA8fja8PrlkToLU4PVMfIsmEY=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -107,7 +103,6 @@
               ]
             },
             "MSILHash": "q9+IefFU8KvJYo257sVElOZxF1MPpvpKPzEmfDCFKHo=",
-            "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
         },
@@ -135,7 +130,6 @@
               ]
             },
             "MSILHash": "wt5A0PbpPwE2IfI1QzOgg6aktdr8u55uw7PhvQokGqc=",
-            "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
         },
@@ -161,7 +155,6 @@
               ]
             },
             "MSILHash": "aokLuBk6mjceag0Fz2DUVJYXljvtYZ3EoKgP6k4Hk2s=",
-            "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
         },
@@ -187,7 +180,6 @@
               ]
             },
             "MSILHash": "zZZRlz7XzwSYQEKby3vYCf51Q3nchwXyBJezdMkMnw0=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -199,8 +191,7 @@
             "Instructions": [
               {
                 "OpCode": "ldarg_1",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "call",
@@ -223,7 +214,6 @@
               ]
             },
             "MSILHash": "SbXmFLrGqzsT3cqxm4lt1XYV1CP8uumPCWn3D0OqAEc=",
-            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         },
@@ -249,7 +239,6 @@
               ]
             },
             "MSILHash": "RJiD3cBl7rMF6U0jPsRwhNQwiePPqkYrGNWzdfmgYvs=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -276,7 +265,6 @@
               ]
             },
             "MSILHash": "uPP7ZpcvawDv/bVqT3nscayzVaRRgm6rrpGUbgHtAdA=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -327,7 +315,6 @@
               ]
             },
             "MSILHash": "Hq58G69n8RyXKRXbi6VOarx6QB2/z0xUAWNQZZa4hDw=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -353,7 +340,6 @@
               ]
             },
             "MSILHash": "uwpY57xPB279kVHhuJib2W/dGS2sZsm2Z/C0BmPDFHM=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -379,7 +365,6 @@
               ]
             },
             "MSILHash": "iwvr2uKibPjqmXy96zfCsqPHki+KzklaM609zCXpkfo=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -405,7 +390,6 @@
               ]
             },
             "MSILHash": "Nq+8Mo0g2PbhjZVqVxlaZrs2dB1w1SHeF/bpxFULSb8=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -431,7 +415,6 @@
               ]
             },
             "MSILHash": "O0y6vDOQC8gpZYASDzr7RZ5dUk2z9rtfA2X7VIes5c8=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -457,7 +440,6 @@
               ]
             },
             "MSILHash": "5yFSGeufTJImwiytLEmnsjhEV3vt9zEZasjn5Io0FmA=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -483,7 +465,6 @@
               ]
             },
             "MSILHash": "u4UJg/+7X+887wOJ5B9+Qk5Qys1vV+pU1RcFP9CAvQ8=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -493,7 +474,6 @@
             "InjectionIndex": 29,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "IOnSingleDoorUsed [internal]",
             "HookName": "IOnSingleDoorUsed",
@@ -509,7 +489,6 @@
               ]
             },
             "MSILHash": "Gk7UeY27gb0hygAOF6WC0PYUviuAOn4/7dx6JXD8KTo=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -519,7 +498,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "ICanExitVehicle [internal]",
             "HookName": "ICanExitVehicle",
@@ -536,7 +514,6 @@
               ]
             },
             "MSILHash": "Q3786WuC7rTbuLQ+07Ngf4+vlt/PoBtu064BZ+/mNKA=",
-            "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
         },
@@ -546,7 +523,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnServerShutdown",
             "HookName": "OnServerShutdown",
@@ -560,7 +536,6 @@
               "Parameters": []
             },
             "MSILHash": "udvjHfYlAWZLy8bI736Ff959MqylL2/uiuQFcnkJQGY=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -587,7 +562,6 @@
               ]
             },
             "MSILHash": "bJ9uLhNnlZmCRXoylVuH5VxONEriiFOThUwWI3+T+48=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -614,7 +588,6 @@
               ]
             },
             "MSILHash": "4phucTwntXMJuIfCg+rUryH+PVyALdSOJMh1O111/oI=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -640,7 +613,6 @@
               ]
             },
             "MSILHash": "NCu+PwDsaZb3Ka2LcHZ+LwsCFlYb97g4EHbhmxQD1hE=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -667,7 +639,6 @@
               ]
             },
             "MSILHash": "ERWhHtBgLZE6GJj+HBPArE+nXOJ8fuqQVbtRSnaZrRU=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -693,7 +664,6 @@
               ]
             },
             "MSILHash": "xOnavylm5fAG5MZLcC4096GycRUo7QHBXiXq3NMjbs8=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -720,7 +690,6 @@
               ]
             },
             "MSILHash": "cbC+Iu7UBEHzIOI7Cz042UkTH7vCdGsimZkJCg1VbgM=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -746,7 +715,6 @@
               ]
             },
             "MSILHash": "OgYREtXoyF5ZShOHIVC/d5BgjPNsGuRztOJC6jvYitk=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -775,7 +743,6 @@
               ]
             },
             "MSILHash": "m9K16USZuzw5buHjyEXKjYk2yWNdmNUDsh376oy5Bw4=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -801,7 +768,6 @@
               ]
             },
             "MSILHash": "2VE8Vq8+a3W+7WNIHQit1+4seZMbKk+6tYIrYC2Y7cY=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -828,7 +794,6 @@
               ]
             },
             "MSILHash": "myGNVKQKhHJ5MLNC53Cpgb1WdErSrpQjt6fA0sNaw5E=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -838,7 +803,6 @@
             "InjectionIndex": 7,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnStructureRemove",
             "HookName": "OnStructureRemove",
@@ -854,7 +818,6 @@
               ]
             },
             "MSILHash": "CZn9k5VZWeSHwPHHBZ/cQ3BG1R7+8E6kVW0IYAnUYIo=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -880,7 +843,6 @@
               ]
             },
             "MSILHash": "uEiXoxRhLkcTqsVO/prJ7DKwpXfgHlg74NHeV9pY14Q=",
-            "BaseHookName": null,
             "HookCategory": "Structure"
           }
         },
@@ -912,7 +874,6 @@
               ]
             },
             "MSILHash": "tUJujmmxmoT/aXfuCTMa5FEfRtn/oStNfftqP1yPRUw=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -939,7 +900,6 @@
               ]
             },
             "MSILHash": "xsBq0qn70WrLm1R1Vo0vFnBOGMHVfIYoMjLb0bCPRYY=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -966,7 +926,6 @@
               ]
             },
             "MSILHash": "lqLDZm9LiRRVRP93V0MaZN3npCQHQkngcXLo7zq/cVc=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -976,7 +935,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "CanTakeFromInventory",
             "HookName": "CanTakeFromInventory",
@@ -993,7 +951,6 @@
               ]
             },
             "MSILHash": "6MyLncyYNwfbd1IoKjEARnxCkLUwbNw/5LRSEKlToHY=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1003,7 +960,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "CanPutInInventory",
             "HookName": "CanPutInInventory",
@@ -1020,7 +976,6 @@
               ]
             },
             "MSILHash": "6/nU7cFkCHZzJDqPm8Pf+oWpoTmLAHY/Yjcx0pl89hA=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1074,7 +1029,6 @@
               ]
             },
             "MSILHash": "JFLnaV2yxGtJAaePsKDglKjIvX/Q6VCN4fjYi2hgOFE=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1086,13 +1040,11 @@
             "Instructions": [
               {
                 "OpCode": "ldarg_0",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "ldc_i4_0",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "callvirt",
@@ -1142,7 +1094,6 @@
               ]
             },
             "MSILHash": "b3kB+1C8YEWLs3YnWrrI0JlOqxSIMPPYatfBSz3ismA=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -1152,7 +1103,6 @@
             "InjectionIndex": 181,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnEntityDeployed",
             "HookName": "OnEntityDeployed",
@@ -1180,8 +1130,7 @@
             "Instructions": [
               {
                 "OpCode": "ldarg_1",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "ldfld",
@@ -1200,8 +1149,7 @@
               },
               {
                 "OpCode": "ldc_i4_0",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "box",
@@ -1215,13 +1163,11 @@
               },
               {
                 "OpCode": "pop",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "ldarg_1",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "ldfld",
@@ -1240,8 +1186,7 @@
               },
               {
                 "OpCode": "ldc_i4_1",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "box",
@@ -1255,8 +1200,7 @@
               },
               {
                 "OpCode": "pop",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               }
             ],
             "HookTypeName": "Modify",
@@ -1300,7 +1244,6 @@
               ]
             },
             "MSILHash": "TxURgIw+5YfQMU0iZ1wa05hwYntqfW2TpOqlFFMg4FU=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1351,7 +1294,6 @@
               ]
             },
             "MSILHash": "WWRp0HR4he/XfqwRNN+jhxhr3I/XJYi1J+WepN5Lze0=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1361,7 +1303,6 @@
             "InjectionIndex": 3,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnPlayerConnected",
             "HookName": "OnPlayerConnected",
@@ -1377,7 +1318,6 @@
               ]
             },
             "MSILHash": "vMLSeiBBGnKBy5ZvPWUxQOwOkwkDm7EYrWieAjKZRY8=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1398,7 +1338,6 @@
               "Parameters": []
             },
             "MSILHash": "TgTOH+F63ExK7XwSfhneNQOR9XUvjte2FP3kbMuKSeI=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -1408,7 +1347,6 @@
             "InjectionIndex": 1,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "InitLogging [internal]",
             "HookName": "InitLogging",
@@ -1446,7 +1384,6 @@
               "Parameters": []
             },
             "MSILHash": "PxQi4VURNwhlyrr4eNgYAmyM28RGkMh/ddnLJ0R56Os=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -1472,7 +1409,6 @@
               ]
             },
             "MSILHash": "IAr9VXM/UrIE2N3pYiiLgnoLqgpzQKoEIMIxLIbTgEU=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -1496,7 +1432,6 @@
               "Parameters": []
             },
             "MSILHash": "/VYC4m9R24mISRJC+7T01NwhneJIPgOmq4Y6ek5Ri9Y=",
-            "BaseHookName": null,
             "HookCategory": "Events"
           }
         },
@@ -1522,7 +1457,6 @@
               ]
             },
             "MSILHash": "+LkpqciB9yZhzwX8YaD9WLeTpmwqx0LZihnnJeTk4x8=",
-            "BaseHookName": null,
             "HookCategory": "Events"
           }
         },
@@ -1546,7 +1480,6 @@
               "Parameters": []
             },
             "MSILHash": "nCDx8T4FO+RHdo5TLet03y1WBjgUIQTmmKlEMpCshVw=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -1572,7 +1505,6 @@
               ]
             },
             "MSILHash": "00UTzCmpZfSEBg71t/e4BMQPWhmJaGcq0xeqbNNQqUQ=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -1596,7 +1528,6 @@
               "Parameters": []
             },
             "MSILHash": "30/lnJbuG2qPbYA+Sq0BP3uzMXeIZAGBnAr1l6UFK54=",
-            "BaseHookName": null,
             "HookCategory": "Events"
           }
         },
@@ -1623,7 +1554,6 @@
               ]
             },
             "MSILHash": "Kov3IEt37MClUJ3j7lyumfmZRZHMPTqNZV4mLSIxNmo=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -1647,7 +1577,6 @@
               "Parameters": []
             },
             "MSILHash": "nA7o1m1eCA4rWZj0sLRImySuXjYMqT5gknbJfYcSJFQ=",
-            "BaseHookName": null,
             "HookCategory": "Resource"
           }
         },
@@ -1657,7 +1586,6 @@
             "InjectionIndex": 383,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "IOnServerInitialized [internal]",
             "HookName": "IOnServerInitialized",
@@ -1671,7 +1599,6 @@
               "Parameters": []
             },
             "MSILHash": "yXGOMzmd5fpyRqSXCukolqgX6zwC1++Jkts4+hnhOvY=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -1698,7 +1625,6 @@
               ]
             },
             "MSILHash": "2bWUJiWLVUbUHituF9UwX0521oD/bVZBfAFghsIEyg4=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1752,7 +1678,6 @@
               ]
             },
             "MSILHash": "zr8seSnXyt7jAqTqV+oa3EmLetyGN8HN5M4ChTh+k7Y=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -1779,7 +1704,6 @@
               ]
             },
             "MSILHash": "tlWwPpQTFXPAXaQg/F8oiBAcuZB/g2xIIneYuYf3qcA=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -1803,7 +1727,6 @@
               "Parameters": []
             },
             "MSILHash": "/Dp9nXVBhRsth1BQOVlIxJXoxnm+0xz2E5DXWr/Pdm4=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -1857,7 +1780,6 @@
               ]
             },
             "MSILHash": "J8A6nEjxV4VRvMdfjwyrFy7Stdo202dyVHTw8buwoqI=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -1910,7 +1832,6 @@
               ]
             },
             "MSILHash": "GU6uEI2+CU4auYdEK4qbUA7ADJBxN2xZbllkj5RjHl8=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -1963,7 +1884,6 @@
               ]
             },
             "MSILHash": "Twfkmz+C+k5TL8FiNqS0yBwYRKgOfkqENwUudOGXtfQ=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2017,7 +1937,6 @@
               ]
             },
             "MSILHash": "7HKrekueXmHuIJT3GGEHo2jKu2RR1tv+Qq6hCY/LBS4=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2070,7 +1989,6 @@
               ]
             },
             "MSILHash": "KmD+nr7MKUo2JD/U9Sh9+YMpXNXocnVwvOlmIf0Bm2Q=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -2151,7 +2069,6 @@
               ]
             },
             "MSILHash": "mVRQ53yqhtXwTwRorzwDQ1+q1FWDzfPc5kr/aNi8TKg=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2177,7 +2094,6 @@
               ]
             },
             "MSILHash": "L9J8lH9nvtxypb9KzpWYaIHE/6GLxLP0OiDeXBWQX6A=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2187,7 +2103,6 @@
             "InjectionIndex": 62,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnClanDisband",
             "HookName": "OnClanDisband",
@@ -2203,7 +2118,6 @@
               ]
             },
             "MSILHash": "OZDd3CumAMKEAY9Us9Mj9sEhDOAJAIdKS2Vm+Xil6L8=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2230,7 +2144,6 @@
               ]
             },
             "MSILHash": "xkn3HTBGmwhpM3OyJ9Hg5wa6nTbodoN17ZGQjTvGzmg=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2257,7 +2170,6 @@
               ]
             },
             "MSILHash": "mwySVFeMCU0alfbfICNiRiTJ5h5L1++8Xn0LUmTVaHc=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2284,7 +2196,6 @@
               ]
             },
             "MSILHash": "fFMGfPRSmb4RYS+yafNuza8ERArj1Ofk1Pf/sPk7itc=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2311,7 +2222,6 @@
               ]
             },
             "MSILHash": "zFMKSbsxFhY8SD/EQOIdXJA0G/LhAyrFXN5/C11KFic=",
-            "BaseHookName": null,
             "HookCategory": "Clan"
           }
         },
@@ -2401,7 +2311,6 @@
             "InjectionIndex": 232,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnClanCreated",
             "HookName": "OnClanCreated",
@@ -2432,7 +2341,6 @@
             "InjectionIndex": 80,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnClanDisbanded",
             "HookName": "OnClanDisbanded",
@@ -2477,7 +2385,6 @@
               ]
             },
             "MSILHash": "F2sBg39fI795DNNlD4AAIZV5mmQ7tlGOa6ZJ5jJ1hw8=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -2487,7 +2394,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 3,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "IOnEntityEffectInitialize [internal]",
             "HookName": "IOnEntityEffectInitialize",
@@ -2503,7 +2409,6 @@
               ]
             },
             "MSILHash": "NprlM/9+rSOEwnBDz4bAQQZ7Mda17JqAvRz+l3vUPRQ=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -2530,7 +2435,6 @@
               ]
             },
             "MSILHash": "kSks9lioDQCwETzhS+njs2FO5XfUQSnP9Ei0rKYpD6s=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -2557,7 +2461,6 @@
               ]
             },
             "MSILHash": "qd7LTibEGRzNhovMgKTIwkkrowadjOXWMN/n0X7KUKk=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -2567,7 +2470,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 3,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnAmberProtect",
             "HookName": "OnAmberProtect",
@@ -2583,7 +2485,6 @@
               ]
             },
             "MSILHash": "aI22FIy22aFKPZNAwvZvDM25HzK4eFw1OxR3iNTMIts=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -2593,7 +2494,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 1,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnSamSiteFire",
             "HookName": "OnSamSiteFire",
@@ -2607,7 +2507,6 @@
               "Parameters": []
             },
             "MSILHash": "kRw8FqghDm8CB/KXdoTWnQnt2QF3kZT0iaJ9D+EpKwM=",
-            "BaseHookName": null,
             "HookCategory": "Entity"
           }
         },
@@ -2631,7 +2530,6 @@
               "Parameters": []
             },
             "MSILHash": "6hQ11+68RxMfz/lFmy+G523r2+i8qHuMknrnPahPHLM=",
-            "BaseHookName": null,
             "HookCategory": "Vehicle"
           }
         },
@@ -2641,7 +2539,6 @@
             "InjectionIndex": 12,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnItemRename",
             "HookName": "OnItemRename",
@@ -2659,7 +2556,6 @@
               ]
             },
             "MSILHash": "zBicOKr0cAO3OC85M3R3qD31tQvn4jVExywIF+RbdZo=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -2685,7 +2581,6 @@
               ]
             },
             "MSILHash": "K14ATux2Bj622Qs1pjyrqg1Z4d++Ji/BOL+Nd8YWFXM=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -2695,7 +2590,6 @@
             "InjectionIndex": 8,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnNewSave",
             "HookName": "OnNewSave",
@@ -2711,7 +2605,6 @@
               ]
             },
             "MSILHash": "vcrMt3dA8BcI5cIKWmAQBZ9MMhebzjmeWI8nAqHClNY=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -2774,7 +2667,6 @@
               ]
             },
             "MSILHash": "B1KjdiKWSc4FGvqp8ePg8RBD1uwxelP38Ta+9J7N6v4=",
-            "BaseHookName": null,
             "HookCategory": "Item"
           }
         },
@@ -2826,7 +2718,6 @@
               ]
             },
             "MSILHash": "Sy2xffDRwPDD0Br6g5L2rYRc/OVJtykZgb3r9IOfhTs=",
-            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         },
@@ -2836,7 +2727,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 3,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "IOnClanTerritoryClaimBroadcast",
             "HookName": "IOnClanTerritoryClaimBroadcast",
@@ -2852,7 +2742,6 @@
               ]
             },
             "MSILHash": "Sy2xffDRwPDD0Br6g5L2rYRc/OVJtykZgb3r9IOfhTs=",
-            "BaseHookName": null,
             "HookCategory": "Events"
           }
         },
@@ -2876,7 +2765,6 @@
               "Parameters": []
             },
             "MSILHash": "4HyZdsTOsaQztUMk4FloiTiHcLf9quQVjQ9sM60020I=",
-            "BaseHookName": null,
             "HookCategory": "Events"
           }
         },
@@ -2899,7 +2787,6 @@
               "Parameters": []
             },
             "MSILHash": "7DriMjLwKa5p7fHAHpFqKHc1BktY3vrEV2UwgAbkkhY=",
-            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         },
@@ -2952,7 +2839,6 @@
               ]
             },
             "MSILHash": "LsysxKFOGEWaCv9jbN76mMADbgU9+YahBL96aihiRfI=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -2962,7 +2848,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "CanJoinQueue",
             "HookName": "CanJoinQueue",
@@ -2978,7 +2863,6 @@
               ]
             },
             "MSILHash": "iq3oF/9DdWBfOtA71Uu1bzjtjzz6Z/E5OgkcdbVdPYY=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -3004,7 +2888,6 @@
               ]
             },
             "MSILHash": "iJ/AYdIfw6NIPhgDxc8gUnz9jht+CR87o8md0HroTdg=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -3021,8 +2904,7 @@
               },
               {
                 "OpCode": "ldloc_0",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "call",
@@ -3036,13 +2918,11 @@
               },
               {
                 "OpCode": "ldnull",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               },
               {
                 "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
+                "OpType": "None"
               }
             ],
             "HookTypeName": "Modify",
@@ -3061,7 +2941,6 @@
               ]
             },
             "MSILHash": "6PlcJwVROMWb0ApOgPym+VUvm25EafzfdCt0m0cqVpM=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         },
@@ -3098,7 +2977,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 2,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "OnNetworkAttack",
             "HookName": "OnNetworkAttack",
@@ -3114,7 +2992,6 @@
               ]
             },
             "MSILHash": "qKs83eJv3Uq5nzgne6OTJ6MWwv8lQJxN4thQzlYh6Po=",
-            "BaseHookName": null,
             "HookCategory": "Server"
           }
         },
@@ -3124,7 +3001,6 @@
             "InjectionIndex": 0,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 3,
-            "ArgumentString": null,
             "HookTypeName": "Simple",
             "Name": "IOnSleeperStatsChange",
             "HookName": "IOnSleeperStatsChange",
@@ -3141,7 +3017,6 @@
               ]
             },
             "MSILHash": "U825sICovvhfMkNsOOY+DkfjOV2uPtb3r69VgRBdmfw=",
-            "BaseHookName": null,
             "HookCategory": "Player"
           }
         }
